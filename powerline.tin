@@ -24,15 +24,13 @@
 
     #MATH {fillerLength} {$screenWidth - $healthLength - $energyLength - $imagesLength};
     #FORMAT {filler} {<G02>%+${fillerLength}s<099>} {};
-    #SHOWME {$health$energy$filler$images} {1}
-
-    #RETURN {}
+    #FORMAT {result} {%s%s%s%s} {$health} {$energy} {$filler} {$images}
 }
 
 #ACTION {^Estás rodead{o|a} por %1 imágenes idénticas a ti.$}
 {
     #VAR stats[images] {%1};
-    @powerline{}
+    #SHOWME {@powerline{}} {1}
 }
 
 #ACTION {^Pvs: %1(%2)  Pe: %3(%4)  Po: %5  Xp: %6  Psoc: %7$}
@@ -41,7 +39,7 @@
     #VAR stats[maxHealth] {%2};
     #VAR stats[energy] {%3};
     #VAR stats[maxEnergy] {%4};
-    @powerline{}
+    #SHOWME {@powerline{}} {1}
 }
 
 #ACTION {^Pvs: %1(%2)  Pe: %3(%4)  Fe: %5(%6)  Po: %7  Xp: %8  Psoc: %9$}
@@ -50,7 +48,7 @@
     #VAR stats[maxHealth] {%2};
     #VAR stats[energy] {%3};
     #VAR stats[maxEnergy] {%4};
-    @powerline{}
+    #SHOWME {@powerline{}} {1}
 }
 
 #ACTION {^Pvs: %1\\%2 Pe: %3\\%4$}
@@ -59,13 +57,13 @@
     #VAR stats[maxHealth] {%2};
     #VAR stats[energy] {%3};
     #VAR stats[maxEnergy] {%4};
-    @powerline{}
+    #SHOWME {@powerline{}} {1}
 }
 
 #ACTION {^%1 imagenes semejantes a ti aparecen a tu alrededor.$}
 {
     #VAR stats[images] {%1};
-    @powerline{}
+    #SHOWME {@powerline{}} {1}
 }
 
 #CLASS {powerline} {close} 
