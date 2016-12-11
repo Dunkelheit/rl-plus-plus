@@ -9,27 +9,40 @@
 #VAR stats[maxHealth] 0
 #VAR stats[energy] 0
 #VAR stats[maxEnergy] 0
-#VAR stats[images] 0
+#VAR buffers[images] 0
+#VAR buffers[stoneLayers] 0
 
 #FUNCTION {powerline}
 {
     #FORMAT {health} {<ABA><138> PV <afc>%s/%s <099>} {$stats[health]} {$stats[maxHealth]};
     #FORMAT {energy} {<ABE><138> PE <eef>%s/%s <099>} {$stats[energy]} {$stats[maxEnergy]};
-    #FORMAT {images} {<G04><ffa> %s imagenes <099>} {$stats[images]};
+    #IF {$buffers[images] > 0} {
+        #FORMAT {images} {<G04><ffa> %s imagenes <099>} {$buffers[images]}
+    };
+    #ELSE {
+        #FORMAT {images} {}
+    };
+    #IF {$buffers[stoneLayers] > 0} {
+        #FORMAT {stoneLayers} {<G04><ffa> %s pieles <099>} {$buffers[stoneLayers]}
+    };
+    #ELSE { 
+        #FORMAT {stoneLayers} {}
+    };
 
     #FORMAT {healthLength} {%L} {$health};
     #FORMAT {energyLength} {%L} {$energy};
     #FORMAT {imagesLength} {%L} {$images};
+    #FORMAT {stoneLayersLength} {%L} {$stoneLayers};
     #FORMAT {screenWidth} {%C};
 
-    #MATH {fillerLength} {$screenWidth - $healthLength - $energyLength - $imagesLength};
+    #MATH {fillerLength} {$screenWidth - $healthLength - $energyLength - $imagesLength - $stoneLayersLength};
     #FORMAT {filler} {<G02>%+${fillerLength}s<099>} {};
-    #FORMAT {result} {%s%s%s%s} {$health} {$energy} {$filler} {$images}
+    #FORMAT {result} {%s%s%s%s%s} {$health} {$energy} {$filler} {$images} {$stoneLayers}
 }
 
 #ACTION {^Estás rodead{o|a} por %1 imágenes idénticas a ti.$}
 {
-    #VAR stats[images] {%1};
+    #VAR buffers[images] {%1};
     #SHOWME {@powerline{}} {1}
 }
 
@@ -62,7 +75,22 @@
 
 #ACTION {^%1 imagenes semejantes a ti aparecen a tu alrededor.$}
 {
-    #VAR stats[images] {%1};
+    #VAR buffers[images] {%1};
+    #SHOWME {@powerline{}} {1}
+}
+
+#ACTION {^Tu piel queda cubierta por %1 finísimas, pero resistentes, capas de piedra.$}
+{
+    #VAR buffers[stoneLayers] {%1};
+    #SHOWME {@powerline{}} {1}
+}
+
+#ACTION {^* El ataque de %* rebota en tu piel de piedra.$}
+{
+    #MATH {buffers[stoneLayers]} {$buffers[stoneLayers] - 1};
+    #IF {$buffers[stoneLayers] < 0} {
+        #VAR buffers[stoneLayers] 0
+    }
     #SHOWME {@powerline{}} {1}
 }
 
