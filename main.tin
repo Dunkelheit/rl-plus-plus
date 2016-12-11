@@ -2,6 +2,7 @@
 
 #READ config.tin
 #READ pathdir.tin
+#READ lang.tin
 #READ highlight.tin
 #READ substitute.tin
 #READ powerline.tin

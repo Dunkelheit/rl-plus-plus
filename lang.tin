@@ -1,0 +1,24 @@
+#FUNCTION {parseNumber}
+{
+    #FORMAT {parsedNumberLowerCase} {%l} {%1};
+    #SWITCH {"$parsedNumberLowerCase"}
+    {
+        #CASE {"un"} { #RETURN 1};
+        #CASE {"una"} { #RETURN 1};
+        #CASE {"dos"} { #RETURN 2};
+        #CASE {"tres"} { #RETURN 3};
+        #CASE {"cuatro"} { #RETURN 4};
+        #CASE {"cinco"} { #RETURN 5};
+        #CASE {"seis"} { #RETURN 6};
+        #CASE {"siete"} { #RETURN 7};
+        #CASE {"ocho"} { #RETURN 8};
+        #CASE {"nueve"} { #RETURN 9};
+        #CASE {"diez"} { #RETURN 10};
+        #CASE {"once"} { #RETURN 11};
+        #CASE {"doce"} { #RETURN 12};
+        #CASE {"trece"} { #RETURN 13};
+        #CASE {"catorce"} { #RETURN 14};
+        #CASE {"quince"} { #RETURN 15};
+        #DEFAULT { #RETURN 0 }
+    }
+}
