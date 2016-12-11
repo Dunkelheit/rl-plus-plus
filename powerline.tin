@@ -1,0 +1,71 @@
+#CLASS {powerline} {kill} 
+#CLASS {powerline} {open}
+
+#SHOWME <aef>Script Name: <faa>Powerline <aef>Version: <faa>1.0 <128>--== LOADED ==-- 
+
+#SPLIT
+
+#VAR stats[health] 0
+#VAR stats[maxHealth] 0
+#VAR stats[energy] 0
+#VAR stats[maxEnergy] 0
+#VAR stats[images] 0
+
+#FUNCTION {powerline}
+{
+    #FORMAT {health} {<ABA><ffa> PV <afc>%s/%s <099>} {$stats[health]} {$stats[maxHealth]};
+    #FORMAT {energy} {<ABE><ffa> PE <eef>%s/%s <099>} {$stats[energy]} {$stats[maxEnergy]};
+    #FORMAT {images} {<G04><ffa> %s imagenes <099>} {$stats[images]};
+
+    #FORMAT {healthLength} {%L} {$health};
+    #FORMAT {energyLength} {%L} {$energy};
+    #FORMAT {imagesLength} {%L} {$images};
+    #FORMAT {screenWidth} {%C};
+
+    #MATH {fillerLength} {$screenWidth - $healthLength - $energyLength - $imagesLength};
+    #FORMAT {filler} {<G02>%+${fillerLength}s<099>} {};
+    #SHOWME {$health$energy$filler$images} {1}
+
+    #RETURN {}
+}
+
+#ACTION {^Estás rodead{o|a} por %1 imágenes idénticas a ti.$}
+{
+    #VAR stats[images] {%1};
+    @powerline{}
+}
+
+#ACTION {^Pvs: %1(%2)  Pe: %3(%4)  Po: %5  Xp: %6  Psoc: %7$}
+{
+    #VAR stats[health] {%1};
+    #VAR stats[maxHealth] {%2};
+    #VAR stats[energy] {%3};
+    #VAR stats[maxEnergy] {%4};
+    @powerline{}
+}
+
+#ACTION {^Pvs: %1(%2)  Pe: %3(%4)  Fe: %5(%6)  Po: %7  Xp: %8  Psoc: %9$}
+{
+    #VAR stats[health] {%1};
+    #VAR stats[maxHealth] {%2};
+    #VAR stats[energy] {%3};
+    #VAR stats[maxEnergy] {%4};
+    @powerline{}
+}
+
+#ACTION {^Pvs: %1\\%2 Pe: %3\\%4$}
+{
+    #VAR stats[health] {%1};
+    #VAR stats[maxHealth] {%2};
+    #VAR stats[energy] {%3};
+    #VAR stats[maxEnergy] {%4};
+    @powerline{}
+}
+
+#ACTION {^%1 imagenes semejantes a ti aparecen a tu alrededor.$}
+{
+    #VAR stats[images] {%1};
+    @powerline{}
+}
+
+#CLASS {powerline} {close} 

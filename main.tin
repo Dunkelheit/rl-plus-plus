@@ -1,0 +1,7 @@
+#NOP Reinos de Leyenda TinTin++ Scripts
+
+#READ config.tin
+#READ pathdir.tin
+#READ highlight.tin
+#READ substitute.tin
+#READ powerline.tin
