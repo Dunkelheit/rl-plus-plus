@@ -3,7 +3,10 @@
 
 #SHOWME <aef>Script Name: <faa>Powerline <aef>Version: <faa>1.0 <128>--== LOADED ==-- 
 
-#SPLIT
+#EVENT {SESSION CONNECTED}
+{
+    #SPLIT
+}
 
 #VAR stats[health] 0
 #VAR stats[maxHealth] 0
