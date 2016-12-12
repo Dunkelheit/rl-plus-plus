@@ -109,4 +109,10 @@
     #SHOWME {@powerline{}} {1}
 }
 
+#ACTION {^Tu piel vuelve a su estado normal.$}
+{
+    #VAR buffers[stoneLayers] 0;
+    #SHOWME {@powerline{}} {1}
+} {4}
+
 #CLASS {powerline} {close} 
