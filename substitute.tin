@@ -6,17 +6,5 @@
 #NOP DAMN \e[33mThraarth\e[0m\e[0m está aquí.\e[0m
 #NOP TRY \e[%Sm
 
-/*
-\e[33mThraarth\e[0m\e[0m se va hacia oeste.\e[0m
-\e[0m\e[0;37m\e[0m
-
-Dices en adurn: \e[36m\e[1mahora estoy mostrando codigos ansi\e[0m\e[0m
-\e[0m> \e[0m
-\e[33mThraarth\e[0m\e[0m llega desde el oeste.\e[0m
-\e[0m\e[0;37m\e[0m
-
-Dices en adurn: \e[36m\e[1mgracia!!\e[0m\e[0m
-*/
-
-#SUBSTITUTE {^%* se va hacia %*.$} {%1 se va hacia <BCA><178> @exitShortName{%2} <099>}
-#SUBSTITUTE {^%* llega desde el %*.$} {%1 llega desde el <DBA><178> @exitShortName{%2} <099>}
+#SUBSTITUTE {^%* se va hacia %*.$} {%1 <099>se va hacia <BCA><178> @exitShortName{%2} <099>}
+#SUBSTITUTE {^%* llega desde el %*.$} {%1 <099>llega desde el <DBA><178> @exitShortName{%2} <099>}
