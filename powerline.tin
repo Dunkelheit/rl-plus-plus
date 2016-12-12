@@ -40,12 +40,6 @@
     #FORMAT {result} {%s%s%s%s%s} {$health} {$energy} {$filler} {$images} {$stoneLayers}
 }
 
-#ACTION {^Estás rodead{o|a} por %1 imágenes idénticas a ti.$}
-{
-    #VAR buffers[images] {%1};
-    #SHOWME {@powerline{}} {1}
-}
-
 #ACTION {^Pvs: %1(%2)  Pe: %3(%4)  Po: %5  Xp: %6  Psoc: %7$}
 {
     #VAR stats[health] {%1};
@@ -79,7 +73,28 @@
     #SHOWME {@powerline{}} {1}
 }
 
-#ACTION {^Tu piel queda cubierta por %1 finísimas, pero resistentes, capas de piedra.$}
+#ACTION {^Estás rodead{o|a} por %1 im{a|á}genes idénticas a ti.$}
+{
+    #VAR buffers[images] {%1};
+    #SHOWME {@powerline{}} {1}
+}
+
+#ACTION {^# Una de tus im{a|á}genes desaparece cuando %* la golpea.$}
+{
+    #MATH {buffers[images]} {$buffers[images] - 1};
+    #IF {$buffers[images] < 0} {
+        #VAR buffers[images] 0
+    }
+    #SHOWME {@powerline{}} {1}
+}
+
+#ACTION {^¡Tus im{a|á}genes se desvanecen!$}
+{
+    #VAR buffers[images] 0;
+    #SHOWME {@powerline{}} {1}
+} {4}
+
+#ACTION {^Tu piel queda cubierta por %1 fin{i|í}simas, pero resistentes, capas de piedra.$}
 {
     #VAR buffers[stoneLayers] {%1};
     #SHOWME {@powerline{}} {1}

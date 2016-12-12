@@ -1,1 +1,3 @@
 #SUBSTITUTE {~[Obtienes \e[1m%1\e[0m puntos de experiencia]} {<fac>+%1 xp} {5}
+
+#SUBSTITUTE {¡Tus imágenes se desvanecen!} {<CAA><178>@center{%0}<999>}
