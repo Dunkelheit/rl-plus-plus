@@ -3,11 +3,28 @@
     #VAR spellName desconocido;
     #SWITCH {"%2"}
     {
+        #NOP =============== Abjuracion ===============;
+        #CASE {"mior armanis"}              {#VAR spellName armadura};
+        #CASE {"spiritis solis armanis"}    {#VAR spellName armadura espiritual};
+        #CASE {"fere hilis tzbem ocsa"}     {#VAR spellName cuerpo de acero};
+        #CASE {"marj voltius sorcere"}      {#VAR spellName devolver conjuro mayor};
+        #CASE {"mior voltius sorcere"}      {#VAR spellName devolver conjuro menor};
+        #CASE {"nullo magius"}              {#VAR spellName disipar magia};
+        #CASE {"mior escudis"}              {#VAR spellName escudo};
+        #CASE {"eirea colourus sphyre"}     {#VAR spellName esfera prismática};
+        #CASE {"maior secry sphyre"}        {#VAR spellName globo mayor de invul.};
+        #CASE {"mior secry sphyre"}         {#VAR spellName globo menor de invul.};
+        #CASE {"emir meus busque"}          {#VAR spellName indetectable};
+        #CASE {"in magius ylem malleus"}    {#VAR spellName mente en blanco};
+        #CASE {"inst desplae"}              {#VAR spellName parpadeo};
+        #CASE {"majis preorum"}             {#VAR spellName protección contra armas};
+        #CASE {"repeal prokyum"}            {#VAR spellName protección contra proyectiles};
+        #CASE {"plaunum demigrum"}          {#VAR spellName repudiar};
+        #CASE {"repelish forceum"}          {#VAR spellName repulsión};
+        #NOP =============== Otros ===============;
         #CASE {"amicuale"}                  {#VAR spellName amistad};
         #CASE {"aerdikor amudran ozoihe"}   {#VAR spellName piel de piedra};
         #CASE {"magius lios"}               {#VAR spellName luz};
-        #CASE {"nullo magius"}              {#VAR spellName disipar magia};
-        #CASE {"mior escudis"}              {#VAR spellName escudo}
     };
     #FORMAT {chantLength} {%L} {%1};
     #FORMAT {spellNameLength} {%L} {$spellName};
