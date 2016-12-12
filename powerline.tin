@@ -36,7 +36,7 @@
     #FORMAT {screenWidth} {%C};
 
     #MATH {fillerLength} {$screenWidth - $healthLength - $energyLength - $imagesLength - $stoneLayersLength};
-    #FORMAT {filler} {<G02>%+${fillerLength}s<099>} {};
+    #FORMAT {filler} {<G03>%+${fillerLength}s<099>} {};
     #FORMAT {result} {%s%s%s%s%s} {$health} {$energy} {$filler} {$images} {$stoneLayers}
 }
 
