@@ -7,11 +7,19 @@
 
 #HIGHLIGHT {^%* empieza a formular un hechizo.$}                {bold magenta} {5}
 #HIGHLIGHT {^¡Descubres a %* intentando moverse en silencio!$}  {bold magenta} {5}
+#HIGHLIGHT {^¡%* realiza un amplio ataque barriendo de un golpe a todos sus oponentes!} {bold magenta} {5}
 
 #NOP Danger
 
 #HIGHLIGHT {^¡Has quedado al descubierto!$}             {bold red} {5}
 #HIGHLIGHT {^¡Tus imágenes se desvanecen!$}             {bold red} {5}
+#HIGHLIGHT {^%* te mira mientras comprime toda su musculatura.$}    {bold red} {5}
+#HIGHLIGHT {^¡Eres agarrad{o|a} brutalmente por %* y no puedes moverte!}    {bold red} {5}
+#HIGHLIGHT {^Sientes como una fuerza divina te rodea,%*}    {bold red} {5}
+
+#NOP Good things
+
+#HIGHLIGHT {^Puedes moverte libremente de nuevo.$}      {bold green} {5}
 
 #NOP Enchanter
 
