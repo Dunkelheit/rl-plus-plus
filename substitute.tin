@@ -1,4 +1,4 @@
-#SUBSTITUTE {~[Obtienes \e[1m%1\e[0m puntos de experiencia]} {<fac>@pullRight{+%1 xp}<099>} {5}
+#SUBSTITUTE {^[Obtienes %* puntos de experiencia]$} {<fac>@pullRight{+%1 xp}<099>} {5}
 
 #SUBSTITUTE {^¡Tus imágenes se desvanecen!$} {<CAA><178>@center{%0}<099>}
 #SUBSTITUTE {^Tu piel vuelve a su estado normal.$} {<CAA><178>@center{%0}<099>}
@@ -18,5 +18,5 @@ Dices en adurn: \e[36m\e[1mahora estoy mostrando codigos ansi\e[0m\e[0m
 Dices en adurn: \e[36m\e[1mgracia!!\e[0m\e[0m
 */
 
-#SUBSTITUTE {~^%* se va hacia %*.%*$} {%1 se va hacia <BCA><178> @exitShortName{%2} <099>}
-#SUBSTITUTE {~^%* llega desde el %*.%*$} {%1 llega desde el <DBA><178> @exitShortName{%2} <099>}
+#SUBSTITUTE {^%* se va hacia %*.$} {%1 se va hacia <BCA><178> @exitShortName{%2} <099>}
+#SUBSTITUTE {^%* llega desde el %*.$} {%1 llega desde el <DBA><178> @exitShortName{%2} <099>}
