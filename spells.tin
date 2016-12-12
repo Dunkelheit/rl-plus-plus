@@ -1,0 +1,19 @@
+#FUNCTION {translateSpell}
+{
+    #VAR spellName desconocido;
+    #SWITCH {"%2"}
+    {
+        #CASE {"amicuale"}                  {#VAR spellName amistad};
+        #CASE {"aerdikor amudran ozoihe"}   {#VAR spellName piel de piedra};
+        #CASE {"magius lios"}               {#VAR spellName luz};
+        #CASE {"nullo magius"}              {#VAR spellName disipar magia};
+        #CASE {"mior escudis"}              {#VAR spellName escudo}
+    };
+    #FORMAT {chantLength} {%L} {%1};
+    #FORMAT {spellNameLength} {%L} {$spellName};
+    #FORMAT {screenWidth} {%C};
+    #MATH {fillerLength} {$screenWidth - $chantLength - $spellNameLength};
+    #FORMAT {result} {%s%+${fillerLength}s<060>\e[3m%s<099>} {%1} {} {$spellName}
+}
+
+#SUBSTITUTE {^Pronuncias el cántico: '%*'$} {@translateSpell{Pronuncias el cántico: '%1';%1}}
