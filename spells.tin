@@ -32,10 +32,10 @@
         #CASE {"magius skara is iseo"}      {#VAR spellName detectar observación mágica};
         #CASE {"bellum kennis"}             {#VAR spellName erudición en batallas};
         #CASE {"magius podeiles aneum mane"}    {#VAR spellName leer magia};
-        #NOP {"groez us marj"}                  {#VAR spellName localizar criatura I};
-        #CASE {"creatir busque"}                {#VAR spellName localizar criatura II};
+        #CASE {"creatir busque"}                {#VAR spellName localizar criatura};
         #CASE {"ande statis"}                   {#VAR spellName localizar objeto I};
         #CASE {"majio exodus oculus"}           {#VAR spellName ojo mágico de Éxodus};
+        #CASE {"mer conoectrik"}            {#VAR spellName precognición};
         #CASE {"je vei comoun deux mes yeux sont libreus"}  {#VAR spellName ver realmente};
         
         #NOP =============== Alteracion ===============;
@@ -105,6 +105,14 @@
         #CASE {"magyiz projiss"}            {#VAR spellName proyectil mágico menor};
         #CASE {"ecktam itelem peg"}         {#VAR spellName telaraña};
         #CASE {"irwat tilurat sincart"}     {#VAR spellName explosión ráfaga};
+        #CASE {"majos areos aqua"}          {#VAR spellName bola de agua};
+        #CASE {"majos areos pyros"}         {#VAR spellName bola de fuego};
+        #CASE {"pyros burios"}              {#VAR spellName estallido de fuego};
+        #CASE {"spheros frezious"}          {#VAR spellName granizo};
+        #CASE {"majos areos zappeous"}      {#VAR spellName llamarada eléctrica};
+        #CASE {"majos areos corrosiv"}      {#VAR spellName tormeta ácida};
+        #CASE {"sormuz frez os halos"}      {#VAR spellName tormeta de hielo};
+        #CASE {"eleius magical concere"}    {#VAR spellName tormeta eléctrica};
         
         #NOP =============== Ilusion ===============;
         #CASE {"falax majyz objetum"}       {#VAR spellName aura mágica de Nystul};
@@ -129,7 +137,7 @@
         #CASE {"ekri daremo tsucraehlkri"}          {#VAR spellName debilidad};
         #CASE {"omeasis traed or eneriam"}          {#VAR spellName drenar energia};
         #CASE {"wilos magius evapious"}             {#VAR spellName horrible marchitamiento};
-        #CASE {"'xo harmi timus'"}                  {#VAR spellName lepra};
+        #CASE {"xo harmi timus"}                    {#VAR spellName lepra};
         #CASE {"ez mae efron"}                      {#VAR spellName mano espectral};
         #CASE {"mist ahurmaete i maes imjarle carnae est mite liubas krat oskami"}  {#VAR spellName reencarnar};
         #CASE {"morti xeno haltem"}                 {#VAR spellName retener muertos vivientes};
@@ -139,6 +147,11 @@
         #NOP =============== Universal ===============;
 
         #NOP =============== Adivinacion ===============;
+        #CASE {"magius ethos salut"}    {#VAR spellName detectar enfermedad};
+        #CASE {"ethos unkalid"}         {#VAR spellName detectar hechizo};
+        #CASE {"ethos maleficit"}       {#VAR spellName detectar maldición};
+        #CASE {"ethos toxus"}           {#VAR spellName detectar veneno};
+        #CASE {"inderia colesedum"}     {#VAR spellName lenguas};
         
         #NOP =============== Ancestral ===============;
         #CASE {"grawltok ziksar univelber"}     {#VAR spellName agilidad del guepardo};
@@ -154,9 +167,11 @@
         #CASE {"ojos oscuros"}                  {#VAR spellName sacra gog onadak};
 
         #NOP =============== Bien ===============;
-        #CASE {"'destruct malevoli spiritus'"}  {#VAR spellName castigar el mal};
+        #CASE {"destruct malevoli spiritus"}    {#VAR spellName castigar el mal};
         #CASE {"deus me ignis"}                 {#VAR spellName inmolación};
         #CASE {"inmovilum idealis"}             {#VAR spellName voluntad de hierro};
+        #CASE {"sria positvrat"}                {#VAR spellName rayo de energía positiva};
+        #CASE {"ken olatid sancrit"}            {#VAR spellName tormenta sagrada};
 
         #NOP =============== Cambiaformas ===============;
         #CASE {"ablocare taurus cervix"}        {#VAR spellName fuerza de toro};
@@ -171,14 +186,31 @@
         #CASE {"acerbace unos baletis"}     {#VAR spellName canto};
         #CASE {"acerbace divin baletis"}    {#VAR spellName gran plegaria sagrada};
         #CASE {"acerbace unos baletis"}     {#VAR spellName plegaria};
+        #CASE {"mi deus ire"}               {#VAR spellName ira de dios};
         
         #NOP =============== Curadora ===============;
         #CASE {"magius modus harmei"}       {#VAR spellName curacion};
-        #CASE {"minor mali umanos eximo"}   {#VAR spellName extirpar maldicion};
+        #CASE {"minor mali umanos eximo"}   {#VAR spellName extirpar maldición};
         #CASE {"divina tempus haelos"}      {#VAR spellName regeneración};
+        #CASE {"sagnat curis"}              {#VAR spellName cicatrizar};
+        #CASE {"sauma soilis"}              {#VAR spellName curar ceguera};
+        #CASE {"curis insalubri"}           {#VAR spellName curar enfermedad};
+        #CASE {"magius criusis curis"}      {#VAR spellName curar heridas críticas};
+        #CASE {"magius elis curis"}         {#VAR spellName curar heridas ligeras};
+        #CASE {"magius modus curis"}        {#VAR spellName curar heridas moderadas};
+        #CASE {"magius selirs curis"}       {#VAR spellName curar heridas serias};
+        #CASE {"audikt cruisis"}            {#VAR spellName curar sordera};
+        #CASE {"toxus wrathi aborum"}       {#VAR spellName neutralizar veneno};
         
         #NOP =============== Dañadora ===============;
-        #CASE {"'magius criusis harmei arkrat'"}    {#VAR spellName herida};
+        #CASE {"magius criusis harmei arkrat"}  {#VAR spellName herida};
+        #CASE {"harmi klotimus"}                {#VAR spellName causar enfermedad};
+        #CASE {"magius criusis harmei"}         {#VAR spellName causar heridas críticas};
+        #CASE {"magius elis harmei"}            {#VAR spellName causar heridas ligeras};
+        #CASE {"magius mayor harmei"}           {#VAR spellName causar heridas mayores};
+        #CASE {"magius modus harmei"}           {#VAR spellName causar heridas moderadas};
+        #CASE {"magius selirs harmei"}          {#VAR spellName causar heridas serias};
+        #CASE {"harmi toxus"}                   {#VAR spellName envenenar};
         
         #NOP =============== Elemental ===============;
         #CASE {"flamious os colus"}     {#VAR spellName columna de fuego};
@@ -186,29 +218,57 @@
         #CASE {"flamius fullen akrat"}  {#VAR spellName hoja de llamas};
         #CASE {"flamae inkast"}         {#VAR spellName producir llamas};
         #CASE {"elect xen cefit"}       {#VAR spellName relámpago};
+        #CASE {"terra firma venit"}     {#VAR spellName terremoto};
         #CASE {"dotkad ignusard"}       {#VAR spellName tormenta ígnea};
         
         #NOP =============== Fe ===============;
         
         #NOP =============== Guardiana ===============;
+        #CASE {"ertiren iraucas"}           {#VAR spellName extirpar miedo};
+        #CASE {"metlah onex irma"}          {#VAR spellName extirpar parálisis};
+        #CASE {"guardian sacred"}           {#VAR spellName guardián sagrado};
+        #CASE {"intrepit arkuash inconditionale"}   {#VAR spellName manto de valor};
+        #CASE {"aztak pacifus"}             {#VAR spellName pacificar};
+        #CASE {"prot me"}                   {#VAR spellName santuario};
+        #CASE {"salmodium khar osharth"}    {#VAR spellName silencio};
         
         #NOP =============== Hechizo ===============;
         #CASE {"petrea past"}                   {#VAR spellName carne a piedra};
         #CASE {"cette invocatus est pur meus"}  {#VAR spellName dominar invocación};
         #CASE {"insta estasi balaeta"}          {#VAR spellName éxtasis instantáneo};
+        #CASE {"solus paqua quietum"}           {#VAR spellName enmudecer};
+        #CASE {"amri xeno haltem"}              {#VAR spellName retener persona};
         
         #NOP =============== Llamada ===============;
         #CASE {"noite stela"}               {#VAR spellName brillo de estrellas};
         #CASE {"rizzaz armoum protestus"}   {#VAR spellName escudo de fuego};
+        #CASE {"frozen armoum protestus"}   {#VAR spellName escudo de hielo};
+        #CASE {"ummon ishamo ujeleo"}       {#VAR spellName invocar tentáculos};
+        #CASE {"disvenit roka"}             {#VAR spellName llamada a la piedra};
+        #CASE {"venit roka"}                {#VAR spellName llamada a la piedra};
+        #CASE {"astra nova pyris"}          {#VAR spellName lluvia de estrellas};
+        #CASE {"magius espiritual hammer"}  {#VAR spellName martillo espiritual};
+        #CASE {"luminus laendor"}           {#VAR spellName rayo de luna};
         #CASE {"luminus solaris"}           {#VAR spellName rayo de sol};
         
         #NOP =============== Mal ===============;
+        #CASE {"kyrnie ov daemon"}      {#VAR spellName aullido infernal};
+        #CASE {"sria nevrat"}           {#VAR spellName rayo de energía negativa};
+        #CASE {"ken olatid arkanit"}    {#VAR spellName tormenta arcana};
                 
         #NOP =============== Natural ===============;
-        #CASE {"'maxita alimenta purificare'"}  {#VAR spellName conservar alimentos};
+        #CASE {"ela ex silvest"}                {#VAR spellName bayas buenas};
+        #CASE {"maxita alimenta purificare"}    {#VAR spellName conservar alimentos};
         #CASE {"colte est meus"}                {#VAR spellName dominar animal};
+        #CASE {"superb col akrejart"}           {#VAR spellName encantar colmillos};
+        #CASE {"magecic inskar"}                {#VAR spellName encantar vara};
         #CASE {"enredus ogjta"}                 {#VAR spellName enredar};
+        #CASE {"ast eile frosit dumae"}         {#VAR spellName granizar};
         #CASE {"vite amahander invadum"}        {#VAR spellName naturalizar};
+        #CASE {"cortex membranae"}              {#VAR spellName piel de corteza};
+        #CASE {"seculea oskrasit bzzeez"}       {#VAR spellName plaga de insectos};
+        #CASE {"colte xeno haltem"}             {#VAR spellName retener animal};
+        #CASE {"deus topiary"}                  {#VAR spellName seto};
         
         #NOP =============== Necromantica ===============;
         #CASE {"morti refezit"}             {#VAR spellName consunción de los restos};
@@ -224,7 +284,8 @@
         
         #NOP =============== Total ===============;
         #CASE {"bleiso objetum"}    {#VAR spellName bendecir objeto};
-        #CASE {"bleiso umanos"}     {#VAR spellName bendición}
+        #CASE {"bleiso umanos"}     {#VAR spellName bendición};
+        #CASE {"mali umanos"}       {#VAR spellName maldición}
     };
     #FORMAT {chantLength} {%L} {%1};
     #FORMAT {spellNameLength} {%L} {$spellName};
