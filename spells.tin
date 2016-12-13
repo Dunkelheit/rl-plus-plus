@@ -276,6 +276,10 @@
         #CASE {"mortiis oculus deum"}       {#VAR spellName examinar muerte};
         #CASE {"necrum sharpus mortiis"}    {#VAR spellName garras de necrófago};
         
+        #NOP =============== Oscura ===============;
+        #CASE {"morti vomiu nutorum"}       {#VAR spellName plaga de desdicha};
+        #CASE {"toxus tenebra liberta"}     {#VAR spellName horror ponzoñoso};
+
         #NOP =============== Proteccion ===============;
         #CASE {"leber aurum protectum"}    {#VAR spellName libre acción};
         
