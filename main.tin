@@ -1,5 +1,10 @@
 #NOP Reinos de Leyenda TinTin++ Scripts
 
+#SHOWME
+#SHOWME <aef>Scripts de TinTin++ para Reinos de Leyenda MUD<099> 
+#SHOWME <acd>    Versión 0.1 -- Escritos por Dunkelheit<099> 
+#SHOWME
+
 #READ config.tin
 #READ pathdir.tin
 #READ lang.tin

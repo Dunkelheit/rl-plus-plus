@@ -3,6 +3,11 @@
 #HIGHLIGHT {^Comienzas a formular el hechizo '%*'.$}    {bold cyan} {5}
 #HIGHLIGHT {^Pronuncias el cántico: '%*'$}              {bold cyan} {5}
 
+#NOP Movements
+
+#HIGHLIGHT {[%* orbita a Eirea]}    {lime} {5}
+#HIGHLIGHT {[%* orbita al Limbo]}   {orange} {5}
+
 #NOP Warning
 
 #HIGHLIGHT {^%* empieza a formular un hechizo.$}                {bold magenta} {5}

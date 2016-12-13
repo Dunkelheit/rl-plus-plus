@@ -1,8 +1,6 @@
 #CLASS {powerline} {kill} 
 #CLASS {powerline} {open}
 
-#SHOWME <aef>Script Name: <faa>Powerline <aef>Version: <faa>1.0 <128>--== LOADED ==-- 
-
 #EVENT {SESSION CONNECTED}
 {
     #SPLIT
