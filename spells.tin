@@ -37,6 +37,7 @@
         #CASE {"majio exodus oculus"}           {#VAR spellName ojo mágico de Éxodus};
         #CASE {"mer conoectrik"}            {#VAR spellName precognición};
         #CASE {"je vei comoun deux mes yeux sont libreus"}  {#VAR spellName ver realmente};
+        #CASE {"ein aluin ulu zuel dos"}    {#VAR spellName localizar?};
         
         #NOP =============== Alteracion ===============;
         #CASE {"groez us marj"}             {#VAR spellName agrandar};
