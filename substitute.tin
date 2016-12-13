@@ -4,5 +4,36 @@
 #SUBSTITUTE {^Tu piel vuelve a su estado normal.$} {<CAA><178>@center{%0}<099>}
 #SUBSTITUTE {^Tu globo de invulnerabilidad empieza a parpadear hasta que desaparece.$} {<CAA><178>@center{%0}<099>}
 
-#SUBSTITUTE {^%* se va hacia %*.$} {%1 <099>se va hacia <BCA><178> @exitShortName{%2} <099>}
-#SUBSTITUTE {^%* llega desde el %*.$} {%1 <099>llega desde el <DBA><178> @exitShortName{%2} <099>}
+#SUBSTITUTE {^%1 se va hacia %2.$} {%1 <099>se va hacia <BCA><178> @exitShortName{%2} <099>}
+#SUBSTITUTE {^%1 llega desde %2.$} {%1 <099>llega desde <DBA><178> @exitShortName{%2} <099>}
+
+#SUBSTITUTE {^[%* orbita a Eirea]$} {[%1 <bee>entra<099> a Eirea]}
+#SUBSTITUTE {^[%* orbita al Limbo]$} {[%1 <g10>sale<099> de Eirea]}
+
+#IF {$_development == 1}
+{
+    #ALIAS {testSubstitute}
+    {
+        #SHOWME ¡Tus imágenes se desvanecen!;
+        #SHOWME ¡Tus imagenes se desvanecen!;
+        #SHOWME Tu piel vuelve a su estado normal.;
+        #SHOWME Palomo llega desde el oeste.;
+        #SHOWME Palomo llega desde arriba.;
+        #SHOWME <180>Palomo llega desde el norte.;
+        #SHOWME <180>Palomo<099> llega desde el este.;
+        #SHOWME \e[33mPalomo\e[0m\e[0m llega desde el noreste.\e[0m; 
+        #SHOWME Juan Palomo llega desde el noroeste.;
+        #SHOWME <180>Juan Palomo llega desde el sudeste.;
+        #SHOWME <180>Juan Palomo<099> llega desde el este.;
+        #SHOWME \e[33mJuan Palomo\e[0m\e[0m llega desde el este.\e[0m; 
+        #SHOWME <180>nueve Gravoses<099> llega desde arriba.\e[0m; 
+        #SHOWME nueve <180>Gravos<099>es llega desde arriba.\e[0m;
+        #NOP DOES NOT WORK!;
+        #SHOWME nueve \e[33mGravos\e[0m\e[0mes llega desde arriba.\e[0m; 
+        #SHOWME Palomo se va hacia el oeste.;
+        #SHOWME Palomo se va hacia dentro.;
+        #SHOWME Palomo se va hacia arriba.;
+        #SHOWME [Palomo orbita a Eirea];
+        #SHOWME [Palomo orbita al Limbo];
+    }
+}

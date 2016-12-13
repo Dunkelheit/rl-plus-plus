@@ -27,17 +27,18 @@
 {
     #SWITCH {"%1"}
     {
-        #CASE {"este"} {#RETURN E};
-        #CASE {"noreste"} {#RETURN NE};
-        #CASE {"norte"} {#RETURN N};
-        #CASE {"noroeste"} {#RETURN NO};
-        #CASE {"oeste"} {#RETURN O};
-        #CASE {"sudoeste"} {#RETURN SO};
-        #CASE {"sur"} {#RETURN S};
-        #CASE {"sudeste"} {#RETURN SE};
+        #CASE {"el este"} {#RETURN E};
+        #CASE {"el noreste"} {#RETURN NE};
+        #CASE {"el norte"} {#RETURN N};
+        #CASE {"el noroeste"} {#RETURN NO};
+        #CASE {"el oeste"} {#RETURN O};
+        #CASE {"el sudoeste"} {#RETURN SO};
+        #CASE {"el sur"} {#RETURN S};
+        #CASE {"el sudeste"} {#RETURN SE};
         #CASE {"dentro"} {#RETURN DE};
         #CASE {"fuera"} {#RETURN FU};
         #CASE {"arriba"} {#RETURN AR};
         #CASE {"abajo"} {#RETURN AB};
+        #DEFAULT {#RETURN %1};
     }
 }

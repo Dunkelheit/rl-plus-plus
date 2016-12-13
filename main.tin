@@ -5,6 +5,8 @@
 #SHOWME <acd>    Versión 0.1 -- Escritos por Dunkelheit<099> 
 #SHOWME
 
+#VAR _development 1
+
 #READ config.tin
 #READ pathdir.tin
 #READ lang.tin

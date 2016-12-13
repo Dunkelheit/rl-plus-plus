@@ -1,6 +1,6 @@
 #FUNCTION {translateSpell}
 {
-    #VAR spellName desconocido;
+    #VAR spellName {};
     #SWITCH {"%2"}
     {
         #NOP =============== Abjuracion ===============;
@@ -285,7 +285,9 @@
         #NOP =============== Total ===============;
         #CASE {"bleiso objetum"}    {#VAR spellName bendecir objeto};
         #CASE {"bleiso umanos"}     {#VAR spellName bendición};
-        #CASE {"mali umanos"}       {#VAR spellName maldición}
+        #CASE {"mali umanos"}       {#VAR spellName maldición};
+
+        #DEFAULT {#VAR spellName desconocido}
     };
     #FORMAT {chantLength} {%L} {%1};
     #FORMAT {spellNameLength} {%L} {$spellName};
@@ -295,3 +297,4 @@
 }
 
 #SUBSTITUTE {^Pronuncias el cántico: '%*'$} {@translateSpell{Pronuncias el cántico: '%1';%1}}
+#SUBSTITUTE {^%* pronuncia el cántico: '%*'$} {@translateSpell{%1 pronuncia el cántico: '%2';%2}}
