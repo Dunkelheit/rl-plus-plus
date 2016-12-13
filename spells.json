@@ -1,0 +1,923 @@
+{
+    "mior armanis": {
+        "name": "armadura",
+        "duration": -1
+    },
+    "spiritis solis armanis": {
+        "name": "armadura espiritual",
+        "duration": -1
+    },
+    "fere hilis tzbem ocsa": {
+        "name": "cuerpo de acero",
+        "duration": -1
+    },
+    "marj voltius sorcere": {
+        "name": "devolver conjuro mayor",
+        "duration": -1
+    },
+    "mior voltius sorcere": {
+        "name": "devolver conjuro menor",
+        "duration": -1
+    },
+    "nullo magius": {
+        "name": "disipar magia",
+        "duration": -1
+    },
+    "mior escudis": {
+        "name": "escudo",
+        "duration": -1
+    },
+    "eirea colourus sphyre": {
+        "name": "esfera prismática",
+        "duration": -1
+    },
+    "maior secry sphyre": {
+        "name": "globo mayor de invulnerabilidad",
+        "duration": -1
+    },
+    "mior secry sphyre": {
+        "name": "globo menor de invulnerabilidad",
+        "duration": -1
+    },
+    "emir meus busque": {
+        "name": "indetectable",
+        "duration": -1
+    },
+    "in magius ylem malleus": {
+        "name": "mente en blanco",
+        "duration": -1
+    },
+    "inst desplae": {
+        "name": "parpadeo",
+        "duration": -1
+    },
+    "aerdikor amudran ozoihe": {
+        "name": "piel de piedra",
+        "duration": -1
+    },
+    "majis preorum": {
+        "name": "protección contra armas",
+        "duration": -1
+    },
+    "repeal prokyum": {
+        "name": "protección contra proyectiles",
+        "duration": -1
+    },
+    "plaunum demigrum": {
+        "name": "repudiar",
+        "duration": -1
+    },
+    "repelish forceum": {
+        "name": "repulsión",
+        "duration": -1
+    },
+    "klairis lkrejum soniks": {
+        "name": "clariaudiencia",
+        "duration": -1
+    },
+    "klairis bibencia": {
+        "name": "clarividencia",
+        "duration": -1
+    },
+    "ethos deus beleah": {
+        "name": "conocer alineamiento",
+        "duration": -1
+    },
+    "magius is iseio": {
+        "name": "detectar magia",
+        "duration": -1
+    },
+    "magius xerox malauea": {
+        "name": "detectar magias bloqueadas",
+        "duration": -1
+    },
+    "magius skara is iseo": {
+        "name": "detectar observación mágica",
+        "duration": -1
+    },
+    "bellum kennis": {
+        "name": "erudición en batallas",
+        "duration": -1
+    },
+    "magius podeiles aneum mane": {
+        "name": "leer magia",
+        "duration": -1
+    },
+    "creatir busque": {
+        "name": "localizar criatura",
+        "duration": -1
+    },
+    "ande statis": {
+        "name": "localizar objeto I",
+        "duration": -1
+    },
+    "majio exodus oculus": {
+        "name": "ojo mágico de Éxodus",
+        "duration": -1
+    },
+    "mer conoectrik": {
+        "name": "precognición",
+        "duration": -1
+    },
+    "je vei comoun deux mes yeux sont libreus": {
+        "name": "ver realmente",
+        "duration": -1
+    },
+    "ein aluin ulu zuel dos": {
+        "name": "localizar?",
+        "duration": -1
+    },
+    "groez us marj": {
+        "name": "agrandar",
+        "duration": -1
+    },
+    "temporis ondele areba": {
+        "name": "apresuramiento",
+        "duration": -1
+    },
+    "not mostris masit ahorat deletit": {
+        "name": "borrar",
+        "duration": -1
+    },
+    "pes iu flumbe": {
+        "name": "caída de pluma",
+        "duration": -1
+    },
+    "eros invorum": {
+        "name": "cambio de sexo",
+        "duration": -1
+    },
+    "bellum destruct corpore": {
+        "name": "desintegrar",
+        "duration": -1
+    },
+    "fuere magnus incrementis": {
+        "name": "fuerza",
+        "duration": -1
+    },
+    "terribilis gravitas invertere area": {
+        "name": "inversión gravitatoria de Éxodus",
+        "duration": -1
+    },
+    "arduha cutanea": {
+        "name": "irritación",
+        "duration": -1
+    },
+    "temporis laggen": {
+        "name": "lentitud",
+        "duration": -1
+    },
+    "abrete sesamus": {
+        "name": "llamada a la puerta",
+        "duration": -1
+    },
+    "flamius os aryes": {
+        "name": "manos ardientes",
+        "duration": -1
+    },
+    "past carnale": {
+        "name": "piedra a carne",
+        "duration": -1
+    },
+    "hanz ow xlxyx": {
+        "name": "presa sacudidora",
+        "duration": -1
+    },
+    "groez us minu": {
+        "name": "reducir",
+        "duration": -1
+    },
+    "sangx o axcid": {
+        "name": "sangre a ácido",
+        "duration": -1
+    },
+    "trans ikrat ondomendo wiclat skrauwen": {
+        "name": "teleportación",
+        "duration": -1
+    },
+    "elo disendi es ferundalae": {
+        "name": "transformación de DvNeil",
+        "duration": -1
+    },
+    "fais alijus": {
+        "name": "contenedor dimensional",
+        "duration": -1
+    },
+    "dyscik ivnis": {
+        "name": "disco flotante de Ikim",
+        "duration": -1
+    },
+    "varaknit okliyae sifun wamet ostrifundae elast": {
+        "name": "esfera elástica de Wylan",
+        "duration": -1
+    },
+    "om dhrung svaha": {
+        "name": "espada de Galadan",
+        "duration": -1
+    },
+    "venit ejamber psohokut": {
+        "name": "llamar enjambres",
+        "duration": -1
+    },
+    "en venit mansekti": {
+        "name": "montura",
+        "duration": -1
+    },
+    "canis mesua fidelis": {
+        "name": "perro fiel de Mesua",
+        "duration": -1
+    },
+    "servus oleare": {
+        "name": "sirviente invisible",
+        "duration": -1
+    },
+    "amicuale": {
+        "name": "amistad",
+        "duration": -1
+    },
+    "crumens augmentatum": {
+        "name": "bolsillos profundos",
+        "duration": -1
+    },
+    "tapkrat soilis": {
+        "name": "ceguera",
+        "duration": -1
+    },
+    "ehjart dormitae": {
+        "name": "dormir",
+        "duration": -1
+    },
+    "summum veneficus sapienta": {
+        "name": "ilustración arcana",
+        "duration": -1
+    },
+    "nie uhlambi bobus": {
+        "name": "imbecilidad",
+        "duration": -1
+    },
+    "irijae disidus ombile": {
+        "name": "incontrolable risa de Shasha",
+        "duration": -1
+    },
+    "niks sensibielen": {
+        "name": "insensibilidad",
+        "duration": -1
+    },
+    "magius lios": {
+        "name": "luz",
+        "duration": -1
+    },
+    "mark devenit": {
+        "name": "marca de hechicero",
+        "duration": -1
+    },
+    "tremend panic rajhak": {
+        "name": "miedo",
+        "duration": -1
+    },
+    "occlumentum": {
+        "name": "oclumancia",
+        "duration": -1
+    },
+    "tumen sufres ohurum": {
+        "name": "ojo por ojo",
+        "duration": -1
+    },
+    "o larktri o majkit": {
+        "name": "olvidar",
+        "duration": -1
+    },
+    "maguis xeno lios": {
+        "name": "oscuridad",
+        "duration": -1
+    },
+    "ridit omebi": {
+        "name": "provocar",
+        "duration": -1
+    },
+    "reclamo devenit": {
+        "name": "reclamar",
+        "duration": -1
+    },
+    "achus patis": {
+        "name": "resfriar",
+        "duration": -1
+    },
+    "reimeno xeno haltem dixit": {
+        "name": "retener masas",
+        "duration": -1
+    },
+    "etilicus bezorgen": {
+        "name": "sobriedad",
+        "duration": -1
+    },
+    "tapkrat sonics": {
+        "name": "sordera",
+        "duration": -1
+    },
+    "veel praten maar niets zeggen": {
+        "name": "verborrea",
+        "duration": -1
+    },
+    "aardum weg gaan": {
+        "name": "cavar",
+        "duration": -1
+    },
+    "hielis es coe": {
+        "name": "cono de frío",
+        "duration": -1
+    },
+    "defenestrate": {
+        "name": "defenestrar",
+        "duration": -1
+    },
+    "bellum murus nilreber destructure": {
+        "name": "destruir muro",
+        "duration": -1
+    },
+    "lamea ostrifundae perset": {
+        "name": "esfera llameante",
+        "duration": -1
+    },
+    "xilyx de gadrum": {
+        "name": "golpe de rayo",
+        "duration": -1
+    },
+    "miute pyros sphyes": {
+        "name": "meteoros diminutos de Ignis",
+        "duration": -1
+    },
+    "majio magyiz projiss": {
+        "name": "proyectil mágico mayor",
+        "duration": -1
+    },
+    "magyiz projiss": {
+        "name": "proyectil mágico menor",
+        "duration": -1
+    },
+    "ecktam itelem peg": {
+        "name": "telaraña",
+        "duration": -1
+    },
+    "irwat tilurat sincart": {
+        "name": "explosión ráfaga",
+        "duration": -1
+    },
+    "majos areos aqua": {
+        "name": "bola de agua",
+        "duration": -1
+    },
+    "majos areos pyros": {
+        "name": "bola de fuego",
+        "duration": -1
+    },
+    "pyros burios": {
+        "name": "estallido de fuego",
+        "duration": -1
+    },
+    "spheros frezious": {
+        "name": "granizo",
+        "duration": -1
+    },
+    "majos areos zappeous": {
+        "name": "llamarada eléctrica",
+        "duration": -1
+    },
+    "majos areos corrosiv": {
+        "name": "tormeta ácida",
+        "duration": -1
+    },
+    "sormuz frez os halos": {
+        "name": "tormeta de hielo",
+        "duration": -1
+    },
+    "eleius magical concere": {
+        "name": "tormeta eléctrica",
+        "duration": -1
+    },
+    "falax majyz objetum": {
+        "name": "aura mágica de Nystul",
+        "duration": -1
+    },
+    "mior chimera ex": {
+        "name": "crear quimera menor",
+        "duration": -1
+    },
+    "nullo ilusionis": {
+        "name": "disipar ilusiones",
+        "duration": -1
+    },
+    "virtue esplodis": {
+        "name": "dispersion ilusoria",
+        "duration": -1
+    },
+    "sancti numbro duplis": {
+        "name": "espejismo",
+        "duration": -1
+    },
+    "hallucinatja nervosa": {
+        "name": "fascinación cromática de Elvereth",
+        "duration": -1
+    },
+    "impak flobben": {
+        "name": "golpe ilusorio",
+        "duration": -1
+    },
+    "illios effacious": {
+        "name": "invisibilidad",
+        "duration": -1
+    },
+    "iz i obrae mobit": {
+        "name": "magia de las sombras",
+        "duration": -1
+    },
+    "mur denovetis": {
+        "name": "muro ilusorio",
+        "duration": -1
+    },
+    "magius occultum": {
+        "name": "ocultar",
+        "duration": -1
+    },
+    "maruma o manir": {
+        "name": "silueta imprecisa",
+        "duration": -1
+    },
+    "it cualis": {
+        "name": "simulacro",
+        "duration": -1
+    },
+    "venti olabae": {
+        "name": "ventriloquia",
+        "duration": -1
+    },
+    "morti elai aradi": {
+        "name": "animar muertos",
+        "duration": -1
+    },
+    "aristos omeander maleus olotheren": {
+        "name": "choque funesto",
+        "duration": -1
+    },
+    "corpus preserv": {
+        "name": "conservar cuerpo",
+        "duration": -1
+    },
+    "ekri daremo tsucraehlkri": {
+        "name": "debilidad",
+        "duration": -1
+    },
+    "omeasis traed or eneriam": {
+        "name": "drenar energia",
+        "duration": -1
+    },
+    "wilos magius evapious": {
+        "name": "horrible marchitamiento",
+        "duration": -1
+    },
+    "xo harmi timus": {
+        "name": "lepra",
+        "duration": -1
+    },
+    "ez mae efron": {
+        "name": "mano espectral",
+        "duration": -1
+    },
+    "mist ahurmaete i maes imjarle carnae est mite liubas krat oskami": {
+        "name": "reencarnar",
+        "duration": -1
+    },
+    "morti xeno haltem": {
+        "name": "retener muertos vivientes",
+        "duration": -1
+    },
+    "hanz ow froez": {
+        "name": "toque helado",
+        "duration": -1
+    },
+    "omeander oloferj tiorodaelah olotheren": {
+        "name": "toque vampírico",
+        "duration": -1
+    },
+    "magius ethos salut": {
+        "name": "detectar enfermedad",
+        "duration": -1
+    },
+    "ethos unkalid": {
+        "name": "detectar hechizo",
+        "duration": -1
+    },
+    "ethos maleficit": {
+        "name": "detectar maldición",
+        "duration": -1
+    },
+    "ethos toxus": {
+        "name": "detectar veneno",
+        "duration": -1
+    },
+    "inderia colesedum": {
+        "name": "lenguas",
+        "duration": -1
+    },
+    "grawltok ziksar univelber": {
+        "name": "agilidad del guepardo",
+        "duration": -1
+    },
+    "ukreek jglbuo anzarmiendlkjh": {
+        "name": "canto de los espíritus",
+        "duration": -1
+    },
+    "maior aenima vorpalis": {
+        "name": "escudo de almas mayores",
+        "duration": -1
+    },
+    "mior aenima vorpalis": {
+        "name": "escudo de almas menores",
+        "duration": -1
+    },
+    "chacaa kiltra unipoteh": {
+        "name": "fuerza del oso",
+        "duration": -1
+    },
+    "sheeram aluble woomack": {
+        "name": "garras de lobo",
+        "duration": -1
+    },
+    "akrit namuh sieds": {
+        "name": "gritos ancestrales",
+        "duration": -1
+    },
+    "blut boilea": {
+        "name": "hervor de la sangre",
+        "duration": -1
+    },
+    "forgis vondt i sjel": {
+        "name": "liberación del espíritu",
+        "duration": -1
+    },
+    "aedrhus impotem nazxia": {
+        "name": "mordisco de la víbora",
+        "duration": -1
+    },
+    "ojos oscuros": {
+        "name": "sacra gog onadak",
+        "duration": -1
+    },
+    "destruct malevoli spiritus": {
+        "name": "castigar el mal",
+        "duration": -1
+    },
+    "deus me ignis": {
+        "name": "inmolación",
+        "duration": -1
+    },
+    "inmovilum idealis": {
+        "name": "voluntad de hierro",
+        "duration": -1
+    },
+    "sria positvrat": {
+        "name": "rayo de energía positiva",
+        "duration": -1
+    },
+    "ken olatid sancrit": {
+        "name": "tormenta sagrada",
+        "duration": -1
+    },
+    "ablocare taurus cervix": {
+        "name": "fuerza de toro",
+        "duration": -1
+    },
+    "felinus est gratia": {
+        "name": "gracia felina",
+        "duration": -1
+    },
+    "natura exhra zabak magicia": {
+        "name": "armas naturales",
+        "duration": -1
+    },
+    "mahander corpuum veratos nita": {
+        "name": "empatía metamórfica",
+        "duration": -1
+    },
+    "irae mahinda vitae": {
+        "name": "regeneración animal",
+        "duration": -1
+    },
+    "maxima corpuus inmander natura": {
+        "name": "suteliza del metamorfo",
+        "duration": -1
+    },
+    "raalander natura temporis": {
+        "name": "vigor natural",
+        "duration": -1
+    },
+    "acerbace divin baletis": {
+        "name": "gran plegaria sagrada",
+        "duration": -1
+    },
+    "acerbace unos baletis": {
+        "name": "plegaria",
+        "duration": -1
+    },
+    "mi deus ire": {
+        "name": "ira de dios",
+        "duration": -1
+    },
+    "magius modus harmei": {
+        "name": "curacion",
+        "duration": -1
+    },
+    "minor mali umanos eximo": {
+        "name": "extirpar maldición",
+        "duration": -1
+    },
+    "divina tempus haelos": {
+        "name": "regeneración",
+        "duration": -1
+    },
+    "sagnat curis": {
+        "name": "cicatrizar",
+        "duration": -1
+    },
+    "sauma soilis": {
+        "name": "curar ceguera",
+        "duration": -1
+    },
+    "curis insalubri": {
+        "name": "curar enfermedad",
+        "duration": -1
+    },
+    "magius criusis curis": {
+        "name": "curar heridas críticas",
+        "duration": -1
+    },
+    "magius elis curis": {
+        "name": "curar heridas ligeras",
+        "duration": -1
+    },
+    "magius modus curis": {
+        "name": "curar heridas moderadas",
+        "duration": -1
+    },
+    "magius selirs curis": {
+        "name": "curar heridas serias",
+        "duration": -1
+    },
+    "audikt cruisis": {
+        "name": "curar sordera",
+        "duration": -1
+    },
+    "toxus wrathi aborum": {
+        "name": "neutralizar veneno",
+        "duration": -1
+    },
+    "magius criusis harmei arkrat": {
+        "name": "herida",
+        "duration": -1
+    },
+    "harmi klotimus": {
+        "name": "causar enfermedad",
+        "duration": -1
+    },
+    "magius criusis harmei": {
+        "name": "causar heridas críticas",
+        "duration": -1
+    },
+    "magius elis harmei": {
+        "name": "causar heridas ligeras",
+        "duration": -1
+    },
+    "magius mayor harmei": {
+        "name": "causar heridas mayores",
+        "duration": -1
+    },
+    "magius selirs harmei": {
+        "name": "causar heridas serias",
+        "duration": -1
+    },
+    "harmi toxus": {
+        "name": "envenenar",
+        "duration": -1
+    },
+    "flamious os colus": {
+        "name": "columna de fuego",
+        "duration": -1
+    },
+    "acetis aquam": {
+        "name": "crear agua",
+        "duration": -1
+    },
+    "flamius fullen akrat": {
+        "name": "hoja de llamas",
+        "duration": -1
+    },
+    "flamae inkast": {
+        "name": "producir llamas",
+        "duration": -1
+    },
+    "elect xen cefit": {
+        "name": "relámpago",
+        "duration": -1
+    },
+    "terra firma venit": {
+        "name": "terremoto",
+        "duration": -1
+    },
+    "dotkad ignusard": {
+        "name": "tormenta ígnea",
+        "duration": -1
+    },
+    "ertiren iraucas": {
+        "name": "extirpar miedo",
+        "duration": -1
+    },
+    "metlah onex irma": {
+        "name": "extirpar parálisis",
+        "duration": -1
+    },
+    "guardian sacred": {
+        "name": "guardián sagrado",
+        "duration": -1
+    },
+    "intrepit arkuash inconditionale": {
+        "name": "manto de valor",
+        "duration": -1
+    },
+    "aztak pacifus": {
+        "name": "pacificar",
+        "duration": -1
+    },
+    "prot me": {
+        "name": "santuario",
+        "duration": -1
+    },
+    "salmodium khar osharth": {
+        "name": "silencio",
+        "duration": -1
+    },
+    "petrea past": {
+        "name": "carne a piedra",
+        "duration": -1
+    },
+    "cette invocatus est pur meus": {
+        "name": "dominar invocación",
+        "duration": -1
+    },
+    "insta estasi balaeta": {
+        "name": "éxtasis instantáneo",
+        "duration": -1
+    },
+    "solus paqua quietum": {
+        "name": "enmudecer",
+        "duration": -1
+    },
+    "amri xeno haltem": {
+        "name": "retener persona",
+        "duration": -1
+    },
+    "noite stela": {
+        "name": "brillo de estrellas",
+        "duration": -1
+    },
+    "rizzaz armoum protestus": {
+        "name": "escudo de fuego",
+        "duration": -1
+    },
+    "frozen armoum protestus": {
+        "name": "escudo de hielo",
+        "duration": -1
+    },
+    "ummon ishamo ujeleo": {
+        "name": "invocar tentáculos",
+        "duration": -1
+    },
+    "disvenit roka": {
+        "name": "llamada a la piedra",
+        "duration": -1
+    },
+    "venit roka": {
+        "name": "llamada a la piedra",
+        "duration": -1
+    },
+    "astra nova pyris": {
+        "name": "lluvia de estrellas",
+        "duration": -1
+    },
+    "magius espiritual hammer": {
+        "name": "martillo espiritual",
+        "duration": -1
+    },
+    "luminus laendor": {
+        "name": "rayo de luna",
+        "duration": -1
+    },
+    "luminus solaris": {
+        "name": "rayo de sol",
+        "duration": -1
+    },
+    "kyrnie ov daemon": {
+        "name": "aullido infernal",
+        "duration": -1
+    },
+    "sria nevrat": {
+        "name": "rayo de energía negativa",
+        "duration": -1
+    },
+    "ken olatid arkanit": {
+        "name": "tormenta arcana",
+        "duration": -1
+    },
+    "ela ex silvest": {
+        "name": "bayas buenas",
+        "duration": -1
+    },
+    "maxita alimenta purificare": {
+        "name": "conservar alimentos",
+        "duration": -1
+    },
+    "colte est meus": {
+        "name": "dominar animal",
+        "duration": -1
+    },
+    "superb col akrejart": {
+        "name": "encantar colmillos",
+        "duration": -1
+    },
+    "magecic inskar": {
+        "name": "encantar vara",
+        "duration": -1
+    },
+    "enredus ogjta": {
+        "name": "enredar",
+        "duration": -1
+    },
+    "ast eile frosit dumae": {
+        "name": "granizar",
+        "duration": -1
+    },
+    "vite amahander invadum": {
+        "name": "naturalizar",
+        "duration": -1
+    },
+    "cortex membranae": {
+        "name": "piel de corteza",
+        "duration": -1
+    },
+    "seculea oskrasit bzzeez": {
+        "name": "plaga de insectos",
+        "duration": -1
+    },
+    "colte xeno haltem": {
+        "name": "retener animal",
+        "duration": -1
+    },
+    "deus topiary": {
+        "name": "seto",
+        "duration": -1
+    },
+    "morti refezit": {
+        "name": "consunción de los restos",
+        "duration": -1
+    },
+    "mortiis oculus deum": {
+        "name": "examinar muerte",
+        "duration": -1
+    },
+    "necrum sharpus mortiis": {
+        "name": "garras de necrófago",
+        "duration": -1
+    },
+    "morti vomiu nutorum": {
+        "name": "plaga de desdicha",
+        "duration": -1
+    },
+    "toxus tenebra liberta": {
+        "name": "horror ponzoñoso",
+        "duration": -1
+    },
+    "leber aurum protectum": {
+        "name": "libre acción",
+        "duration": -1
+    },
+    "idmun serv": {
+        "name": "ayuda",
+        "duration": -1
+    },
+    "destorb infatis posit energis venit at el corpse infit": {
+        "name": "restaurar",
+        "duration": -1
+    },
+    "bleiso objetum": {
+        "name": "bendecir objeto",
+        "duration": -1
+    },
+    "bleiso umanos": {
+        "name": "bendición",
+        "duration": -1
+    },
+    "mali umanos": {
+        "name": "maldición",
+        "duration": -1
+    }
+}
+    

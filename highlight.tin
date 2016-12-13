@@ -2,14 +2,14 @@
 
 #HIGHLIGHT {^Comienzas a formular el hechizo '%*'.$}    {bold cyan} {5}
 #HIGHLIGHT {^Pronuncias el cántico: '%*'$}              {bold cyan} {5}
-#HIGHLIGHT {^La piel de %* vuelve a su estado normal.$} {bold cyan} {5}
 
 #NOP Warning
 
 #HIGHLIGHT {^%* empieza a formular un hechizo.$}                {bold magenta} {5}
 #HIGHLIGHT {^¡Descubres a %* intentando moverse en silencio!$}  {bold magenta} {5}
 #HIGHLIGHT {^¡%* realiza un amplio ataque barriendo de un golpe a todos sus oponentes!} {bold magenta} {5}
-#HIGHLIGHT {^¡%* se dispone a golpear a un enemigo!$}    {bold magenta} {5}
+#HIGHLIGHT {^¡%* se dispone a golpear a un enemigo!$}   {bold magenta} {5}
+#HIGHLIGHT {^Te vuelves a sentir pesad{a|o}.$}          {bold magenta} {5}
 
 #NOP Danger
 
@@ -25,6 +25,7 @@
 #NOP Good things
 
 #HIGHLIGHT {^Puedes moverte libremente de nuevo.$}      {bold green} {5}
+#HIGHLIGHT {^La piel de %* vuelve a su estado normal.$} {bold green} {5}
 
 #NOP Enchanter
 
