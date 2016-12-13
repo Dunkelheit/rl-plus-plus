@@ -4,8 +4,5 @@
 #SUBSTITUTE {^Tu piel vuelve a su estado normal.$} {<CAA><178>@center{%0}<099>}
 #SUBSTITUTE {^Tu globo de invulnerabilidad empieza a parpadear hasta que desaparece.$} {<CAA><178>@center{%0}<099>}
 
-#NOP DAMN \e[33mThraarth\e[0m\e[0m está aquí.\e[0m
-#NOP TRY \e[%Sm
-
 #SUBSTITUTE {^%* se va hacia %*.$} {%1 <099>se va hacia <BCA><178> @exitShortName{%2} <099>}
 #SUBSTITUTE {^%* llega desde el %*.$} {%1 <099>llega desde el <DBA><178> @exitShortName{%2} <099>}
