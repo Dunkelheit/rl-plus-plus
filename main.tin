@@ -15,3 +15,13 @@
 #READ substitute.tin
 #READ powerline.tin
 #READ spells.tin
+#READ target.tin
+
+#IF {$_development == 1}
+{
+    #ALIAS reload {
+        #KILL {all};
+        #SHOWME <faa>Recargando...;
+        #READ main.tin;
+    }
+}

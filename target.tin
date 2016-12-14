@@ -1,0 +1,21 @@
+#ALIAS {tars}
+{
+    #CLASS {target} {open};
+    #ACTION {^Nombre corto %%1 cambiado de %%2 a %%3.$} 
+    {
+        #CLASS {targetHighlights} {kill};
+        #VARIABLE targets %%3;
+        #REPLACE {targets} {,} {;};
+        #LIST {targets} create $targets;
+        #CLASS {target} {kill};
+        #CLASS {targetHighlights} {open};
+        #FOREACH {$targets[%*]} {name}
+        {
+            #FORMAT {name} {%n} {$name};
+            #HIGHLIGHT {$name} {red bold} {10}
+        }
+        #CLASS {targetHighlights} {close};
+    }; 
+    tarear;
+    #CLASS {target} {close} 
+}
