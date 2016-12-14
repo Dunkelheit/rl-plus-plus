@@ -10,6 +10,7 @@ La versión mínima necesario de TinTin++ es 2.01.1, dado que las anteriores tie
     * Habilidades y hechizos
     * Entrada y salida de habitaciones
     * Puntos de experiencia
+    * Enemigos
 * Barra de estado con puntos de vida, puntos de energía, imágenes y pieles.
 * Extensión de cánticos con el nombre del hechizo
 
