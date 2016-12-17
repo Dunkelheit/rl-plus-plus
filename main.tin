@@ -9,6 +9,8 @@
 
 #READ config.tin
 #READ pathdir.tin
+#READ alias.tin
+#READ function.tin
 #READ lang.tin
 #READ format.tin
 #READ highlight.tin
