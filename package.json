@@ -1,0 +1,15 @@
+{
+  "name": "rl-plus-plus",
+  "version": "0.1.0",
+  "description": "Scripts de TinTin++ para Reinos de Leyenda MUD",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dunkelheit/rlmud-tintin.git"
+  },
+  "author": "Arturo Martinez <dunkelheit@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dunkelheit/rlmud-tintin/issues"
+  },
+  "homepage": "https://github.com/Dunkelheit/rlmud-tintin#readme"
+}

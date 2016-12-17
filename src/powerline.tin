@@ -3,6 +3,7 @@
 
 #EVENT {SESSION CONNECTED} {
     #SPLIT;
+    #SHOWME {<G03><138>@center{Bienvenido a RL++}<099>} {1};
 };
 
 #VAR {stats[health]} {0};
