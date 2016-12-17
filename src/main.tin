@@ -24,7 +24,7 @@
     #ALIAS {/reload} {
         #KILL {all};
         #SHOWME <faa>Recargando...;
-        #READ main.tin;
+        #READ {src/main.tin};
     };
 };
 

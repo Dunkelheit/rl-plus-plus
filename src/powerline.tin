@@ -83,10 +83,12 @@
 };
 
 #ACTION {^Pvs: %1\\%2 Pe: %3\\%4$} {
+    #MATH {healthDelta} {%1 - $stats[health]};
     #VAR {stats[health]} {%1};
     #VAR {stats[maxHealth]} {%2};
     #VAR {stats[energy]} {%3};
     #VAR {stats[maxEnergy]} {%4};
+    #SHOWME {Δ @deltaColor{$healthDelta}$healthDelta<099>};
     #SHOWME {@powerline{}} {1};
 };
 
