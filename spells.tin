@@ -1,6 +1,9 @@
+#class {RL_SPELLS} {kill};
+#class {RL_SPELLS} {open};
+
 #FUNCTION {translateSpell}
 {
-    #VAR spellName {};
+    #VAR {spellName} {};
     #SWITCH {"%2"}
     {
         #NOP =============== Abjuracion ===============;
@@ -292,14 +295,16 @@
         #CASE {"bleiso umanos"}     {#VAR spellName bendición};
         #CASE {"mali umanos"}       {#VAR spellName maldición};
 
-        #DEFAULT {#VAR spellName desconocido}
+        #DEFAULT {#VAR spellName desconocido};
     };
     #FORMAT {chantLength} {%L} {%1};
     #FORMAT {spellNameLength} {%L} {$spellName};
     #FORMAT {screenWidth} {%C};
     #MATH {fillerLength} {$screenWidth - $chantLength - $spellNameLength};
-    #FORMAT {result} {%s%+${fillerLength}s<060>\e[3m%s<099>} {%1} {} {$spellName}
-}
+    #FORMAT {result} {%s%+${fillerLength}s<060>\e[3m%s<099>} {%1} {} {$spellName};
+};
 
-#SUBSTITUTE {^Pronuncias el cántico: '%*'$} {@translateSpell{Pronuncias el cántico: '%1';%1}}
-#SUBSTITUTE {^%* pronuncia el cántico: '%*'$} {@translateSpell{%1 pronuncia el cántico: '%2';%2}}
+#SUBSTITUTE {^Pronuncias el cántico: '%*'$} {@translateSpell{Pronuncias el cántico: '%1';%1}};
+#SUBSTITUTE {^%* pronuncia el cántico: '%*'$} {@translateSpell{%1 pronuncia el cántico: '%2';%2}};
+
+#CLASS {RL_SPELLS} {close};

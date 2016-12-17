@@ -1,8 +1,12 @@
-#FUNCTION {parseNumber}
-{
+#class {RL_LANG} {kill};
+#class {RL_LANG} {open};
+
+/*
+ * Function @parseNumber{number}
+ */
+#FUNCTION {parseNumber} {
     #FORMAT {parsedNumberLowerCase} {%l} {%1};
-    #SWITCH {"$parsedNumberLowerCase"}
-    {
+    #SWITCH {"$parsedNumberLowerCase"} {
         #CASE {"un"} {#RETURN 1};
         #CASE {"una"} {#RETURN 1};
         #CASE {"dos"} {#RETURN 2};
@@ -19,14 +23,15 @@
         #CASE {"trece"} {#RETURN 13};
         #CASE {"catorce"} {#RETURN 14};
         #CASE {"quince"} {#RETURN 15};
-        #DEFAULT {#RETURN 0}
-    }
-}
+        #DEFAULT {#RETURN 0};
+    };
+};
 
-#FUNCTION {exitShortName}
-{
-    #SWITCH {"%1"}
-    {
+/*
+ * Function @exitShortName{exit}
+ */
+#FUNCTION {exitShortName} {
+    #SWITCH {"%1"} {
         #CASE {"este"} {#RETURN E};
         #CASE {"el este"} {#RETURN E};
         #CASE {"noreste"} {#RETURN NE};
@@ -48,5 +53,7 @@
         #CASE {"arriba"} {#RETURN AR};
         #CASE {"abajo"} {#RETURN AB};
         #DEFAULT {#RETURN %1};
-    }
-}
+    };
+};
+
+#class {RL_LANG} {close};

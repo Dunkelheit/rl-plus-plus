@@ -1,7 +1,7 @@
+#class {RL_ALIAS} {kill};
+#class {RL_ALIAS} {open};
 
-
-#ALIAS {cargarAliasesBasicos}
-{
+#ALIAS {/cargarAliasesBasicos} {
     alias save salvar;
     alias g ojear $*$;
     alias l mirar $*$;
@@ -34,10 +34,9 @@
     alias cv conversar $*$;
     alias cm coger monedas de cuerpos;
     alias x noticias $*$;
-}
+};
 
-#ALIAS {cargarAliasesBribon}
-{
+#ALIAS {/cargarAliasesBribon} {
     alias h esconderse $*$;
     alias E sigilar este;
     alias NE sigilar noreste;
@@ -51,4 +50,10 @@
     alias AB sigilar abajo;
     alias DE sigilar dentro;
     alias FU sigilar fuera;  
-}
+};
+
+#ALIAS {/limpiar} {
+    #system {tput clear};
+};
+
+#class {RL_ALIAS} {close};

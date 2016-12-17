@@ -1,26 +1,31 @@
-#NOP healthBar{valor;longitud}
-#FUNCTION {healthBar}
-{
+#class {RL_FUNCTION} {kill};
+#class {RL_FUNCTION} {open};
+
+/*
+ * Function @healthBar{value;length}
+ */
+#FUNCTION {healthBar} {
     #MATH {currentHealth} {%1 * %2 / 100};
     #MATH {missingHealth} {%2 - $currentHealth};
     #FORMAT {currentHealth} {<033>%+${currentHealth}s<099>} {};
     #FORMAT {missingHealth} {<011>%+${missingHealth}s<099>} {};
-    #RETURN {$currentHealth$missingHealth}
-}
+    #RETURN {$currentHealth$missingHealth};
+};
 
-#NOP healthColor{valor}
+/*
+ * Function @healthColor{value}
+ */
 #FUNCTION {healthColor}
 {
-    #IF {%1 <= 25}
-    {
-        #RETURN <118>
+    #IF {%1 <= 25} {
+        #RETURN {<118>};
     };
-    #ELSEIF {%1 <= 50}
-    {
-        #RETURN <158>
+    #ELSEIF {%1 <= 50} {
+        #RETURN {<158>};
+    }; 
+    #ELSE {
+        #RETURN {<128>};
     };
-    #ELSE
-    {
-        #RETURN <128>
-    };
-}
+};
+
+#class {RL_FUNCTION} {close};
