@@ -8,17 +8,17 @@
 
 #VAR {_development} {1};
 
-#READ {config.tin};
-#READ {pathdir.tin};
-#READ {alias.tin};
-#READ {function.tin};
-#READ {lang.tin};
-#READ {format.tin};
-#READ {highlight.tin};
-#READ {substitute.tin};
-#READ {powerline.tin};
-#READ {spells.tin};
-#READ {target.tin};
+#READ {src/config.tin};
+#READ {src/pathdir.tin};
+#READ {src/alias.tin};
+#READ {src/function.tin};
+#READ {src/lang.tin};
+#READ {src/format.tin};
+#READ {src/highlight.tin};
+#READ {src/substitute.tin};
+#READ {src/powerline.tin};
+#READ {src/spells.tin};
+#READ {src/target.tin};
 
 #IF {$_development == 1} {
     #ALIAS {/reload} {
