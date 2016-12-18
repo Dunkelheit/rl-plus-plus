@@ -2,6 +2,8 @@
 
 Scripts de TinTin++ para [Reinos de Leyenda MUD](http://www.reinosdeleyenda.es/).
 
+![Captura de pantalla](https://cloud.githubusercontent.com/assets/448131/21295892/1171b6fa-c55f-11e6-83a0-1317d4d43948.png)
+
 ## Requisitos
 
 El cliente TinTin++, como mínimo la versión 2.01.1, dado que las anteriores tienen un
