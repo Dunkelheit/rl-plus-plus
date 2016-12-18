@@ -8,6 +8,9 @@
 #HIGHLIGHT {^Comienzas a formular el hechizo '%*'.$}    {bold cyan} {5};
 #HIGHLIGHT {^Pronuncias el cántico: '%*'$}              {bold cyan} {5};
 
+#HIGHLIGHT {^Propinas el golpe mortal a %*.$}   {green} {5};
+#HIGHLIGHT {^%* cae al suelo sin vida.$}        {black bold} {5};
+
 /*
  * Warnings
  */
@@ -17,6 +20,7 @@
 #HIGHLIGHT {^¡%* realiza un amplio ataque barriendo de un golpe a todos sus oponentes!} {bold magenta} {5};
 #HIGHLIGHT {^¡%* se dispone a golpear a un enemigo!$}   {bold magenta} {5};
 #HIGHLIGHT {^Te vuelves a sentir pesad{a|o}.$}          {bold magenta} {5};
+#HIGHLIGHT {^Notas como el poder de la runa %* te abandona poco a poco.$}   {bold magenta} {5};
 
 /*
  * Dangers

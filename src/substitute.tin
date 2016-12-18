@@ -23,6 +23,8 @@
 #SUBSTITUTE {^%* est{á|a} mortalmente herid{o|a}.$} {%1 @healthBar{4;50} @healthColor{4}1-7%<099>};
 #SUBSTITUTE {^%* est{á|a} moribund{o|a}.$} {%1 @healthBar{0;50} @healthColor{0}0%<099>};
 
+#SUBSTITUTE {^%* ha muerto.$} {<G02><118>@center{☠  %1 ☠}<099>};
+
 #IF {$_development == 1}
 {
     #ALIAS {/testSubstitute}
