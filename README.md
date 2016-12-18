@@ -2,7 +2,27 @@
 
 Scripts de TinTin++ para [Reinos de Leyenda MUD](http://www.reinosdeleyenda.es/).
 
-La versión mínima necesario de TinTin++ es 2.01.1, dado que las anteriores tienen un bug que impide sustituir cadenas con colores ANSI.
+## Requisitos
+
+El cliente TinTin++, como mínimo la versión 2.01.1, dado que las anteriores tienen un
+bug que impide sustituir correctamente cadenas con colores ANSI.
+
+## Instalación
+
+Puedes descargar el script desde [el proyecto GitHub](https://github.com/dunkelheit/rl-plus-plus)
+o mediante npm, con el siguiente comando:
+
+```
+> npm install rl-plus-plus
+```
+
+## Ejecución
+
+Situate en la carpeta de Instalación y ejecuta el siguiente comando:
+
+```
+> ./rl++
+```
 
 ## Funciones
 
@@ -11,7 +31,7 @@ La versión mínima necesario de TinTin++ es 2.01.1, dado que las anteriores tie
     * Entrada y salida de habitaciones
     * Puntos de experiencia
     * Enemigos
-    * Estado
-* Barra de estado con puntos de vida, puntos de energía, imágenes y pieles.
+    * Estados
+* Barra de estado con puntos de vida, puntos de energía, imágenes y pieles
 * Delta de puntos de vida
 * Extensión de cánticos con el nombre del hechizo
