@@ -1,5 +1,5 @@
-#class {RL_ALIAS} {kill};
-#class {RL_ALIAS} {open};
+#CLASS {RL_ALIAS} {kill};
+#CLASS {RL_ALIAS} {open};
 
 #ALIAS {/cargarAliasesBasicos} {
     alias save salvar;
@@ -56,4 +56,31 @@
     #system {tput clear};
 };
 
-#class {RL_ALIAS} {close};
+#ALIAS {/log} {
+	#IF {"%0" == "on"} {
+		#IF {"$logging" != "on"} {
+			#FORMAT {logfile} {log/%t.log} {%Y-%m-%d};
+            #LOG {APPEND} {$logfile};
+            #VAR {logging} {on};
+            #SHOWME {Grabando...}
+		};
+		#ELSE {
+            #SHOWME {Ya estás grabando un log.};
+		};
+	};
+	#ELSEIF {"%0" == "off"} {
+		#IF {"$logging" == "on"} {
+            #LOG {OFF};
+            #VAR {logging} {off};
+            #SHOWME {Dejando de grabar...}
+		};
+		#ELSE {
+            #SHOWME {No estás grabando un log.};
+		};
+	};
+	#ELSE {
+        #SHOWME {Sintáxis: log on|off.};
+	};
+};
+
+#CLASS {RL_ALIAS} {close};
