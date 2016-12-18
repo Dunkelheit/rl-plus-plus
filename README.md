@@ -35,3 +35,13 @@ Situate en la carpeta de Instalación y ejecuta el siguiente comando:
 * Barra de estado con puntos de vida, puntos de energía, imágenes y pieles
 * Delta de puntos de vida
 * Extensión de cánticos con el nombre del hechizo
+
+## Errors y colaboración
+
+En caso de encontrar un bug, reportalo en el apartado [issues](https://github.com/dunkelheit/rl-plus-plus/issues).
+
+Todo [pull request](https://github.com/dunkelheit/rl-plus-plus/pulls) es bienvenido.
+
+## Licencia
+
+[MIT](LICENSE).
