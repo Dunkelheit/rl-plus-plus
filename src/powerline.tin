@@ -6,6 +6,10 @@
     #SHOWME {<G03><138>@center{Bienvenido a RL++}<099>} {1};
 };
 
+#ACTION {Los Dioses te dan la bienvenida a sus Reinos de Leyenda} {
+    #SHOWME {<G03><138>@center{Usa el comando "puntos" para incializar la barra de estado}<099>} {1};
+};
+
 #VAR {stats[health]} {0};
 #VAR {stats[maxHealth]} {0};
 #VAR {stats[energy]} {0};

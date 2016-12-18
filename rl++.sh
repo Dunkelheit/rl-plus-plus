@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-/usr/bin/env tt++ src/main.tin
+/usr/bin/env tt++ -G -t 'RL++' src/main.tin

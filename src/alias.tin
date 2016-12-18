@@ -1,6 +1,55 @@
 #CLASS {RL_ALIAS} {kill};
 #CLASS {RL_ALIAS} {open};
 
+#ALIAS {/motd} {
+    #SHOWME {};
+    #SHOWME { <G02>                                     <099>};
+    #SHOWME { <G02><138>  ooooooooo.   ooooo           <178>88    <099>  <aef>Scripts de TinTin++ para Reinos de Leyenda MUD<099>};
+    #SHOWME { <G02><138>  `888   `Y88. `888'    <178>88   888888  <099>};
+    #SHOWME { <G02><138>   888   .d88'  888   <178>888888   88    <099>    <acd>Versión 0.1.0 -- Programado por Dunkelheit<099>};
+    #SHOWME { <G02><138>   888ooo88P'   888     <178>88           <099>    <acd>https://github.com/dunkelheit/rl-plus-plus<099>};
+    #SHOWME { <G02><138>   888`88b.     888                  <099>};
+    #SHOWME { <G02><138>   888  `88b.   888       o          <099>};
+    #SHOWME { <G02><138>  o888o  o888o o888ooooood8          <099>             <fac>Pulsa F1 para conectarte<099>};
+    #SHOWME { <G02>                                     <099>};
+    #SHOWME {};
+}
+
+#ALIAS {/limpiar} {
+    #system {tput clear};
+};
+
+#ALIAS {/log} {
+	#IF {"%0" == "on"} {
+		#IF {"$logging" != "on"} {
+			#FORMAT {logfile} {log/%t.log} {%Y-%m-%d};
+            #LOG {APPEND} {$logfile};
+            #VAR {logging} {on};
+            #SHOWME {Grabando...}
+		};
+		#ELSE {
+            #SHOWME {Ya estás grabando un log.};
+		};
+	};
+	#ELSEIF {"%0" == "off"} {
+		#IF {"$logging" == "on"} {
+            #LOG {OFF};
+            #VAR {logging} {off};
+            #SHOWME {Dejando de grabar...}
+		};
+		#ELSE {
+            #SHOWME {No estás grabando un log.};
+		};
+	};
+	#ELSE {
+        #SHOWME {Sintáxis: log on|off.};
+	};
+};
+
+#ALIAS {/clear} {
+    #SYSTEM {tput clear};
+};
+
 #ALIAS {/cargarAliasesBasicos} {
     alias save salvar;
     alias g ojear $*$;
@@ -52,35 +101,12 @@
     alias FU sigilar fuera;  
 };
 
-#ALIAS {/limpiar} {
-    #system {tput clear};
-};
-
-#ALIAS {/log} {
-	#IF {"%0" == "on"} {
-		#IF {"$logging" != "on"} {
-			#FORMAT {logfile} {log/%t.log} {%Y-%m-%d};
-            #LOG {APPEND} {$logfile};
-            #VAR {logging} {on};
-            #SHOWME {Grabando...}
-		};
-		#ELSE {
-            #SHOWME {Ya estás grabando un log.};
-		};
-	};
-	#ELSEIF {"%0" == "off"} {
-		#IF {"$logging" == "on"} {
-            #LOG {OFF};
-            #VAR {logging} {off};
-            #SHOWME {Dejando de grabar...}
-		};
-		#ELSE {
-            #SHOWME {No estás grabando un log.};
-		};
-	};
-	#ELSE {
-        #SHOWME {Sintáxis: log on|off.};
-	};
+#IF {$_development == 1} {
+    #ALIAS {/reload} {
+        #KILL {all};
+        #SHOWME <faa>Recargando...;
+        #READ {src/main.tin};
+    };
 };
 
 #CLASS {RL_ALIAS} {close};
