@@ -23,7 +23,7 @@
 #SUBSTITUTE {^%* est{á|a} mortalmente herid{o|a}.$} {%1 @healthBar{4;50} @healthColor{4}1-7%<099>};
 #SUBSTITUTE {^%* est{á|a} moribund{o|a}.$} {%1 @healthBar{0;50} @healthColor{0}0%<099>};
 
-#VAR {attackType} {{Abrasas en ácido|Golpeas con un remolino de aire|Electrocutas|Congelas|Dañas con chispas mágicas|Golpeas con una onda psiónica|Envenenas|Golpeas con un chorro de agua|Rodeas de energía benigna|Quemas|Abrasas|Rodeas de energía maligna|Destrozas|Azotas con un halo divino|Cortas|Sesgas|Rajas|Pinchas|Perforas|Aplastas|Golpeas|Desgarras|Laceras}};
+#VAR {attackType} {{Abrasas en ácido|Golpeas con un remolino de aire|Electrocutas|Congelas|Dañas con chispas mágicas|Golpeas con una onda psiónica|Envenenas|Golpeas con un chorro de agua|Rodeas de energía benigna|Quemas|Abrasas|Rodeas de energía maligna|Destrozas|Azotas con un halo divino|Cortas|Sesgas|Rajas|Pinchas|Perforas|Atraviesas|Aplastas|Golpeas|Desgarras|Laceras}};
 
 #SUBSTITUTE {^# $attackType%* en %* a %*.$} {@parseWeaponMessage{%1;%3;%4;%5}};
 
