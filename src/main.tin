@@ -16,14 +16,44 @@
 #READ {src/target.tin};
 #READ {src/pathwalker.tin};
 
-#MACRO {\eOP} {
-    #UNMACRO {\eOP};
-    #SESSION rl rlmud.org 5001;
-};
-
-#DELAY {0} {
+#EVENT {PROGRAM START} {
     /limpiar;
     /motd;
+    #SPLIT;
+    #SHOWME {<G03><138>@center{Bienvenido a RL++ - Pulsa F1 para conectarte}<099>} {1};
+    #MACRO {\eOP} {
+        #UNMACRO {\eOP};
+        #SESSION rl rlmud.org 5001;
+    };
 };
+
+#EVENT {SESSION CONNECTED} {
+    #SWITCH {"%0"} {
+        #CASE {"rl"} {
+            #CLASS {RL_CONNECTION_IMPL} {open};
+            #SHOWME {<G03><138>@center{Conectado a Reinos de Leyenda MUD}<099>} {1};
+            #ACTION {Los Dioses te dan la bienvenida a sus Reinos de Leyenda} {
+                #SHOWME {<G03><138>@center{Usa el comando "puntos" para incializar la barra de estado}<099>} {1};
+                #CLASS {RL_CONNECTION_IMPL} {kill};
+            };
+            #CLASS {RL_CONNECTION_IMPL} {close};
+        };
+    };
+};
+
+#EVENT {SESSION ACTIVATED} {
+    #SWITCH {"%0"} {
+        #CASE {"gts"} {
+            #SHOWME {<G03><138>@center{Bienvenido a RL++ - Pulsa F1 para conectarte}<099>} {1};
+            #MACRO {\eOP} {
+                #UNMACRO {\eOP};
+                #SESSION rl rlmud.org 5001;
+            };
+        };
+        #CASE {"rl"} {
+            #SHOWME {<G03><138>@center{Conectando a Reinos de Leyenda MUD}<099>} {1};
+        };
+    };
+}
 
 #CLASS {RL_MAIN} {close};
