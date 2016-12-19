@@ -24,7 +24,6 @@
         #ELSE {
             #FOREACH {$exits[%%*]} {exit} {
                 #IF {"$exit" != "$lastVisitedExit"} {
-                    #SHOWME {Elegido: $exit};
                     #VAR {lastVisitedExit} {@oppositeDirection{$exit}};
                     $exit;
                     #BREAK;

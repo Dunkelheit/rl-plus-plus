@@ -22,7 +22,7 @@
 };
 
 #DELAY {0} {
-    /clear;
+    /limpiar;
     /motd;
 };
 
