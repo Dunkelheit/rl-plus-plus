@@ -44,6 +44,7 @@ Situate en la carpeta de Instalación y ejecuta el siguiente comando:
 
 * `/cargarAliasesBasicos` - Establece aliases básicos en una nueva ficha.
 * `/cargarAliasesBribon` - Establece aliases para sigilar y esconderse en una nueva ficha.
+* `/conectar` - Conecta a Reinos de Leyenda MUD.
 * `/limpiar` - Borra el contenido de la pantalla.
 * `/log <on|off>` - Activa o desactiva el logeado. Los logs se guardan en el directorio /logs.
 * `/reload` - Recarga el script. Sólo funciona en modo desarrollo.
