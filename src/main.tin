@@ -14,6 +14,7 @@
 #READ {src/powerline.tin};
 #READ {src/spells.tin};
 #READ {src/target.tin};
+#READ {src/pathwalker.tin};
 
 #MACRO {\eOP} {
     #UNMACRO {\eOP};

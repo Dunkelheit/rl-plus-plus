@@ -46,10 +46,6 @@
 	};
 };
 
-#ALIAS {/clear} {
-    #SYSTEM {tput clear};
-};
-
 #ALIAS {/cargarAliasesBasicos} {
     alias save salvar;
     alias g ojear $*$;

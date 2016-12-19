@@ -29,10 +29,8 @@
 
 #SUBSTITUTE {^%* ha muerto.$} {<G02><118>@center{☠  %1 ☠}<099>};
 
-#IF {$_development == 1}
-{
-    #ALIAS {/testSubstitute}
-    {
+#IF {$_development == 1} {
+    #ALIAS {/testSubstitute} {
         #SHOWME {¡Tus imágenes se desvanecen!};
         #SHOWME {¡Tus imagenes se desvanecen!};
         #SHOWME {Tu piel vuelve a su estado normal.};

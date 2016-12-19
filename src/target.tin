@@ -1,5 +1,5 @@
-#class {RL_TARGET} {kill};
-#class {RL_TARGET} {open};
+#CLASS {RL_TARGET} {kill};
+#CLASS {RL_TARGET} {open};
 
 #ALIAS {/tars} {
     #CLASS {target} {open};

@@ -17,6 +17,7 @@
 
 #HIGHLIGHT {^%* empieza a formular un hechizo.$}                {bold magenta} {5};
 #HIGHLIGHT {^¡Descubres a %* intentando moverse en silencio!$}  {bold magenta} {5};
+#HIGHLIGHT {^¡%* descubre a %* intentando moverse en silencio!$}    {bold magenta} {5};
 #HIGHLIGHT {^¡%* realiza un amplio ataque barriendo de un golpe a todos sus oponentes!} {bold magenta} {5};
 #HIGHLIGHT {^¡%* se dispone a golpear a un enemigo!$}   {bold magenta} {5};
 #HIGHLIGHT {^Te vuelves a sentir pesad{a|o}.$}          {bold magenta} {5};
