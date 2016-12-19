@@ -44,4 +44,34 @@
     }
 }
 
+/*
+ * Function @parseWeaponMessage{who;how strong;where;target}
+ */
+#FUNCTION {parseWeaponMessage} {
+    #SWITCH {"%2"} {
+        #CASE {"débilmente"} {#VAR {damage} {<aaa>1-40}};
+        #CASE {"con poca fuerza"} {#VAR {damage} {<aba>41-80}};
+        #CASE {"con fuerza"} {#VAR {damage} {<ada>121-160}};
+        #CASE {"con mucha fuerza"} {#VAR {damage} {<aea>161-210}};
+        #CASE {"violentamente"} {#VAR {damage} {<afa>211-280}};
+        #CASE {"con increíble potencia"} {#VAR {damage} {<afa><188>281-600}};
+        #CASE {"con fuerza sobrehumana"} {#VAR {damage} {<ffa>601-800}};
+        #CASE {"con fuerza divina"} {#VAR {damage} {<fca>801-1500}};
+        #CASE {"con cólera titánica"} {#VAR {damage} {<faa><188>1500+}};
+        #DEFAULT {#VAR {damage} {<aca>81-120}};
+    };
+    #SWITCH {"%3"} {
+        #CASE {"la cabeza"} {#VAR {multiplier} {<afa>×1.6}};
+        #CASE {"el pecho"} {#VAR {multiplier} {<aba>×1.1}};
+        #CASE {"un pie"} {#VAR {multiplier} {<aaa>×0.8}};
+        #DEFAULT {#VAR {multiplier} {}};
+    };
+    #IF {"%2" == ""} {
+        #RETURN {#<099> %1 en %3 a %4. $damage<099> $multiplier};
+    };
+    #ELSE {
+        #RETURN {#<099> %1 %2 en %3 a %4. $damage<099> $multiplier};
+    };
+};
+
 #class {RL_FUNCTION} {close};

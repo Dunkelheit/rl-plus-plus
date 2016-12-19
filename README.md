@@ -29,11 +29,12 @@ Situate en la carpeta de Instalación y ejecuta el siguiente comando:
 ## Funciones
 
 * Sustitución con colores y destacado de multitud de eventos
+    * Daños armados
+    * Salud y estado
     * Habilidades y hechizos
     * Entrada y salida de habitaciones
     * Puntos de experiencia
     * Enemigos
-    * Estados
 * Monitor de heartbeat
 * Barra de estado con puntos de vida, puntos de energía, imágenes y pieles
 * Delta de puntos de vida

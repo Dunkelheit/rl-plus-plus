@@ -83,6 +83,7 @@
     alias cv conversar $*$;
     alias cm coger monedas de cuerpos;
     alias x noticias $*$;
+    alias fc ficha cuenta $*$;
 };
 
 #ALIAS {/cargarAliasesBribon} {
