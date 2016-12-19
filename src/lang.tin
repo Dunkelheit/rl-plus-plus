@@ -68,6 +68,7 @@
         #CASE {"o"} {#RETURN e};
         #CASE {"so"} {#RETURN ne};
         #CASE {"s"} {#RETURN n};
+        #CASE {"se"} {#RETURN no};
         #CASE {"ar"} {#RETURN ab};
         #CASE {"ab"} {#RETURN ar};
         #CASE {"de"} {#RETURN fu};
