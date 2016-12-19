@@ -4,7 +4,7 @@
 #ALIAS {/rumbo} {
     #CLASS {RL_PATHWALKER_IMPL} {open};
     #IF {"%1" == ""} {
-        #SHOWME {Sintáxis: /rumbo <dirección>};
+        @message{Sintáxis: /rumbo <dirección>};
         #RETURN;
     };
     #VAR {lastVisitedExit} {@oppositeDirection{%1}};
@@ -14,11 +14,11 @@
         #LIST {exits} {create} {$exits};
         #LIST {exits} {size} {exitsLength};
         #IF {$exitsLength > 2} {
-            #SHOWME {Has llegado a una bifurcación en el camino.};
+            @message{Has llegado a una bifurcación en el camino.};
             #CLASS {RL_PATHWALKER_IMPL} {kill};
         };
         #ELSEIF {$exitsLength < 2} {
-            #SHOWME {Has llegado a un callejón sin salida.};
+            @message{Has llegado a un callejón sin salida.};
             #CLASS {RL_PATHWALKER_IMPL} {kill};
         };
         #ELSE {
@@ -32,21 +32,13 @@
         };
     };
     #ACT {^Parece que %* no produjo efecto alguno.$} {
-        #SHOWME {Deteniendo el rumbo, pues algo raro ha sucedido.};
+        @message{Deteniendo el rumbo, pues algo raro ha sucedido.};
         #CLASS {RL_PATHWALKER_IMPL} {kill};
     };
-    #SHOWME {Caminando rumbo %1...};
+    @message{Caminando rumbo %1...};
     %1;
     #CLASS {RL_PATHWALKER_IMPL} {close};
 }
-
-#IF {$_development == 1} {
-    #ALIAS {/testRumbo} {
-        /rumbo n;
-        #SHOWME {Avenida de Moisés\e[1m\e[36m [s,n]\e[0m \e[0m};
-        #SHOWME {Avenida de Moisés\e[1m\e[36m [o]\e[0m \e[0m};
-    };
-};
 
 #CLASS {RL_CONFIG} {close};
 

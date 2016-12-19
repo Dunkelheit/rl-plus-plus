@@ -74,4 +74,12 @@
     };
 };
 
+/*
+ * Function @message{string}
+ */
+#FUNCTION {message} {
+    #SHOWME {$rlppPrefix$rlppColor %1<099>};
+    #RETURN;
+};
+
 #class {RL_FUNCTION} {close};

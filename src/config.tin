@@ -1,5 +1,5 @@
-#class {RL_CONFIG} {kill};
-#class {RL_CONFIG} {open};
+#CLASS {RL_CONFIG} {kill};
+#CLASS {RL_CONFIG} {open};
 
 #CONFIG {256 COLORS} {ON};
 #CONFIG {AUTO TAB} {5000};
@@ -23,4 +23,7 @@
 #CONFIG {VERBOSE} {OFF};
 #CONFIG {WORDWRAP} {ON};
 
-#class {RL_CONFIG} {close};
+#VAR {rlppPrefix} {<139>☥<099>};
+#VAR {rlppColor} {<fca>};
+
+#CLASS {RL_CONFIG} {close};

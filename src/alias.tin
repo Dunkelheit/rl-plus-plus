@@ -25,24 +25,24 @@
 			#FORMAT {logfile} {log/%t.log} {%Y-%m-%d};
             #LOG {APPEND} {$logfile};
             #VAR {logging} {on};
-            #SHOWME {Grabando...}
+            @message{Grabando...};
 		};
 		#ELSE {
-            #SHOWME {Ya estás grabando un log.};
+            @message{Ya estás grabando un log.};
 		};
 	};
 	#ELSEIF {"%0" == "off"} {
 		#IF {"$logging" == "on"} {
             #LOG {OFF};
             #VAR {logging} {off};
-            #SHOWME {Dejando de grabar...}
+            @message{Dejando de grabar...};
 		};
 		#ELSE {
-            #SHOWME {No estás grabando un log.};
+            @message{No estás grabando un log.};
 		};
 	};
 	#ELSE {
-        #SHOWME {Sintáxis: log on|off.};
+        @message{Sintáxis: log on|off.};
 	};
 };
 
@@ -100,8 +100,8 @@
 
 #IF {$_development == 1} {
     #ALIAS {/reload} {
+        @message{Recargando...};
         #KILL {all};
-        #SHOWME <faa>Recargando...;
         #READ {src/main.tin};
     };
 };
