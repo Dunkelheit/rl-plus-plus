@@ -2,7 +2,7 @@
 
 Scripts de TinTin++ para [Reinos de Leyenda MUD](http://www.reinosdeleyenda.es/).
 
-![Captura de pantalla](https://cloud.githubusercontent.com/assets/448131/21295892/1171b6fa-c55f-11e6-83a0-1317d4d43948.png)
+![Captura de pantalla](https://cloud.githubusercontent.com/assets/448131/21314478/9c830800-c5f7-11e6-925c-026018b74461.png)
 
 ## Requisitos
 
