@@ -103,6 +103,7 @@
         @message{Recargando...};
         #KILL {all};
         #READ {src/main.tin};
+        @message{Script recargado satisfactoriamente.};
     };
 };
 

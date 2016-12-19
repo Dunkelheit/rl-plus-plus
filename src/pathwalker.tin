@@ -4,7 +4,12 @@
 #ALIAS {/rumbo} {
     #CLASS {RL_PATHWALKER_IMPL} {open};
     #IF {"%1" == ""} {
-        @message{Sintáxis: /rumbo <dirección>};
+        @message{Sintáxis: /rumbo <dirección>|off};
+        #RETURN;
+    };
+    #IF {"%1" == "off"} {
+        #CLASS {RL_PATHWALKER_IMPL} {kill};
+        @message{Rumbo detenido.};
         #RETURN;
     };
     #VAR {lastVisitedExit} {@oppositeDirection{%1}};
