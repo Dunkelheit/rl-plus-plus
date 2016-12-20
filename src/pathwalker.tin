@@ -45,5 +45,5 @@
     #CLASS {RL_PATHWALKER_IMPL} {close};
 }
 
-#CLASS {RL_CONFIG} {close};
+#CLASS {RL_PATHWALKER} {close};
 
