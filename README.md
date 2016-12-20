@@ -40,6 +40,17 @@ Situate en la carpeta de Instalación y ejecuta el siguiente comando:
 * Delta de puntos de vida
 * Extensión de cánticos con el nombre del hechizo
 
+## Comandos
+
+* `/cargarAliasesBasicos` - Establece aliases básicos en una nueva ficha.
+* `/cargarAliasesBribon` - Establece aliases para sigilar y esconderse en una nueva ficha.
+* `/conectar` - Conecta a Reinos de Leyenda MUD.
+* `/limpiar` - Borra el contenido de la pantalla.
+* `/log <on|off>` - Activa o desactiva el logeado. Los logs se guardan en el directorio /logs.
+* `/reload` - Recarga el script. Sólo funciona en modo desarrollo.
+* `/rumbo <dirección>` - Camina automáticamente en una dirección, de forma similar al comando _galopar_.
+* `/tars` - Computa una lista de enemigos. Has de tener el alias "tarear" establecido con tu "nickear" personal.
+
 ## Errors y colaboración
 
 En caso de encontrar un bug, reportalo en el apartado [issues](https://github.com/dunkelheit/rl-plus-plus/issues).

@@ -10,10 +10,28 @@
     #SHOWME { <G02><138>   888ooo88P'   888     <178>88           <099>    <acd>https://github.com/dunkelheit/rl-plus-plus<099>};
     #SHOWME { <G02><138>   888`88b.     888                  <099>};
     #SHOWME { <G02><138>   888  `88b.   888       o          <099>};
-    #SHOWME { <G02><138>  o888o  o888o o888ooooood8          <099>             <fac>Pulsa F1 para conectarte<099>};
+    #SHOWME { <G02><138>  o888o  o888o o888ooooood8          <099>   <fac>Escribe /ayuda para ver la lista de comandos<099>};
     #SHOWME { <G02>                                     <099>};
     #SHOWME {};
 }
+
+#ALIAS {/ayuda} {
+    @message{Comandos disponibles en RL++};
+    #SHOWME {};
+    #SHOWME {<fac>/cargarAliasesBasicos <acd>Establece aliases básicos en una nueva ficha.<099>};
+    #SHOWME {<fac>/cargarAliasesBribon <acd>Establece aliases para sigilar y esconderse en una nueva ficha.<099>};
+    #SHOWME {<fac>/conectar <acd>Conecta a Reinos de Leyenda MUD.<099>};
+    #SHOWME {<fac>/limpiar <acd>Borra el contenido de la pantalla.<099>};
+    #SHOWME {<fac>/log <on|off> <acd>Activa o desactiva el logeado. Los logs se guardan en el directorio /logs.<099>};
+    #SHOWME {<fac>/reload <acd>Recarga el script. Sólo funciona en modo desarrollo.<099>};
+    #SHOWME {<fac>/rumbo <dirección> <acd>Camina automáticamente en una dirección, de forma similar al comando "galopar".<099>};
+    #SHOWME {<fac>/tars <acd>Computa una lista de enemigos. Has de tener el alias "tarear" establecido con tu "nickear" personal.<099>};
+    #SHOWME {};
+};
+
+#ALIAS {/conectar} {
+    #SESSION rl rlmud.org 5001;
+};
 
 #ALIAS {/limpiar} {
     #system {tput clear};
@@ -25,29 +43,25 @@
 			#FORMAT {logfile} {log/%t.log} {%Y-%m-%d};
             #LOG {APPEND} {$logfile};
             #VAR {logging} {on};
-            #SHOWME {Grabando...}
+            @message{Grabando...};
 		};
 		#ELSE {
-            #SHOWME {Ya estás grabando un log.};
+            @message{Ya estás grabando un log.};
 		};
 	};
 	#ELSEIF {"%0" == "off"} {
 		#IF {"$logging" == "on"} {
             #LOG {OFF};
             #VAR {logging} {off};
-            #SHOWME {Dejando de grabar...}
+            @message{Dejando de grabar...};
 		};
 		#ELSE {
-            #SHOWME {No estás grabando un log.};
+            @message{No estás grabando un log.};
 		};
 	};
 	#ELSE {
-        #SHOWME {Sintáxis: log on|off.};
+        @message{Sintáxis: log on|off.};
 	};
-};
-
-#ALIAS {/clear} {
-    #SYSTEM {tput clear};
 };
 
 #ALIAS {/cargarAliasesBasicos} {
@@ -104,9 +118,10 @@
 
 #IF {$_development == 1} {
     #ALIAS {/reload} {
+        @message{Recargando...};
         #KILL {all};
-        #SHOWME <faa>Recargando...;
         #READ {src/main.tin};
+        @message{Script recargado satisfactoriamente.};
     };
 };
 
