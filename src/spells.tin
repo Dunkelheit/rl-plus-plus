@@ -1,4 +1,4 @@
-#eontenedor dimensionalclass {RL_SPELLS} {kill};
+#class {RL_SPELLS} {kill};
 #class {RL_SPELLS} {open};
 
 #FUNCTION {translateSpell}
