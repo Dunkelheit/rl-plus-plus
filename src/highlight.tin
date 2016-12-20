@@ -21,7 +21,7 @@
 #HIGHLIGHT {^¡%* se dispone a golpear a un enemigo!$}   {bold magenta} {5};
 #HIGHLIGHT {^Te vuelves a sentir pesad{a|o}.$}          {bold magenta} {5};
 #HIGHLIGHT {^Notas como el poder de la runa %* te abandona poco a poco.$}   {bold magenta} {5};
-
+#HIGHLIGHT {^Dejas de preever los próximos ataques de tus enemigos}          {bold magenta} {5};
 /*
  * Dangers
  */
@@ -30,10 +30,10 @@
 #HIGHLIGHT {^¡Tus imágenes se desvanecen!$}             {bold red} {5};
 #HIGHLIGHT {^Tu piel vuelve a su estado normal.$}       {bold red} {5};
 #HIGHLIGHT {^Sientes como una fuerza divina te rodea,%*}    {bold red} {5};
-
 #HIGHLIGHT {^Ves como %* se aleja de ti mientras te mira con el rostro enfurecido.$} {bold red} {5};
 #HIGHLIGHT {^%* te mira mientras comprime toda su musculatura.$} {bold red} {5};
 #HIGHLIGHT {^¡Eres agarrad{o|a} brutalmente por %* y no puedes moverte!} {bold red} {5};
+#HIGHLIGHT {^¡Te estremeces y pierdes la concentración!} {bold red} {5};
 
 /*
  * Good things
@@ -41,6 +41,7 @@
 
 #HIGHLIGHT {^Puedes moverte libremente de nuevo.$}      {bold green} {5};
 #HIGHLIGHT {^La piel de %* vuelve a su estado normal.$} {bold green} {5};
+#HIGHLIGHT {^Tu golpe causa una profunda herida a %1 en %2} {bold green} {5};
 
 /*
  * Encantamiento
