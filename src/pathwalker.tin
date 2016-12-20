@@ -30,7 +30,7 @@
             #FOREACH {$exits[%%*]} {exit} {
                 #IF {"$exit" != "$lastVisitedExit"} {
                     #VAR {lastVisitedExit} {@oppositeDirection{$exit}};
-                    $exit;
+                    #DELAY {1} {$exit};
                     #BREAK;
                 };
             };
