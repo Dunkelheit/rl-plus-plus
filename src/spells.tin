@@ -1,5 +1,5 @@
-#class {RL_SPELLS} {kill};
-#class {RL_SPELLS} {open};
+#CLASS {RL_SPELLS} {kill};
+#CLASS {RL_SPELLS} {open};
 
 #FUNCTION {translateSpell}
 {
