@@ -48,7 +48,7 @@ Situate en la carpeta de Instalación y ejecuta el siguiente comando:
 * `/limpiar` - Borra el contenido de la pantalla.
 * `/log <on|off>` - Activa o desactiva el logeado. Los logs se guardan en el directorio /logs.
 * `/reload` - Recarga el script. Sólo funciona en modo desarrollo.
-* `/rumbo <dirección>` - Camina automáticamente en una dirección, de forma similar al comando _galopar_.
+* `/rumbo <dirección|off>` - Camina automáticamente en una dirección, de forma similar al comando _galopar_.
 * `/tars` - Computa una lista de enemigos. Has de tener el alias "tarear" establecido con tu "nickear" personal.
 
 ## Errors y colaboración

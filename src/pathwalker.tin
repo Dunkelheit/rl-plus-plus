@@ -4,7 +4,7 @@
 #ALIAS {/rumbo} {
     #CLASS {RL_PATHWALKER_IMPL} {open};
     #IF {"%1" == ""} {
-        #SHOWME {@message{Sintáxis: /rumbo <dirección>|off}};
+        #SHOWME {@message{Sintáxis: /rumbo <dirección|off>}};
         #RETURN;
     };
     #IF {"%1" == "off"} {
