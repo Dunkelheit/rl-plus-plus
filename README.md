@@ -39,6 +39,7 @@ Situate en la carpeta de Instalación y ejecuta el siguiente comando:
 * Barra de estado con puntos de vida, puntos de energía, imágenes y pieles
 * Delta de puntos de vida
 * Extensión de cánticos con el nombre del hechizo
+* Recorrido automático de caminos (como el comando galopar)
 
 ## Comandos
 
