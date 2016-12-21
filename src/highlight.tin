@@ -25,10 +25,12 @@
 #HIGHLIGHT {^Dejas de preever los próximos ataques de tus enemigos} #{bold magenta} {5};
 #HIGHLIGHT {^%* te sigue.$} {bold magenta} {5};
 #HIGHLIGHT {^Te haces consciente de la presencia de %*.$} {bold magenta} {5};
+#HIGHLIGHT {^El hechizo de 'retener' que afectaba a %* se desmorona cuando este recibe mucho da{ñ|ny}o.$}  {bold magenta} {5};
+#HIGHLIGHT {^%* queda liberado de la fuerza que le reten{í|i}a..$}  {bold magenta} {5};
 
 /*
  * Dangers
-  */
+ */
 
 #HIGHLIGHT {^¡Has quedado al descubierto!$}             {bold red} {5};
 #HIGHLIGHT {^¡Tus imágenes se desvanecen!$}             {bold red} {5};
@@ -42,7 +44,7 @@
 
 /*
  * Good things
-  */
+ */
 
 #HIGHLIGHT {^Puedes moverte libremente de nuevo.$}      {bold green} {5};
 #HIGHLIGHT {^La piel de %* vuelve a su estado normal.$} {bold green} {5};
@@ -50,7 +52,7 @@
 
 /*
  * Encantamiento
-  */
+ */
 
 #HIGHLIGHT {^Consigues adueñarte de la voluntad de %*.$}    {bold green} {5};
 #HIGHLIGHT {^¡%* se resiste a tu hechizo de dominación!$}   {bold red} {5};
