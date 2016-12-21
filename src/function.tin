@@ -78,8 +78,7 @@
  * Function @message{string}
  */
 #FUNCTION {message} {
-    #SHOWME {$rlppPrefix$rlppColor %1<099>};
-    #RETURN;
+    #RETURN {$rlppPrefix$rlppColor %1<099>};
 };
 
 #class {RL_FUNCTION} {close};

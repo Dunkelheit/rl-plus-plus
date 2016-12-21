@@ -4,26 +4,26 @@
 #ALIAS {/rumbo} {
     #CLASS {RL_PATHWALKER_IMPL} {open};
     #IF {"%1" == ""} {
-        @message{Sintáxis: /rumbo <dirección>|off};
+        #SHOWME {@message{Sintáxis: /rumbo <dirección>|off}};
         #RETURN;
     };
     #IF {"%1" == "off"} {
         #CLASS {RL_PATHWALKER_IMPL} {kill};
-        @message{Rumbo detenido.};
+        #SHOWME {@message{Rumbo detenido.}};
         #RETURN;
     };
     #VAR {lastVisitedExit} {@oppositeDirection{%1}};
-    #ACT {^%%* [{[nose,|]+[nose|]*}]{[ ]*}$} {
+    #ACT {^%%* [{[noseabdr,|]+[noseabdr|]*}]{[ ]*}$} {
         #VARIABLE {exits} {%%2};
         #REPLACE {exits} {,} {;};
         #LIST {exits} {create} {$exits};
         #LIST {exits} {size} {exitsLength};
         #IF {$exitsLength > 2} {
-            @message{Has llegado a una bifurcación en el camino.};
+            #SHOWME {@message{Has llegado a una bifurcación en el camino.}};
             #CLASS {RL_PATHWALKER_IMPL} {kill};
         };
         #ELSEIF {$exitsLength < 2} {
-            @message{Has llegado a un callejón sin salida.};
+            #SHOWME {@message{Has llegado a un callejón sin salida.}};
             #CLASS {RL_PATHWALKER_IMPL} {kill};
         };
         #ELSE {
@@ -37,10 +37,10 @@
         };
     };
     #ACT {^Parece que %* no produjo efecto alguno.$} {
-        @message{Deteniendo el rumbo, pues algo raro ha sucedido.};
+        #SHOWME {@message{Deteniendo el rumbo, pues algo raro ha sucedido.}};
         #CLASS {RL_PATHWALKER_IMPL} {kill};
     };
-    @message{Caminando rumbo %1...};
+    #SHOWME {@message{Caminando rumbo %1...}};
     %1;
     #CLASS {RL_PATHWALKER_IMPL} {close};
 }
