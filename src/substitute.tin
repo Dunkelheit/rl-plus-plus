@@ -27,6 +27,8 @@
 
 #SUBSTITUTE {^# $attackType%* en %* a %*.$} {@parseWeaponMessage{%1;%3;%4;%5}};
 
+#NOP TODO: Critical hits
+
 #SUBSTITUTE {^%* ha muerto.$} {<G02><118>@center{☠  %1 ☠}<099>};
 
 #IF {$_development == 1} {
