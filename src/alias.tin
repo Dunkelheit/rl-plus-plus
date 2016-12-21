@@ -119,7 +119,7 @@
     alias N sigilar norte;
     alias NO sigilar noroeste;
     alias O sigilar oeste;
-    alias SO sigilar sudoeste
+    alias SO sigilar sudoeste;
     alias S sigilar sur;
     alias SE sigilar sudeste;
     alias AR sigilar arriba;
