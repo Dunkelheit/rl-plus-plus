@@ -146,6 +146,7 @@
         #CASE {"maruma o manir"}            {#VAR spellName silueta imprecisa};
         #CASE {"it cualis"}                 {#VAR spellName simulacro};
         #CASE {"venti olabae"}              {#VAR spellName ventriloquia};
+        #CASE {"flobben ark-ark das"}       {#VAR spellName descarga de espadas espectrales};
         
         #NOP =============== Necromancia ===============;
         #CASE {"morti elai aradi"}                  {#VAR spellName animar muertos};
