@@ -15,6 +15,7 @@
 #READ {src/spells.tin};
 #READ {src/target.tin};
 #READ {src/pathwalker.tin};
+#READ {src/saving_throw.tin};
 
 #EVENT {PROGRAM START} {
     /limpiar;

@@ -35,6 +35,7 @@ Situate en la carpeta de Instalación y ejecuta el siguiente comando:
     * Entrada y salida de habitaciones
     * Puntos de experiencia
     * Enemigos
+    * Tiradas de salvación
 * Monitor de heartbeat
 * Barra de estado con puntos de vida, puntos de energía, imágenes y pieles
 * Delta de puntos de vida
