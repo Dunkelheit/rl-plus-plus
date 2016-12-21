@@ -16,7 +16,7 @@
 }
 
 #ALIAS {/ayuda} {
-    @message{Comandos disponibles en RL++};
+    #SHOWME {@message{Comandos disponibles en RL++}};
     #SHOWME {};
     #SHOWME {<fac>/cargarAliasesBasicos <acd>Establece aliases básicos en una nueva ficha.<099>};
     #SHOWME {<fac>/cargarAliasesBribon <acd>Establece aliases para sigilar y esconderse en una nueva ficha.<099>};
@@ -43,28 +43,33 @@
 			#FORMAT {logfile} {log/%t.log} {%Y-%m-%d};
             #LOG {APPEND} {$logfile};
             #VAR {logging} {on};
-            @message{Grabando...};
+            #SHOWME {@message{Grabando...}};
 		};
 		#ELSE {
-            @message{Ya estás grabando un log.};
+            #SHOWME {@message{Ya estás grabando un log.}};
 		};
 	};
 	#ELSEIF {"%0" == "off"} {
 		#IF {"$logging" == "on"} {
             #LOG {OFF};
             #VAR {logging} {off};
-            @message{Dejando de grabar...};
+            #SHOWME {@message{Dejando de grabar...}};
 		};
 		#ELSE {
-            @message{No estás grabando un log.};
+            #SHOWME {@message{No estás grabando un log.}};
 		};
 	};
 	#ELSE {
-        @message{Sintáxis: log on|off.};
+        #SHOWME {@message{Sintáxis: log on|off.}};
 	};
 };
 
 #ALIAS {/cargarAliasesBasicos} {
+    charset UTF-8;
+    inform todo on;
+    consentir tiradas on;
+    consentir detallado off;
+    consentir menus off;
     alias save salvar;
     alias g ojear $*$;
     alias l mirar $*$;
@@ -98,6 +103,13 @@
     alias cm coger monedas de cuerpos;
     alias x noticias $*$;
     alias fc ficha cuenta $*$;
+    alias lev levantarse;
+    alias aga agacharse;
+    alias xp experiencia $*$;
+    alias obj nick obj $*$;
+    alias bp mirar obj;
+    alias gt coger $*$ de obj;
+    alias pt poner $*$ en obj;
 };
 
 #ALIAS {/cargarAliasesBribon} {
@@ -118,10 +130,10 @@
 
 #IF {$_development == 1} {
     #ALIAS {/reload} {
-        @message{Recargando...};
+        #SHOWME {@message{Recargando...}};
         #KILL {all};
         #READ {src/main.tin};
-        @message{Script recargado satisfactoriamente.};
+        #SHOWME {@message{Script recargado satisfactoriamente.}};
     };
 };
 
