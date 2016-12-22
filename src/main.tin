@@ -18,6 +18,7 @@
 #READ {src/saving_throw.tin};
 
 #READ {src/module.tin};
+#READ {src/modules/pathwalker.tin};
 #READ {src/modules/shape.tin};
 #READ {src/modules/weapon_messages.tin};
 

@@ -1,0 +1,88 @@
+#CLASS {RL_PATHWALKER} {kill};
+#CLASS {RL_PATHWALKER} {open};
+
+/**********************************************************************************************************************
+ * Module RL_PATHWALKER                                                                                               *
+ *                                                                                                                    *
+ * Runs automatically through straight paths                                                                          *
+ **********************************************************************************************************************/
+
+/register_module {RL_PATHWALKER} {Rumbo} {Recorrido automático de caminos (como el comando galopar).};
+/add_module_setting {RL_PATHWALKER} {delay} {number} {} {1} {Segundos entre dirección y dirección};
+
+/**********************************************************************************************************************
+ * Aliases                                                                                                            *
+ **********************************************************************************************************************/
+
+/*
+ * Alias /rumbo {direction}
+ *
+ * Walks a straight path towards the given direction.
+ *
+ * Arguments:
+ *   %1 (any) direction
+ *
+ * Example:
+ *   /rumbo {e};
+ */
+#ALIAS {/rumbo} {
+    #CLASS {RL_PATHWALKER_IMPL} {open};
+    #IF {"%1" == ""} {
+        /message {Sintáxis: /rumbo <dirección|off>};
+        #RETURN;
+    };
+    #IF {"%1" == "off"} {
+        #CLASS {RL_PATHWALKER_IMPL} {kill};
+        /message {Rumbo detenido.};
+        #UNVAR {lastVisitedExit};
+        #UNVAR {exits};
+        #RETURN;
+    };
+    #VAR {lastVisitedExit} {@oppositeDirection{%1}};
+    #ACT {^%%* [{[noseabdr,|]+[noseabdr|]*}]{[ ]*}$} {
+        #VAR {exits} {%%2};
+        #REPLACE {exits} {,} {;};
+        #LIST {exits} {create} {$exits};
+        #LIST {exits} {size} {exitsLength};
+        #IF {$exitsLength > 2} {
+            /message {Has llegado a una bifurcación en el camino.};
+            #UNVAR {lastVisitedExit};
+            #UNVAR {exits};
+            #CLASS {RL_PATHWALKER_IMPL} {kill};
+        };
+        #ELSEIF {$exitsLength < 2} {
+            /message {Has llegado a un callejón sin salida.};
+            #UNVAR {lastVisitedExit};
+            #UNVAR {exits};
+            #CLASS {RL_PATHWALKER_IMPL} {kill};
+        };
+        #ELSE {
+            #FOREACH {$exits[%%*]} {exit} {
+                #IF {"$exit" != "$lastVisitedExit"} {
+                    #VAR {lastVisitedExit} {@oppositeDirection{$exit}};
+                    #DELAY {@get_module_setting_value{RL_PATHWALKER;delay}} {$exit};
+                    #BREAK;
+                };
+            };
+        };
+    };
+    #ACT {^Parece que %* no produjo efecto alguno.$} {
+        /message {Deteniendo el rumbo, pues algo raro ha sucedido.};
+        #CLASS {RL_PATHWALKER_IMPL} {kill};
+    };
+    /message {Caminando rumbo %1...};
+    %1;
+    #CLASS {RL_PATHWALKER_IMPL} {close};
+}
+
+/**********************************************************************************************************************
+ * Testing                                                                                                            *
+ **********************************************************************************************************************/
+
+#IF {$_development == 1} {
+    #ALIAS {/test_RL_PATHWALKER} {
+        #SHOWME {No tests implemented.};
+    };
+};
+
+#CLASS {RL_PATHWALKER} {close};

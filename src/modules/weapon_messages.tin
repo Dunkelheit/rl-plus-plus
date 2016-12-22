@@ -7,13 +7,13 @@
  * Extends weapon messages with damage and location multipliers.                                                      *
  **********************************************************************************************************************/
 
-/register_module {RL_WEAPON_MESSAGES} {Weapon messages} {Añade daños y multiplicador por localización a los mensajes de combate.};
+/register_module {RL_WEAPON_MESSAGES} {Mensajes de daño} {Añade daños y multiplicador por localización a los mensajes de combate.};
 
 /**********************************************************************************************************************
  * Variables                                                                                                          *
  **********************************************************************************************************************/
 
-#VARIABLE {attackType} {{Abrasas en ácido|Golpeas con un remolino de aire|Electrocutas|Congelas|Dañas con chispas mágicas|Golpeas con una onda psiónica|Envenenas|Golpeas con un chorro de agua|Rodeas de energía benigna|Quemas|Abrasas|Rodeas de energía maligna|Destrozas|Azotas con un halo divino|Cortas|Sesgas|Rajas|Pinchas|Perforas|Atraviesas|Aplastas|Golpeas|Desgarras|Laceras}};
+#VAR {attackType} {{Abrasas en ácido|Golpeas con un remolino de aire|Electrocutas|Congelas|Dañas con chispas mágicas|Golpeas con una onda psiónica|Envenenas|Golpeas con un chorro de agua|Rodeas de energía benigna|Quemas|Abrasas|Rodeas de energía maligna|Destrozas|Azotas con un halo divino|Cortas|Sesgas|Rajas|Pinchas|Perforas|Atraviesas|Aplastas|Golpeas|Desgarras|Laceras}};
 
 /**********************************************************************************************************************
  * Functions                                                                                                          *
