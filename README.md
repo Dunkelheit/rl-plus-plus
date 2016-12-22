@@ -28,6 +28,7 @@ Situate en la carpeta de Instalación y ejecuta el siguiente comando:
 
 ## Funciones
 
+* Sistema de módulos
 * Sustitución con colores y destacado de multitud de eventos
     * Daños armados
     * Salud y estado
