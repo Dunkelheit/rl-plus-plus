@@ -16,7 +16,7 @@
 }
 
 #ALIAS {/ayuda} {
-    #SHOWME {@message{Comandos disponibles en RL++}};
+    /message {Comandos disponibles en RL++};
     #SHOWME {};
     #SHOWME {<fac>/cargarAliasesBasicos <acd>Establece aliases básicos en una nueva ficha.<099>};
     #SHOWME {<fac>/cargarAliasesBribon <acd>Establece aliases para sigilar y esconderse en una nueva ficha.<099>};
@@ -43,24 +43,24 @@
 			#FORMAT {logfile} {log/%t.log} {%Y-%m-%d};
             #LOG {APPEND} {$logfile};
             #VAR {logging} {on};
-            #SHOWME {@message{Grabando...}};
+            /message {Grabando...};
 		};
 		#ELSE {
-            #SHOWME {@message{Ya estás grabando un log.}};
+            /message {Ya estás grabando un log.};
 		};
 	};
 	#ELSEIF {"%0" == "off"} {
 		#IF {"$logging" == "on"} {
             #LOG {OFF};
             #VAR {logging} {off};
-            #SHOWME {@message{Dejando de grabar...}};
+            /message {Dejando de grabar...};
 		};
 		#ELSE {
-            #SHOWME {@message{No estás grabando un log.}};
+            /message {No estás grabando un log.};
 		};
 	};
 	#ELSE {
-        #SHOWME {@message{Sintáxis: log on|off.}};
+        /message {Sintáxis: log on|off.};
 	};
 };
 
@@ -128,12 +128,16 @@
     alias FU sigilar fuera;  
 };
 
+#ALIAS {/message} {
+    #SHOWME {$rl_config[message_prefix]$rl_config[message_color] %1<099>};
+};
+
 #IF {$_development == 1} {
     #ALIAS {/reload} {
-        #SHOWME {@message{Recargando...}};
+        /message {Recargando...};
         #KILL {all};
         #READ {src/main.tin};
-        #SHOWME {@message{Script recargado satisfactoriamente.}};
+        /message {RL++ recargado satisfactoriamente.};
     };
 };
 

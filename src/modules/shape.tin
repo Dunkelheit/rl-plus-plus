@@ -1,0 +1,88 @@
+#CLASS {RL_SHAPE} {kill};
+#CLASS {RL_SHAPE} {open};
+
+/register_module {RL_SHAPE} {Estado de vida} {Estado de vida};
+/add_module_setting {RL_SHAPE} {fill} {enum} {solid;star} {solid} {Rellena las barras de estados con bloques (solid) o con asteriscos (star)};
+/add_module_setting {RL_SHAPE} {length} {number} {} {50} {Longitud de las barras de estado};
+
+/*
+ * Function @shape_color{percentage}
+ *
+ * Returns the RL-specific color for a health percentage.
+ *
+ * Arguments:
+ *   %1 (number) health percentage (0-100)
+ *
+ * Example:
+ *   @shape_color{75}
+ */
+#FUNCTION {shape_color}
+{
+    #IF {%1 <= 25} {
+        #RETURN {<118>};
+    };
+    #ELSEIF {%1 <= 50} {
+        #RETURN {<158>};
+    }; 
+    #ELSE {
+        #RETURN {<128>};
+    };
+};
+
+/*
+ * Function @shape_bar{percentage}
+ *
+ * Returns an ASCII representation of a living's shape.
+ *
+ * Arguments:
+ *   %1 (number) health percentage (0-100)
+ *
+ * Example:
+ *   @shape_bar{75}
+ */
+#FUNCTION {shape_bar} {
+    #VAR {health_bar_length} {@get_module_setting_value{RL_SHAPE;length}};
+    #MATH {current_health} {%1 * $health_bar_length / 100};
+    #MATH {missing_health} {$health_bar_length - $current_health};
+    #SWITCH {"@get_module_setting_value{RL_SHAPE;fill}"} {
+        #CASE {"solid"} {
+            #FORMAT {current_health} {<033>%+${current_health}s<099>} {};
+            #FORMAT {missing_health} {<011>%+${missing_health}s<099>} {};
+        };
+        #CASE {"star"} {
+            #FORMAT {current_health} {<138>%+${current_health}s<099>} {*};
+            #FORMAT {missing_health} {<118>%+${missing_health}s<099>} {*};
+            #REPLACE {current_health} { } {*};
+            #REPLACE {missing_health} { } {*};
+        }
+    };
+    #RETURN {$current_health$missing_health};
+};
+
+#SUBSTITUTE {^%* est{á|a} revigorizad{o|a}.$} {%1 @shape_bar{100} @shape_color{100}100%+<099>};
+#SUBSTITUTE {^%* est{á|a} en perfecto estado.$} {%1 @shape_bar{100} @shape_color{100}100%<099>};
+#SUBSTITUTE {^%* est{á|a} en buen estado.$} {%1 @shape_bar{89} @shape_color{85}80-99%<099>};
+#SUBSTITUTE {^%* est{á|a} ligeramente herid{o|a}.$} {%1 @shape_bar{72} @shape_color{72}65-79%<099>};
+#SUBSTITUTE {^%* est{á|a} considerablemente herid{o|a}.$} {%1 @shape_bar{57} @shape_color{57}50-64%<099>};
+#SUBSTITUTE {^%* est{á|a} llen{o|a} de heridas.$} {%1 @shape_bar{42} @shape_color{42}35-49%<099>};
+#SUBSTITUTE {^%* est{á|a} herid{o|a} de gravedad.$} {%1 @shape_bar{27} @shape_color{27}20-34%<099>};
+#SUBSTITUTE {^%* est{á|a} herid{o|a} cr{í|i}ticamente.$} {%1 @shape_bar{13} @shape_color{13}8-19%<099>};
+#SUBSTITUTE {^%* est{á|a} mortalmente herid{o|a}.$} {%1 @shape_bar{4} @shape_color{4}1-7%<099>};
+#SUBSTITUTE {^%* est{á|a} moribund{o|a}.$} {%1 @shape_bar{0} @shape_color{0}0%<099>};
+
+#IF {$_development == 1} {
+    #ALIAS {/test_RL_SHAPE} {
+        #SHOWME {Araña está revigorizada.};
+        #SHOWME {Araña está en perfecto estado.};
+        #SHOWME {Araña está en buen estado.};
+        #SHOWME {Araña está ligeramente herida.};
+        #SHOWME {Araña está considerablemente herida.};
+        #SHOWME {Araña está llena de heridas.};
+        #SHOWME {Araña está herida de gravedad.};
+        #SHOWME {Araña está herida críticamente.};
+        #SHOWME {Araña está mortalmente herida.};
+        #SHOWME {Araña está moribunda.};
+    };
+};
+
+#CLASS {RL_SHAPE} {close};

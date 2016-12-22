@@ -1,31 +1,14 @@
 #class {RL_FUNCTION} {kill};
 #class {RL_FUNCTION} {open};
 
-/*
- * Function @healthBar{value;length}
- */
-#FUNCTION {healthBar} {
-    #MATH {currentHealth} {%1 * %2 / 100};
-    #MATH {missingHealth} {%2 - $currentHealth};
-    #FORMAT {currentHealth} {<033>%+${currentHealth}s<099>} {};
-    #FORMAT {missingHealth} {<011>%+${missingHealth}s<099>} {};
-    #RETURN {$currentHealth$missingHealth};
-};
-
-/*
- * Function @healthColor{number}
- */
-#FUNCTION {healthColor}
-{
-    #IF {%1 <= 25} {
-        #RETURN {<118>};
+#FUNCTION {member_of} {
+    #NOP TODO: Use #LIST index?;
+    #FOREACH {%1} {item} {
+        #IF {"$item" == "%2"} {
+            #RETURN {1};
+        };
     };
-    #ELSEIF {%1 <= 50} {
-        #RETURN {<158>};
-    }; 
-    #ELSE {
-        #RETURN {<128>};
-    };
+    #RETURN {0};
 };
 
 /*
@@ -72,13 +55,6 @@
     #ELSE {
         #RETURN {#<099> %1 %2 en %3 a %4. $damage<099> $multiplier};
     };
-};
-
-/*
- * Function @message{string}
- */
-#FUNCTION {message} {
-    #RETURN {$rlppPrefix$rlppColor %1<099>};
 };
 
 #class {RL_FUNCTION} {close};

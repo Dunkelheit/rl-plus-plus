@@ -17,6 +17,9 @@
 #READ {src/pathwalker.tin};
 #READ {src/saving_throw.tin};
 
+#READ {src/module.tin};
+#READ {src/modules/shape.tin};
+
 #EVENT {PROGRAM START} {
     /limpiar;
     /motd;

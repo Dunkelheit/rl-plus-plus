@@ -23,7 +23,8 @@
 #CONFIG {VERBOSE} {OFF};
 #CONFIG {WORDWRAP} {ON};
 
-#VAR {rlppPrefix} {<139>☥<099>};
-#VAR {rlppColor} {<fca>};
+#VAR {rl_config} {};
+#VAR {rl_config[message_prefix]} {<139>☥<099>};
+#VAR {rl_config[message_color]} {<fca>};
 
 #CLASS {RL_CONFIG} {close};
