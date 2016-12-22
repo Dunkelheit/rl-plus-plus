@@ -19,6 +19,7 @@
 
 #READ {src/module.tin};
 #READ {src/modules/shape.tin};
+#READ {src/modules/weapon_messages.tin};
 
 #EVENT {PROGRAM START} {
     /limpiar;

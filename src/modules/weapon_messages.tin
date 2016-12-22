@@ -1,0 +1,81 @@
+#CLASS {RL_WEAPON_MESSAGES} {kill};
+#CLASS {RL_WEAPON_MESSAGES} {open};
+
+/**********************************************************************************************************************
+ * Module RL_WEAPON_MESSAGES                                                                                          *
+ *                                                                                                                    *
+ * Extends weapon messages with damage and location multipliers.                                                      *
+ **********************************************************************************************************************/
+
+/register_module {RL_WEAPON_MESSAGES} {Weapon messages} {Añade daños y multiplicador por localización a los mensajes de combate.};
+
+/**********************************************************************************************************************
+ * Variables                                                                                                          *
+ **********************************************************************************************************************/
+
+#VARIABLE {attackType} {{Abrasas en ácido|Golpeas con un remolino de aire|Electrocutas|Congelas|Dañas con chispas mágicas|Golpeas con una onda psiónica|Envenenas|Golpeas con un chorro de agua|Rodeas de energía benigna|Quemas|Abrasas|Rodeas de energía maligna|Destrozas|Azotas con un halo divino|Cortas|Sesgas|Rajas|Pinchas|Perforas|Atraviesas|Aplastas|Golpeas|Desgarras|Laceras}};
+
+/**********************************************************************************************************************
+ * Functions                                                                                                          *
+ **********************************************************************************************************************/
+
+/*
+ * Function @parseWeaponMessage{who;how strong;where;target}
+ *
+ * Returns nothing useful.
+ *
+ * Arguments:
+ *   %1 (any) wh0
+ *   %1 (any) damage description message
+ *   %1 (any) location of the hit
+ *   %1 (any) target
+ *
+ * Example:
+ *   @parseWeaponMessage{%1;%3;%4;%5}}
+ */
+#FUNCTION {parseWeaponMessage} {
+    #SWITCH {"%2"} {
+        #CASE {"débilmente"} {#VAR {damage} {<aaa>1-40}};
+        #CASE {"con poca fuerza"} {#VAR {damage} {<aba>41-80}};
+        #CASE {"con fuerza"} {#VAR {damage} {<ada>121-160}};
+        #CASE {"con mucha fuerza"} {#VAR {damage} {<aea>161-210}};
+        #CASE {"violentamente"} {#VAR {damage} {<afa>211-280}};
+        #CASE {"con increíble potencia"} {#VAR {damage} {<afa><188>281-600}};
+        #CASE {"con fuerza sobrehumana"} {#VAR {damage} {<ffa>601-800}};
+        #CASE {"con fuerza divina"} {#VAR {damage} {<fca>801-1500}};
+        #CASE {"con cólera titánica"} {#VAR {damage} {<faa><188>1500+}};
+        #DEFAULT {#VAR {damage} {<aca>81-120}};
+    };
+    #SWITCH {"%3"} {
+        #CASE {"la cabeza"} {#VAR {multiplier} {<afa>×1.6}};
+        #CASE {"el pecho"} {#VAR {multiplier} {<aba>×1.1}};
+        #CASE {"un pie"} {#VAR {multiplier} {<aaa>×0.8}};
+        #DEFAULT {#VAR {multiplier} {}};
+    };
+    #IF {"%2" == ""} {
+        #RETURN {#<099> %1 en %3 a %4. $damage<099> $multiplier};
+    };
+    #ELSE {
+        #RETURN {#<099> %1 %2 en %3 a %4. $damage<099> $multiplier};
+    };
+};
+
+/**********************************************************************************************************************
+ * Substitutions                                                                                                      *
+ **********************************************************************************************************************/
+
+#SUBSTITUTE {^# $attackType%* en %* a %*.$} {@parseWeaponMessage{%1;%3;%4;%5}};
+
+#NOP TODO: Critical hits
+
+/**********************************************************************************************************************
+ * Testing                                                                                                            *
+ **********************************************************************************************************************/
+
+#IF {$_development == 1} {
+    #ALIAS {/test_RL_WEAPON_MESSAGES} {
+        #SHOWME {No tests implemented.};
+    };
+};
+
+#CLASS {RL_WEAPON_MESSAGES} {close};

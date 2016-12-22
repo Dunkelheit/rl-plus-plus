@@ -12,12 +12,6 @@
 #SUBSTITUTE {^[%* orbita a Eirea]$} {[%1 <bee>entra<099> a Eirea]};
 #SUBSTITUTE {^[%* orbita al Limbo]$} {[%1 <g10>sale<099> de Eirea]};
 
-#VAR {attackType} {{Abrasas en ácido|Golpeas con un remolino de aire|Electrocutas|Congelas|Dañas con chispas mágicas|Golpeas con una onda psiónica|Envenenas|Golpeas con un chorro de agua|Rodeas de energía benigna|Quemas|Abrasas|Rodeas de energía maligna|Destrozas|Azotas con un halo divino|Cortas|Sesgas|Rajas|Pinchas|Perforas|Atraviesas|Aplastas|Golpeas|Desgarras|Laceras}};
-
-#SUBSTITUTE {^# $attackType%* en %* a %*.$} {@parseWeaponMessage{%1;%3;%4;%5}};
-
-#NOP TODO: Critical hits
-
 #SUBSTITUTE {^%* ha muerto.$} {<G02><118>@center{☠  %1 ☠}<099>};
 
 #IF {$_development == 1} {
