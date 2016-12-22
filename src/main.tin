@@ -15,7 +15,6 @@
 #READ {src/spells.tin};
 #READ {src/target.tin};
 #READ {src/pathwalker.tin};
-#READ {src/numpad.tin};
 
 #EVENT {PROGRAM START} {
     /limpiar;
