@@ -128,6 +128,9 @@
     #SHOWME {@powerline{}} {1};
 } {4};
 
-#NOP TODO: Tu piel de piedra se endurece y fortalece mágicamente, haciendo que tu total de capas de piedra suba a 5.;
+#ACTION {^Tu piel de piedra se endurece y fortalece m{á|a}gicamente, haciendo que tu total de capas de piedra suba a %1.$} {
+    #VAR {buffers[stoneLayers]} {%1};
+    #SHOWME {@powerline{}} {1};
+};
 
 #CLASS {RL_POWERLINE} {close};
