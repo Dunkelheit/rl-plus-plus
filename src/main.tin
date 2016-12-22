@@ -19,6 +19,7 @@
 #READ {src/modules/pathwalker.tin};
 #READ {src/modules/saving_throw.tin};
 #READ {src/modules/shape.tin};
+#READ {src/modules/target.tin};
 #READ {src/modules/weapon_message.tin};
 
 #EVENT {PROGRAM START} {
