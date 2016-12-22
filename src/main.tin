@@ -14,13 +14,12 @@
 #READ {src/powerline.tin};
 #READ {src/spells.tin};
 #READ {src/target.tin};
-#READ {src/pathwalker.tin};
-#READ {src/saving_throw.tin};
 
 #READ {src/module.tin};
 #READ {src/modules/pathwalker.tin};
+#READ {src/modules/saving_throw.tin};
 #READ {src/modules/shape.tin};
-#READ {src/modules/weapon_messages.tin};
+#READ {src/modules/weapon_message.tin};
 
 #EVENT {PROGRAM START} {
     /limpiar;

@@ -1,13 +1,13 @@
-#CLASS {RL_WEAPON_MESSAGES} {kill};
-#CLASS {RL_WEAPON_MESSAGES} {open};
+#CLASS {RL_WEAPON_MESSAGE} {kill};
+#CLASS {RL_WEAPON_MESSAGE} {open};
 
 /**********************************************************************************************************************
- * Module RL_WEAPON_MESSAGES                                                                                          *
+ * Module RL_WEAPON_MESSAGE                                                                                          *
  *                                                                                                                    *
  * Extends weapon messages with damage and location multipliers.                                                      *
  **********************************************************************************************************************/
 
-/register_module {RL_WEAPON_MESSAGES} {Mensajes de daño} {Añade daños y multiplicador por localización a los mensajes de combate.};
+/register_module {RL_WEAPON_MESSAGE} {Mensajes de daño} {Añade daños y multiplicador por localización a los mensajes de combate.};
 
 /**********************************************************************************************************************
  * Variables                                                                                                          *
@@ -73,9 +73,9 @@
  **********************************************************************************************************************/
 
 #IF {$_development == 1} {
-    #ALIAS {/test_RL_WEAPON_MESSAGES} {
+    #ALIAS {/test_RL_WEAPON_MESSAGE} {
         #SHOWME {No tests implemented.};
     };
 };
 
-#CLASS {RL_WEAPON_MESSAGES} {close};
+#CLASS {RL_WEAPON_MESSAGE} {close};
