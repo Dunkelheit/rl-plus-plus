@@ -29,6 +29,7 @@
 /*
  * Dangers
   */
+
 #HIGHLIGHT {^¡Has quedado al descubierto!$}             {bold red} {5};
 #HIGHLIGHT {^¡Tus imágenes se desvanecen!$}             {bold red} {5};
 #HIGHLIGHT {^Tu piel vuelve a su estado normal.$}       {bold red} {5};
