@@ -1,9 +1,19 @@
 #CLASS {RL_SHAPE} {kill};
 #CLASS {RL_SHAPE} {open};
 
-/register_module {RL_SHAPE} {Estado de vida} {Estado de vida};
+/**********************************************************************************************************************
+ * Module RL_SHAPE                                                                                                    *
+ *                                                                                                                    *
+ * Renders an ASCII visualization of NPC and player's health.                                                         *
+ **********************************************************************************************************************/
+
+/register_module {RL_SHAPE} {Estado de vida} {Muestra una representación gráfica de los estados de vida de NPCs y jugadores.};
 /add_module_setting {RL_SHAPE} {fill} {enum} {solid;star} {solid} {Rellena las barras de estados con bloques (solid) o con asteriscos (star)};
 /add_module_setting {RL_SHAPE} {length} {number} {} {50} {Longitud de las barras de estado};
+
+/**********************************************************************************************************************
+ * Functions                                                                                                          *
+ **********************************************************************************************************************/
 
 /*
  * Function @shape_color{percentage}
@@ -56,8 +66,15 @@
             #REPLACE {missing_health} { } {*};
         }
     };
-    #RETURN {$current_health$missing_health};
+    #VAR {result} {$current_health$missing_health};
+    #UNVAR {health_bar_length};
+    #UNVAR {current_health};
+    #UNVAR {missing_health};
 };
+
+/**********************************************************************************************************************
+ * Substitutions                                                                                                      *
+ **********************************************************************************************************************/
 
 #SUBSTITUTE {^%* est{á|a} revigorizad{o|a}.$} {%1 @shape_bar{100} @shape_color{100}100%+<099>};
 #SUBSTITUTE {^%* est{á|a} en perfecto estado.$} {%1 @shape_bar{100} @shape_color{100}100%<099>};
@@ -69,6 +86,10 @@
 #SUBSTITUTE {^%* est{á|a} herid{o|a} cr{í|i}ticamente.$} {%1 @shape_bar{13} @shape_color{13}8-19%<099>};
 #SUBSTITUTE {^%* est{á|a} mortalmente herid{o|a}.$} {%1 @shape_bar{4} @shape_color{4}1-7%<099>};
 #SUBSTITUTE {^%* est{á|a} moribund{o|a}.$} {%1 @shape_bar{0} @shape_color{0}0%<099>};
+
+/**********************************************************************************************************************
+ * Testing                                                                                                            *
+ **********************************************************************************************************************/
 
 #IF {$_development == 1} {
     #ALIAS {/test_RL_SHAPE} {

@@ -1,12 +1,22 @@
 #CLASS {RL_MODULE} {kill};
 #CLASS {RL_MODULE} {open};
 
+/**********************************************************************************************************************
+ * Module RL_MODULE                                                                                                   *
+ *                                                                                                                    *
+ * Write modular features.                                                                                            *
+ **********************************************************************************************************************/
+
 #VAR {rl_modules} {};
+
+/**********************************************************************************************************************
+ * Functions                                                                                                          *
+ **********************************************************************************************************************/
 
 /*
  * Function @get_module_setting_value{module;setting}
  *
- * Gets the value of a module setting.
+ * Returns the value of a module setting.
  *
  * Arguments:
  *   %1 (any) module name
@@ -30,7 +40,7 @@
 /*
  * Function @get_module_setting_value{module;setting;value}
  *
- * Sets the value of a module setting.
+ * Sets the value of a module setting, and returns the new value.
  *
  * Arguments:
  *   %1 (any) module name
@@ -73,6 +83,10 @@
     #RETURN {@get_module_setting_value{%1;%2}};
 };
 
+/**********************************************************************************************************************
+ * Aliases                                                                                                            *
+ **********************************************************************************************************************/
+
 /*
  * Alias /register_module {identifier} {name} {description}
  *
@@ -92,6 +106,21 @@
     #VAR {rl_modules[%1][enabled]} {1};
     /message {Registrado módulo %1};
 }
+
+/*
+ * Alias /list_modules
+ *
+ * Lists all available modules.
+ *
+ * Example:
+ *   /list_modules
+ */
+#ALIAS {/list_modules} {
+    /message {Módulos disponibles:};
+    #FOREACH {$rl_modules[]} {module} {
+        #SHOWME {  <178>$module <099><fac>$rl_modules[$module][name] <g05>// $rl_modules[$module][description]<099>};
+    };
+};
 
 /*
  * Alias /add_module_setting {identifier} {name} {type} {enum} {default} {description}
@@ -143,6 +172,10 @@
     };
     #SHOWME @set_module_setting_value{%1;%2;%3};
 };
+
+/**********************************************************************************************************************
+ * Testing                                                                                                            *
+ **********************************************************************************************************************/
 
 #IF {$_development == 1} {
     #ALIAS {/test} {
