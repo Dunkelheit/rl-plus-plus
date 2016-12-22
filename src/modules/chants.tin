@@ -1,0 +1,366 @@
+#CLASS {RL_CHANTS} {kill};
+#CLASS {RL_CHANTS} {open};
+
+/**********************************************************************************************************************
+ * Module RL_CHANTS                                                                                                 *
+ *                                                                                                                    *
+ * A simple module template.                                                                                          *
+ **********************************************************************************************************************/
+
+/register_module {RL_CHANTS} {Cánticos} {Muestra el hechizo cada vez que se realiza un cántico.};
+
+/**********************************************************************************************************************
+ * Functions                                                                                                          *
+ **********************************************************************************************************************/
+
+/*
+ * Function @translate_spell{chant}
+ *
+ * Returns the spell name based on its chant.
+ *
+ * Arguments:
+ *   %1 (any) spell chant
+ *
+ * Example:
+ *   @translate_spell{mios armanis}
+ */
+#FUNCTION {translateSpell}
+{
+    #VAR {spell_name} {};
+    #SWITCH {"%2"}
+    {
+        #NOP =============== Abjuracion ===============;
+        #CASE {"mior armanis"}              {#VAR spell_name armadura};
+        #CASE {"spiritis solis armanis"}    {#VAR spell_name armadura espiritual};
+        #CASE {"fere hilis tzbem ocsa"}     {#VAR spell_name cuerpo de acero};
+        #CASE {"marj voltius sorcere"}      {#VAR spell_name devolver conjuro mayor};
+        #CASE {"mior voltius sorcere"}      {#VAR spell_name devolver conjuro menor};
+        #CASE {"nullo magius"}              {#VAR spell_name disipar magia};
+        #CASE {"mior escudis"}              {#VAR spell_name escudo};
+        #CASE {"eirea colourus sphyre"}     {#VAR spell_name esfera prismática};
+        #CASE {"maior secry sphyre"}        {#VAR spell_name globo mayor de invulnerabilidad};
+        #CASE {"mior secry sphyre"}         {#VAR spell_name globo menor de invulnerabilidad};
+        #CASE {"emir meus busque"}          {#VAR spell_name indetectable};
+        #CASE {"in magius ylem malleus"}    {#VAR spell_name mente en blanco};
+        #CASE {"inst desplae"}              {#VAR spell_name parpadeo};
+        #CASE {"aerdikor amudran ozoihe"}   {#VAR spell_name piel de piedra};
+        #CASE {"majis preorum"}             {#VAR spell_name protección contra armas};
+        #CASE {"repeal prokyum"}            {#VAR spell_name protección contra proyectiles};
+        #CASE {"plaunum demigrum"}          {#VAR spell_name repudiar};
+        #CASE {"repelish forceum"}          {#VAR spell_name repulsión};
+        #CASE {"minor hielum resit"}        {#VAR spell_name resistir frío};
+        #CASE {"minor fogos resit"}         {#VAR spell_name resistir fuego};
+        #CASE {"minor arcane resit"}        {#VAR spell_name resistir mágico};
+        #CASE {"minor malevola resit"}      {#VAR spell_name resistir mal};
+        #CASE {"minor benevola resit"}      {#VAR spell_name resistir bien};
+        #CASE {"minor relampagum resit"}    {#VAR spell_name resistir eléctrico};
+        #CASE {"minor virus resit"}         {#VAR spell_name resistir enfermedad};
+        #CASE {"minor acid resit"}          {#VAR spell_name resistir ácido};
+        #CASE {"minor ventulae resit"}      {#VAR spell_name resistir aire};
+        #CASE {"minor mentale resit"}       {#VAR spell_name resistir mental};
+        #CASE {"minor posonae resit"}       {#VAR spell_name resistir veneno};
+        
+        #NOP =============== Adivinacion ===============;
+        #CASE {"klairis lkrejum soniks"}    {#VAR spell_name clariaudiencia};
+        #CASE {"klairis bibencia"}          {#VAR spell_name clarividencia};
+        #CASE {"ethos deus beleah"}         {#VAR spell_name conocer alineamiento};
+        #CASE {"magius is iseio"}           {#VAR spell_name detectar magia};
+        #CASE {"magius xerox malauea"}      {#VAR spell_name detectar magias bloqueadas};
+        #CASE {"magius skara is iseo"}      {#VAR spell_name detectar observación mágica};
+        #CASE {"bellum kennis"}             {#VAR spell_name erudición en batallas};
+        #CASE {"magius podeiles aneum mane"}    {#VAR spell_name leer magia};
+        #CASE {"creatir busque"}                {#VAR spell_name localizar criatura};
+        #CASE {"ande statis"}                   {#VAR spell_name localizar objeto I};
+        #CASE {"majio exodus oculus"}           {#VAR spell_name ojo mágico de Éxodus};
+        #CASE {"mer conoectrik"}            {#VAR spell_name precognición};
+        #CASE {"je vei comoun deux mes yeux sont libreus"}  {#VAR spell_name ver realmente};
+        #CASE {"ein aluin ulu zuel dos"}    {#VAR spell_name localizar?};
+        
+        #NOP =============== Alteracion ===============;
+        #CASE {"groez us marj"}             {#VAR spell_name agrandar};
+        #CASE {"temporis ondele areba"}     {#VAR spell_name apresuramiento};
+        #CASE {"not mostris masit ahorat deletit"}    {#VAR spell_name borrar};
+        #CASE {"pes iu flumbe"}             {#VAR spell_name caída de pluma};
+        #CASE {"eros invorum"}              {#VAR spell_name cambio de sexo};
+        #CASE {"bellum destruct corpore"}   {#VAR spell_name desintegrar};
+        #CASE {"fuere magnus incrementis"}  {#VAR spell_name fuerza};
+        #CASE {"terribilis gravitas invertere area"}    {#VAR spell_name inversión gravitatoria de Éxodus};
+        #CASE {"arduha cutanea"}            {#VAR spell_name irritación};
+        #CASE {"temporis laggen"}           {#VAR spell_name lentitud};
+        #CASE {"abrete sesamus"}            {#VAR spell_name llamada a la puerta};
+        #CASE {"flamius os aryes"}          {#VAR spell_name manos ardientes};
+        #CASE {"past carnale"}              {#VAR spell_name piedra a carne};
+        #CASE {"hanz ow xlxyx"}             {#VAR spell_name presa sacudidora};
+        #CASE {"groez us minu"}             {#VAR spell_name reducir};
+        #CASE {"sangx o axcid"}             {#VAR spell_name sangre a ácido};
+        #CASE {"trans ikrat ondomendo wiclat skrauwen"}    {#VAR spell_name teleportación};
+        #CASE {"elo disendi es ferundalae"} {#VAR spell_name transformación de DvNeil};
+        #CASE {"fais alijus"}               {#VAR spell_name contenedor dimensional};
+        #CASE {"maleus hielum rissas"}      {#VAR spell_name debilidad frío};
+        
+        #NOP =============== Conjuracion ===============;
+        #CASE {"fais alijus"}               {#VAR spell_name contenedor dimensional};
+        #CASE {"dyscik ivnis"}              {#VAR spell_name disco flotante de Ikim};
+        #CASE {"varaknit okliyae sifun wamet ostrifundae elast"}    {#VAR spell_name esfera elástica de Wylan};
+        #CASE {"om dhrung svaha"}           {#VAR spell_name espada de Galadan};
+        #CASE {"venit ejamber psohokut"}    {#VAR spell_name llamar enjambres};
+        #CASE {"en venit mansekti"}         {#VAR spell_name montura};
+        #CASE {"canis mesua fidelis"}       {#VAR spell_name perro fiel de Mesua};
+        #CASE {"servus oleare"}             {#VAR spell_name sirviente invisible};
+        
+        #NOP =============== Encantamiento ===============;
+        #CASE {"amicuale"}                  {#VAR spell_name amistad};
+        #CASE {"crumens augmentatum"}       {#VAR spell_name bolsillos profundos};
+        #CASE {"tapkrat soilis"}            {#VAR spell_name ceguera};
+        #CASE {"ehjart dormitae"}           {#VAR spell_name dormir};
+        #CASE {"summum veneficus sapienta"} {#VAR spell_name ilustración arcana};
+        #CASE {"nie uhlambi bobus"}         {#VAR spell_name imbecilidad};
+        #CASE {"irijae disidus ombile"}     {#VAR spell_name incontrolable risa de Shasha};
+        #CASE {"niks sensibielen"}          {#VAR spell_name insensibilidad};
+        #CASE {"magius lios"}               {#VAR spell_name luz};
+        #CASE {"mark devenit"}              {#VAR spell_name marca de hechicero};
+        #CASE {"tremend panic rajhak"}      {#VAR spell_name miedo};
+        #CASE {"occlumentum"}               {#VAR spell_name oclumancia};
+        #CASE {"tumen sufres ohurum"}       {#VAR spell_name ojo por ojo};
+        #CASE {"o larktri o majkit"}        {#VAR spell_name olvidar};
+        #CASE {"maguis xeno lios"}          {#VAR spell_name oscuridad};
+        #CASE {"ridit omebi"}               {#VAR spell_name provocar};
+        #CASE {"reclamo devenit"}           {#VAR spell_name reclamar};
+        #CASE {"achus patis"}               {#VAR spell_name resfriar};
+        #CASE {"reimeno xeno haltem dixit"} {#VAR spell_name retener masas};
+        #CASE {"etilicus bezorgen"}         {#VAR spell_name sobriedad};
+        #CASE {"tapkrat sonics"}            {#VAR spell_name sordera};
+        #CASE {"veel praten maar niets zeggen"}     {#VAR spell_name verborrea};
+        
+        #NOP =============== Evocacion ===============;
+        #CASE {"aardum weg gaan"}           {#VAR spell_name cavar};
+        #CASE {"hielis es coe"}             {#VAR spell_name cono de frío};
+        #CASE {"defenestrate"}              {#VAR spell_name defenestrar};
+        #CASE {"bellum murus nilreber destructure"} {#VAR spell_name destruir muro};
+        #CASE {"lamea ostrifundae perset"}  {#VAR spell_name esfera llameante};
+        #CASE {"xilyx de gadrum"}           {#VAR spell_name golpe de rayo};
+        #CASE {"miute pyros sphyes"}        {#VAR spell_name meteoros diminutos de Ignis};
+        #NOP {"reimeno xeno haltem dixit"}  {#VAR spell_name nube hedionda};
+        #CASE {"majio magyiz projiss"}      {#VAR spell_name proyectil mágico mayor};
+        #CASE {"magyiz projiss"}            {#VAR spell_name proyectil mágico menor};
+        #CASE {"ecktam itelem peg"}         {#VAR spell_name telaraña};
+        #CASE {"irwat tilurat sincart"}     {#VAR spell_name explosión ráfaga};
+        #CASE {"majos areos aqua"}          {#VAR spell_name bola de agua};
+        #CASE {"majos areos pyros"}         {#VAR spell_name bola de fuego};
+        #CASE {"pyros burios"}              {#VAR spell_name estallido de fuego};
+        #CASE {"spheros frezious"}          {#VAR spell_name granizo};
+        #CASE {"majos areos zappeous"}      {#VAR spell_name llamarada eléctrica};
+        #CASE {"majos areos corrosiv"}      {#VAR spell_name tormenta ácida};
+        #CASE {"sormuz frez os halos"}      {#VAR spell_name tormenta de hielo};
+        #CASE {"eleius magical concere"}    {#VAR spell_name tormenta eléctrica};
+        
+        #NOP =============== Ilusion ===============;
+        #CASE {"falax majyz objetum"}       {#VAR spell_name aura mágica de Nystul};
+        #CASE {"mior chimera ex"}           {#VAR spell_name crear quimera menor};
+        #CASE {"nullo ilusionis"}           {#VAR spell_name disipar ilusiones};
+        #CASE {"virtue esplodis"}           {#VAR spell_name dispersion ilusoria};
+        #CASE {"sancti numbro duplis"}      {#VAR spell_name espejismo};
+        #CASE {"hallucinatja nervosa"}      {#VAR spell_name fascinación cromática de Elvereth};
+        #CASE {"impak flobben"}             {#VAR spell_name golpe ilusorio};
+        #CASE {"illios effacious"}          {#VAR spell_name invisibilidad};
+        #CASE {"iz i obrae mobit"}          {#VAR spell_name magia de las sombras};
+        #CASE {"mur denovetis"}             {#VAR spell_name muro ilusorio};
+        #CASE {"magius occultum"}           {#VAR spell_name ocultar};
+        #CASE {"maruma o manir"}            {#VAR spell_name silueta imprecisa};
+        #CASE {"it cualis"}                 {#VAR spell_name simulacro};
+        #CASE {"venti olabae"}              {#VAR spell_name ventriloquia};
+        #CASE {"flobben ark-ark das"}       {#VAR spell_name descarga de espadas espectrales};
+        
+        #NOP =============== Necromancia ===============;
+        #CASE {"morti elai aradi"}                  {#VAR spell_name animar muertos};
+        #CASE {"aristos omeander maleus olotheren"} {#VAR spell_name choque funesto};
+        #CASE {"corpus preserv"}                    {#VAR spell_name conservar cuerpo};
+        #CASE {"ekri daremo tsucraehlkri"}          {#VAR spell_name debilidad};
+        #CASE {"omeasis traed or eneriam"}          {#VAR spell_name drenar energia};
+        #CASE {"wilos magius evapious"}             {#VAR spell_name horrible marchitamiento};
+        #CASE {"xo harmi timus"}                    {#VAR spell_name lepra};
+        #CASE {"ez mae efron"}                      {#VAR spell_name mano espectral};
+        #CASE {"mist ahurmaete i maes imjarle carnae est mite liubas krat oskami"}  {#VAR spell_name reencarnar};
+        #CASE {"morti xeno haltem"}                 {#VAR spell_name retener muertos vivientes};
+        #CASE {"hanz ow froez"}                     {#VAR spell_name toque helado};
+        #CASE {"omeander oloferj tiorodaelah olotheren"}   {#VAR spell_name toque vampírico};
+        
+        #NOP =============== Universal ===============;
+
+        #NOP =============== Adivinacion ===============;
+        #CASE {"magius ethos salut"}    {#VAR spell_name detectar enfermedad};
+        #CASE {"ethos unkalid"}         {#VAR spell_name detectar hechizo};
+        #CASE {"ethos maleficit"}       {#VAR spell_name detectar maldición};
+        #CASE {"ethos toxus"}           {#VAR spell_name detectar veneno};
+        #CASE {"inderia colesedum"}     {#VAR spell_name lenguas};
+        
+        #NOP =============== Ancestral ===============;
+        #CASE {"grawltok ziksar univelber"}     {#VAR spell_name agilidad del guepardo};
+        #CASE {"ukreek jglbuo anzarmiendlkjh"}  {#VAR spell_name canto de los espíritus};
+        #CASE {"maior aenima vorpalis"}         {#VAR spell_name escudo de almas mayores};
+        #CASE {"mior aenima vorpalis"}          {#VAR spell_name escudo de almas menores};
+        #CASE {"chacaa kiltra unipoteh"}        {#VAR spell_name fuerza del oso};
+        #CASE {"sheeram aluble woomack"}        {#VAR spell_name garras de lobo};
+        #CASE {"akrit namuh sieds"}             {#VAR spell_name gritos ancestrales};
+        #CASE {"blut boilea"}                   {#VAR spell_name hervor de la sangre};
+        #CASE {"forgis vondt i sjel"}           {#VAR spell_name liberación del espíritu};
+        #CASE {"aedrhus impotem nazxia"}        {#VAR spell_name mordisco de la víbora};
+        #CASE {"ojos oscuros"}                  {#VAR spell_name sacra gog onadak};
+
+        #NOP =============== Bien ===============;
+        #CASE {"destruct malevoli spiritus"}    {#VAR spell_name castigar el mal};
+        #CASE {"deus me ignis"}                 {#VAR spell_name inmolación};
+        #CASE {"inmovilum idealis"}             {#VAR spell_name voluntad de hierro};
+        #CASE {"sria positvrat"}                {#VAR spell_name rayo de energía positiva};
+        #CASE {"ken olatid sancrit"}            {#VAR spell_name tormenta sagrada};
+
+        #NOP =============== Cambiaformas ===============;
+        #CASE {"ablocare taurus cervix"}        {#VAR spell_name fuerza de toro};
+        #CASE {"felinus est gratia"}            {#VAR spell_name gracia felina};
+        #CASE {"natura exhra zabak magicia"}    {#VAR spell_name armas naturales};
+        #CASE {"mahander corpuum veratos nita"} {#VAR spell_name empatía metamórfica};
+        #CASE {"irae mahinda vitae"}            {#VAR spell_name regeneración animal};
+        #CASE {"maxima corpuus inmander natura"}    {#VAR spell_name suteliza del metamorfo};
+        #CASE {"raalander natura temporis"}     {#VAR spell_name vigor natural};
+        
+        #NOP =============== Combate ===============;
+        #CASE {"acerbace unos baletis"}     {#VAR spell_name canto};
+        #CASE {"acerbace divin baletis"}    {#VAR spell_name gran plegaria sagrada};
+        #CASE {"acerbace unos baletis"}     {#VAR spell_name plegaria};
+        #CASE {"mi deus ire"}               {#VAR spell_name ira de dios};
+        
+        #NOP =============== Curadora ===============;
+        #CASE {"magius modus harmei"}       {#VAR spell_name curacion};
+        #CASE {"minor mali umanos eximo"}   {#VAR spell_name extirpar maldición};
+        #CASE {"divina tempus haelos"}      {#VAR spell_name regeneración};
+        #CASE {"sagnat curis"}              {#VAR spell_name cicatrizar};
+        #CASE {"sauma soilis"}              {#VAR spell_name curar ceguera};
+        #CASE {"curis insalubri"}           {#VAR spell_name curar enfermedad};
+        #CASE {"magius criusis curis"}      {#VAR spell_name curar heridas críticas};
+        #CASE {"magius elis curis"}         {#VAR spell_name curar heridas ligeras};
+        #CASE {"magius modus curis"}        {#VAR spell_name curar heridas moderadas};
+        #CASE {"magius selirs curis"}       {#VAR spell_name curar heridas serias};
+        #CASE {"audikt cruisis"}            {#VAR spell_name curar sordera};
+        #CASE {"toxus wrathi aborum"}       {#VAR spell_name neutralizar veneno};
+        
+        #NOP =============== Dañadora ===============;
+        #CASE {"magius criusis harmei arkrat"}  {#VAR spell_name herida};
+        #CASE {"harmi klotimus"}                {#VAR spell_name causar enfermedad};
+        #CASE {"magius criusis harmei"}         {#VAR spell_name causar heridas críticas};
+        #CASE {"magius elis harmei"}            {#VAR spell_name causar heridas ligeras};
+        #CASE {"magius mayor harmei"}           {#VAR spell_name causar heridas mayores};
+        #CASE {"magius modus harmei"}           {#VAR spell_name causar heridas moderadas};
+        #CASE {"magius selirs harmei"}          {#VAR spell_name causar heridas serias};
+        #CASE {"harmi toxus"}                   {#VAR spell_name envenenar};
+        
+        #NOP =============== Elemental ===============;
+        #CASE {"flamious os colus"}     {#VAR spell_name columna de fuego};
+        #CASE {"acetis aquam"}          {#VAR spell_name crear agua};
+        #CASE {"flamius fullen akrat"}  {#VAR spell_name hoja de llamas};
+        #CASE {"flamae inkast"}         {#VAR spell_name producir llamas};
+        #CASE {"elect xen cefit"}       {#VAR spell_name relámpago};
+        #CASE {"terra firma venit"}     {#VAR spell_name terremoto};
+        #CASE {"dotkad ignusard"}       {#VAR spell_name tormenta ígnea};
+        
+        #NOP =============== Fe ===============;
+        
+        #NOP =============== Guardiana ===============;
+        #CASE {"ertiren iraucas"}           {#VAR spell_name extirpar miedo};
+        #CASE {"metlah onex irma"}          {#VAR spell_name extirpar parálisis};
+        #CASE {"guardian sacred"}           {#VAR spell_name guardián sagrado};
+        #CASE {"intrepit arkuash inconditionale"}   {#VAR spell_name manto de valor};
+        #CASE {"aztak pacifus"}             {#VAR spell_name pacificar};
+        #CASE {"prot me"}                   {#VAR spell_name santuario};
+        #CASE {"salmodium khar osharth"}    {#VAR spell_name silencio};
+        
+        #NOP =============== Hechizo ===============;
+        #CASE {"petrea past"}                   {#VAR spell_name carne a piedra};
+        #CASE {"cette invocatus est pur meus"}  {#VAR spell_name dominar invocación};
+        #CASE {"insta estasi balaeta"}          {#VAR spell_name éxtasis instantáneo};
+        #CASE {"solus paqua quietum"}           {#VAR spell_name enmudecer};
+        #CASE {"amri xeno haltem"}              {#VAR spell_name retener persona};
+        
+        #NOP =============== Llamada ===============;
+        #CASE {"noite stela"}               {#VAR spell_name brillo de estrellas};
+        #CASE {"rizzaz armoum protestus"}   {#VAR spell_name escudo de fuego};
+        #CASE {"frozen armoum protestus"}   {#VAR spell_name escudo de hielo};
+        #CASE {"ummon ishamo ujeleo"}       {#VAR spell_name invocar tentáculos};
+        #CASE {"disvenit roka"}             {#VAR spell_name llamada a la piedra};
+        #CASE {"venit roka"}                {#VAR spell_name llamada a la piedra};
+        #CASE {"astra nova pyris"}          {#VAR spell_name lluvia de estrellas};
+        #CASE {"magius espiritual hammer"}  {#VAR spell_name martillo espiritual};
+        #CASE {"luminus laendor"}           {#VAR spell_name rayo de luna};
+        #CASE {"luminus solaris"}           {#VAR spell_name rayo de sol};
+        
+        #NOP =============== Mal ===============;
+        #CASE {"kyrnie ov daemon"}      {#VAR spell_name aullido infernal};
+        #CASE {"sria nevrat"}           {#VAR spell_name rayo de energía negativa};
+        #CASE {"ken olatid arkanit"}    {#VAR spell_name tormenta arcana};
+                
+        #NOP =============== Natural ===============;
+        #CASE {"ela ex silvest"}                {#VAR spell_name bayas buenas};
+        #CASE {"maxita alimenta purificare"}    {#VAR spell_name conservar alimentos};
+        #CASE {"colte est meus"}                {#VAR spell_name dominar animal};
+        #CASE {"superb col akrejart"}           {#VAR spell_name encantar colmillos};
+        #CASE {"magecic inskar"}                {#VAR spell_name encantar vara};
+        #CASE {"enredus ogjta"}                 {#VAR spell_name enredar};
+        #CASE {"ast eile frosit dumae"}         {#VAR spell_name granizar};
+        #CASE {"vite amahander invadum"}        {#VAR spell_name naturalizar};
+        #CASE {"cortex membranae"}              {#VAR spell_name piel de corteza};
+        #CASE {"seculea oskrasit bzzeez"}       {#VAR spell_name plaga de insectos};
+        #CASE {"colte xeno haltem"}             {#VAR spell_name retener animal};
+        #CASE {"deus topiary"}                  {#VAR spell_name seto};
+        
+        #NOP =============== Necromantica ===============;
+        #CASE {"morti refezit"}             {#VAR spell_name consunción de los restos};
+        #CASE {"mortiis oculus deum"}       {#VAR spell_name examinar muerte};
+        #CASE {"necrum sharpus mortiis"}    {#VAR spell_name garras de necrófago};
+        
+        #NOP =============== Oscura ===============;
+        #CASE {"morti vomiu nutorum"}       {#VAR spell_name plaga de desdicha};
+        #CASE {"toxus tenebra liberta"}     {#VAR spell_name horror ponzoñoso};
+
+        #NOP =============== Proteccion ===============;
+        #CASE {"leber aurum protectum"}    {#VAR spell_name libre acción};
+        
+        #NOP =============== Resurreccion ===============;
+        #CASE {"idmun serv"}    {#VAR spell_name ayuda};
+        #CASE {"destorb infatis posit energis venit at el corpse infit"}    {#VAR spell_name restaurar};
+        
+        #NOP =============== Total ===============;
+        #CASE {"bleiso objetum"}    {#VAR spell_name bendecir objeto};
+        #CASE {"bleiso umanos"}     {#VAR spell_name bendición};
+        #CASE {"mali umanos"}       {#VAR spell_name maldición};
+
+        #DEFAULT {#VAR spell_name desconocido};
+    };
+    #FORMAT {chant_length} {%L} {%1};
+    #FORMAT {spell_name_length} {%L} {$spell_name};
+    #FORMAT {screen_width} {%C};
+    #MATH {filler_length} {$screen_width - $chant_length - $spell_name_length};
+    #FORMAT {result} {%s%+${filler_length}s<060>\e[3m%s<099>} {%1} {} {$spell_name};
+    #UNVAR {spell_name};
+    #UNVAR {chant_length};
+    #UNVAR {spell_name_length};
+    #UNVAR {screen_width};
+    #UNVAR {filler_length};
+};
+
+/**********************************************************************************************************************
+ * Substitutions                                                                                                      *
+ **********************************************************************************************************************/
+
+#SUBSTITUTE {^Pronuncias el cántico: '%*'$} {@translateSpell{Pronuncias el cántico: '%1';%1}};
+#SUBSTITUTE {^%* pronuncia el cántico: '%*'$} {@translateSpell{%1 pronuncia el cántico: '%2';%2}};
+
+/**********************************************************************************************************************
+ * Testing                                                                                                            *
+ **********************************************************************************************************************/
+
+#IF {$_development == 1} {
+    #ALIAS {/test_RL_CHANTS} {
+        #SHOWME {No tests implemented.};
+    };
+};
+
+#CLASS {RL_CHANTS} {close};

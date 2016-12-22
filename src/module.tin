@@ -164,8 +164,10 @@
     #IF {"%1" == ""} {
         /message {Modules settings:};
         #FOREACH {$rl_modules[]} {module} {
-            #FOREACH {$rl_modules[$module][settings][]} {setting} {
-                #SHOWME {  <178>$module <099><fac>$setting <acd>$rl_modules[$module][settings][$setting][value] <g05>// $rl_modules[$module][settings][$setting][description]<099>};
+            #IF {"$rl_modules[$module][settings][]" != ""} {
+                #FOREACH {$rl_modules[$module][settings][]} {setting} {
+                    #SHOWME {  <178>$module <099><fac>$setting <acd>$rl_modules[$module][settings][$setting][value] <g05>// $rl_modules[$module][settings][$setting][description]<099>};
+                };
             };
         };
         #RETURN;
