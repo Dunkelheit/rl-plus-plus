@@ -127,9 +127,9 @@
         #CASE {"pyros burios"}              {#VAR spellName estallido de fuego};
         #CASE {"spheros frezious"}          {#VAR spellName granizo};
         #CASE {"majos areos zappeous"}      {#VAR spellName llamarada eléctrica};
-        #CASE {"majos areos corrosiv"}      {#VAR spellName tormeta ácida};
-        #CASE {"sormuz frez os halos"}      {#VAR spellName tormeta de hielo};
-        #CASE {"eleius magical concere"}    {#VAR spellName tormeta eléctrica};
+        #CASE {"majos areos corrosiv"}      {#VAR spellName tormenta ácida};
+        #CASE {"sormuz frez os halos"}      {#VAR spellName tormenta de hielo};
+        #CASE {"eleius magical concere"}    {#VAR spellName tormenta eléctrica};
         
         #NOP =============== Ilusion ===============;
         #CASE {"falax majyz objetum"}       {#VAR spellName aura mágica de Nystul};
