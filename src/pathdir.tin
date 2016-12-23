@@ -1,5 +1,5 @@
-#class {RL_PATHDIR} {kill};
-#class {RL_PATHDIR} {open};
+#CLASS {RL_PATHDIR} {kill};
+#CLASS {RL_PATHDIR} {open};
 
 #PATHDIR {ab} {ar} {32};
 #PATHDIR {e} {o} {2};
@@ -12,4 +12,4 @@
 #PATHDIR {ar} {ab} {16};
 #PATHDIR {o} {e} {8};
 
-#class {RL_PATHDIR} {close};
+#CLASS {RL_PATHDIR} {close};

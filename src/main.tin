@@ -15,6 +15,7 @@
 
 #READ {src/module.tin};
 #READ {src/modules/chants.tin};
+#READ {src/modules/logging.tin};
 #READ {src/modules/pathwalker.tin};
 #READ {src/modules/saving_throw.tin};
 #READ {src/modules/shape.tin};
