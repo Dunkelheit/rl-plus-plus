@@ -1,6 +1,10 @@
 #CLASS {RL_CONFIG} {kill};
 #CLASS {RL_CONFIG} {open};
 
+/**********************************************************************************************************************
+ * System configuration                                                                                               *
+ **********************************************************************************************************************/
+
 #CONFIG {256 COLORS} {ON};
 #CONFIG {AUTO TAB} {5000};
 #CONFIG {BUFFER SIZE} {20000};
@@ -23,6 +27,7 @@
 #CONFIG {VERBOSE} {OFF};
 #CONFIG {WORDWRAP} {ON};
 
+#NOP TODO: Move out of here;
 #VAR {rl_config} {};
 #VAR {rl_config[message_prefix]} {<139>☥<099>};
 #VAR {rl_config[message_color]} {<fca>};

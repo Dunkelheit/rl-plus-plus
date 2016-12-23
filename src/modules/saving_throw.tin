@@ -14,7 +14,7 @@
  **********************************************************************************************************************/
 
 /*
- * Function @parseSavingThrow{type;difficulty;throw;result;comparator}
+ * Function @parse_saving_throw{type;difficulty;throw;result;comparator}
  *
  * Returns a clearer string describing a saving throw.
  *
@@ -26,51 +26,53 @@
  *   %4 (any) comparison
  *
  * Example:
- *   @parseSavingThrow{paralizacion;20;mayor o igual;5;Fallo}
+ *   @parse_saving_throw{paralizacion;20;mayor o igual;5;Fallo}
  */
-#FUNCTION {parseSavingThrow} {
-    #VAR {savingThrowComparator} {};
+#FUNCTION {parse_saving_throw} {
+    #VAR {saving_throw_comparator} {};
     #SWITCH {"%5"} {
         #CASE {"Igual o mayor"} {
-            #VAR {savingThrowComparator} {>=};
+            #VAR {saving_throw_comparator} {>=};
         };
         #CASE {"Igual o menor"} {
-            #VAR {savingThrowComparator} {<=};
+            #VAR {saving_throw_comparator} {<=};
         };
         #CASE {"Igual"} {
-            #VAR {savingThrowComparator} {==};
+            #VAR {saving_throw_comparator} {==};
         };
         #CASE {"Mayor"} {
-            #VAR {savingThrowComparator} {>};
+            #VAR {saving_throw_comparator} {>};
         };
         #CASE {"Menor"} {
-            #VAR {savingThrowComparator} {<};
+            #VAR {saving_throw_comparator} {<};
         };
         #DEFAULT {
-            #VAR {savingThrowComparator} {<=};
+            #VAR {saving_throw_comparator} {<=};
         };
     };
-    #VAR {savingThrowColor} {};
+    #VAR {saving_throw_color} {};
     #SWITCH {"%4"} {
         #CASE {"Éxito"} {
-            #VAR {savingThrowColor} {<cfa>};
+            #VAR {saving_throw_color} {<cfa>};
         };
         #CASE {"Exito"} {
-            #VAR {savingThrowColor} {<cfa>};
+            #VAR {saving_throw_color} {<cfa>};
         };
         #CASE {"Fallo"} {
-            #VAR {savingThrowColor} {<faa>};
+            #VAR {saving_throw_color} {<faa>};
         };
     };
-    #RETURN {<ffa>⚀ <acf>TS %1:$savingThrowColor %3 $savingThrowComparator %2<099>};
+    #VAR {result} {<ffa>⚀ <acf>TS %1:$saving_throw_color %3 $saving_throw_comparator %2<099>};
+    #UNVAR {saving_throw_comparator};
+    #UNVAR {saving_throw_color};
 };
 
 /**********************************************************************************************************************
  * Substitutions                                                                                                      *
  **********************************************************************************************************************/
 
-#SUBSTITUTE {[Tiradas] Tirada de salvación de %* % de éxito: %*. Tirada: %d (%*).} {@parseSavingThrow{%1;%2;%3;%4}};
-#SUBSTITUTE {[Tiradas]: Tirada de %* a dificultad: %d (%* para pasar). Tirada: %d (%*)} {@parseSavingThrow{%1;%2;%4;%5;%3}};
+#SUBSTITUTE {[Tiradas] Tirada de salvación de %* % de éxito: %*. Tirada: %d (%*).} {@parse_saving_throw{%1;%2;%3;%4}};
+#SUBSTITUTE {[Tiradas]: Tirada de %* a dificultad: %d (%* para pasar). Tirada: %d (%*)} {@parse_saving_throw{%1;%2;%4;%5;%3}};
 
 /**********************************************************************************************************************
  * Testing                                                                                                            *

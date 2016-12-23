@@ -1,12 +1,28 @@
 #class {RL_LANG} {kill};
 #class {RL_LANG} {open};
 
+/**********************************************************************************************************************
+ * Common language and i18n tools                                                                                     *
+ **********************************************************************************************************************/
+
+/**********************************************************************************************************************
+ * Functions                                                                                                          *
+ **********************************************************************************************************************/
+
 /*
- * Function @parseNumber{number}
+ * Function @parse_number{string}
+ *
+ * Parses a Spanish number string into a number.
+ *
+ * Arguments:
+ *   %1 (any) number in Spanish
+ *
+ * Example:
+ *   @parse_number{ocho}
  */
-#FUNCTION {parseNumber} {
-    #FORMAT {parsedNumberLowerCase} {%l} {%1};
-    #SWITCH {"$parsedNumberLowerCase"} {
+#FUNCTION {parse_number} {
+    #FORMAT {number_lower_case} {%l} {%1};
+    #SWITCH {"$number_lower_case"} {
         #CASE {"un"} {#RETURN 1};
         #CASE {"una"} {#RETURN 1};
         #CASE {"dos"} {#RETURN 2};
@@ -28,9 +44,17 @@
 };
 
 /*
- * Function @exitShortName{exit}
+ * Function @exit_short_name{string}
+ *
+ * Returns the short name of an exit.
+ *
+ * Arguments:
+ *   %1 (any) exit long name
+ *
+ * Example:
+ *   @exit_short_name{noreste}
  */
-#FUNCTION {exitShortName} {
+#FUNCTION {exit_short_name} {
     #SWITCH {"%1"} {
         #CASE {"este"} {#RETURN E};
         #CASE {"el este"} {#RETURN E};
@@ -57,9 +81,17 @@
 };
 
 /*
- * Function @exitShortName{direction}
+ * Function @opposite_direction{string}
+ *
+ * Returns the opposite of any direction.
+ *
+ * Arguments:
+ *   %1 (any) exit short name
+ *
+ * Example:
+ *   @opposite_direction{e}
  */
-#FUNCTION {oppositeDirection} {
+#FUNCTION {opposite_direction} {
     #SWITCH {"%1"} {
         #CASE {"e"} {#RETURN o};
         #CASE {"ne"} {#RETURN so};

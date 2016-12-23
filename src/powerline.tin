@@ -88,7 +88,7 @@
 };
 
 #ACTION {^%1 imagenes semejantes a ti aparecen a tu alrededor.$} {
-    #VAR {buffers[images]} {@parseNumber{%1}};
+    #VAR {buffers[images]} {@parse_number{%1}};
     #SHOWME {@powerline{}} {1};
 };
 

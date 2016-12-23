@@ -24,7 +24,7 @@
  * Example:
  *   @translate_spell{mios armanis}
  */
-#FUNCTION {translateSpell}
+#FUNCTION {translate_spell}
 {
     #VAR {spell_name} {};
     #SWITCH {"%2"}
@@ -350,8 +350,8 @@
  * Substitutions                                                                                                      *
  **********************************************************************************************************************/
 
-#SUBSTITUTE {^Pronuncias el cántico: '%*'$} {@translateSpell{Pronuncias el cántico: '%1';%1}};
-#SUBSTITUTE {^%* pronuncia el cántico: '%*'$} {@translateSpell{%1 pronuncia el cántico: '%2';%2}};
+#SUBSTITUTE {^Pronuncias el cántico: '%*'$} {@translate_spell{Pronuncias el cántico: '%1';%1}};
+#SUBSTITUTE {^%* pronuncia el cántico: '%*'$} {@translate_spell{%1 pronuncia el cántico: '%2';%2}};
 
 /**********************************************************************************************************************
  * Testing                                                                                                            *

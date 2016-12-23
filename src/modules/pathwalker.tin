@@ -38,7 +38,7 @@
         #UNVAR {exits};
         #RETURN;
     };
-    #VAR {lastVisitedExit} {@oppositeDirection{%1}};
+    #VAR {lastVisitedExit} {@opposite_direction{%1}};
     #ACT {^%%* [{[noseabdr,|]+[noseabdr|]*}]{[ ]*}$} {
         #VAR {exits} {%%2};
         #REPLACE {exits} {,} {;};
@@ -59,7 +59,7 @@
         #ELSE {
             #FOREACH {$exits[%%*]} {exit} {
                 #IF {"$exit" != "$lastVisitedExit"} {
-                    #VAR {lastVisitedExit} {@oppositeDirection{$exit}};
+                    #VAR {lastVisitedExit} {@opposite_direction{$exit}};
                     #DELAY {@get_module_setting_value{RL_PATHWALKER;delay}} {$exit};
                     #BREAK;
                 };

@@ -37,33 +37,6 @@
     #system {tput clear};
 };
 
-#ALIAS {/log} {
-	#IF {"%0" == "on"} {
-		#IF {"$logging" != "on"} {
-			#FORMAT {logfile} {log/%t.log} {%Y-%m-%d};
-            #LOG {APPEND} {$logfile};
-            #VAR {logging} {on};
-            /message {Grabando...};
-		};
-		#ELSE {
-            /message {Ya estás grabando un log.};
-		};
-	};
-	#ELSEIF {"%0" == "off"} {
-		#IF {"$logging" == "on"} {
-            #LOG {OFF};
-            #VAR {logging} {off};
-            /message {Dejando de grabar...};
-		};
-		#ELSE {
-            /message {No estás grabando un log.};
-		};
-	};
-	#ELSE {
-        /message {Sintáxis: log on|off.};
-	};
-};
-
 #ALIAS {/cargarAliasesBasicos} {
     charset UTF-8;
     inform todo on;
