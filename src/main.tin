@@ -12,8 +12,6 @@
 #READ {src/highlight.tin};
 #READ {src/substitute.tin};
 #READ {src/powerline.tin};
-#READ {src/spells.tin};
-#READ {src/target.tin};
 
 #READ {src/module.tin};
 #READ {src/modules/chants.tin};
