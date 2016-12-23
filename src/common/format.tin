@@ -2,17 +2,23 @@
 #class {RL_FORMAT} {open};
 
 #FUNCTION {center} {
-    #FORMAT {screenWidth} {%C};
-    #FORMAT {sentenceLength} {%L} {%1};
-    #MATH {paddingLength} {($screenWidth - $sentenceLength) / 2};
-    #FORMAT {result} {%+${paddingLength}s%s%+${paddingLength}s} {} {%1} {};
+    #FORMAT {screen_width} {%C};
+    #FORMAT {sentence_length} {%L} {%1};
+    #MATH {padding_length} {($screen_width - $sentence_length) / 2};
+    #FORMAT {result} {%+${padding_length}s%s%+${padding_length}s} {} {%1} {};
+    #UNVAR {padding_length};
+    #UNVAR {sentence_length};
+    #UNVAR {screen_width};
 };
 
 #FUNCTION {pull_right} {
-    #FORMAT {screenWidth} {%C};
-    #FORMAT {sentenceLength} {%L} {%1};
-    #MATH {paddingLength} {$screenWidth - $sentenceLength};
-    #FORMAT {result} {%+${paddingLength}s%s} {} {%1};
+    #FORMAT {screen_width} {%C};
+    #FORMAT {sentence_length} {%L} {%1};
+    #MATH {padding_length} {$screen_width - $sentence_length};
+    #FORMAT {result} {%+${padding_length}s%s} {} {%1};
+    #UNVAR {padding_length};
+    #UNVAR {sentence_length};
+    #UNVAR {screen_width};
 };
 
 #class {RL_FORMAT} {close};
