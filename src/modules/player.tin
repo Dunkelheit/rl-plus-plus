@@ -29,6 +29,9 @@
 
 #ALIAS {/ficha} {
     #CLASS {SHEET_PARSER_IMPL} {open};
+    #ACTION {^{=+} %w,} {
+        #VAR {rl_player[stats][name]} {%%2};
+    };
     #ACTION {{Varón|Varon|Mujer} {[a-zA-Z\-]+} de %d años y subraza %w} {
         #VAR {rl_player[stats][gender]} {@parse_gender_name{%%2}};
         #VAR {rl_player[stats][race]} {%%2};
@@ -56,6 +59,13 @@
     #ACTION {Ciudadan{o|a} de %*, %*} {
         #VAR {rl_player[stats][citizenship]} {%%2};
     };
+    #ACTION {^{=+}$} {
+        #DELAY {0} {
+            /message {¡RL++ te da la bienvenida, Rascabuches!};
+        };
+        #CLASS {SHEET_PARSER_IMPL} {kill};
+    };
+    #SEND {ficha};
     #CLASS {SHEET_PARSER_IMPL} {close};
 };
 
