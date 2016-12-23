@@ -109,4 +109,15 @@
     }
 };
 
+#NOP TODO: Documentation;
+#FUNCTION {parse_gender_name} {
+    #NOP TODO: Make it case-insensitive;
+    #SWITCH {"%1"} {
+        #CASE {"Varón"} {#RETURN 1};
+        #CASE {"Varon"} {#RETURN 1};
+        #CASE {"Mujer"} {#RETURN 2};
+        #DEFAULT {#RETURN 1};
+    };
+};
+
 #class {RL_LANG} {close};

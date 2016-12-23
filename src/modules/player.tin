@@ -1,0 +1,107 @@
+#CLASS {RL_PLAYER} {kill};
+#CLASS {RL_PLAYER} {open};
+
+/**********************************************************************************************************************
+ * Module RL_PLAYER                                                                                                   *
+ *                                                                                                                    *
+ * Keep track of everything that happens to you.                                                                      *
+ **********************************************************************************************************************/
+
+/register_module {RL_PLAYER} {Mi jugador} {Modulo responsable de almacenar datos del jugador.};
+
+/**********************************************************************************************************************
+ * Variables                                                                                                          *
+ **********************************************************************************************************************/
+
+#VAR {rl_player[stats][health]} {0};
+#VAR {rl_player[stats][health_max]} {0};
+#VAR {rl_player[stats][energy]} {0};
+#VAR {rl_player[stats][energy_max]} {0};
+
+#VAR {rl_player[heartbeat]} {0};
+
+#VAR {rl_player[buffers][images]} {0};
+#VAR {rl_player[buffers][stone_layers]} {0};
+
+/**********************************************************************************************************************
+ * Aliases                                                                                                            *
+ **********************************************************************************************************************/
+
+#ALIAS {/ficha} {
+    #CLASS {SHEET_PARSER_IMPL} {open};
+    #ACTION {{Varón|Varon|Mujer} {[a-zA-Z\-]+} de %d años y subraza %w} {
+        #VAR {rl_player[stats][gender]} {@parse_gender_name{%%2}};
+        #VAR {rl_player[stats][race]} {%%2};
+        #VAR {rl_player[stats][age]} {%%3};
+        #VAR {rl_player[stats][subrace]} {%%4};
+    };
+    #ACTION {%* de nivel %d y %* de nivel %d} {
+        #FORMAT {rl_player[stats][class]} {%p} {%%1};
+        #VAR {rl_player[stats][level]} {%%2};
+        #VAR {rl_player[stats][profession]} {%%3};
+        #VAR {rl_player[stats][profession_level]} {%%4};
+    };
+    #ACTION {%* de nivel %d, actualmente desempleado} {
+        #FORMAT {rl_player[stats][class]} {%p} {%%1};
+        #VAR {rl_player[stats][level]} {%%2};
+    };
+    #ACTION {Miembro del bando %w y adorad{or|ora} de %*} {
+        #VAR {rl_player[stats][faction]} {%%1};
+        #NOP #FORMAT {rl_player[stats][religion]} {%p} {%%3};
+    };
+    #ACTION {Miembro del bando %w y %w convencid{o|a}} {
+        #VAR {rl_player[stats][faction]} {%%1};
+        #VAR {rl_player[stats][religion]} {%%2};
+    };
+    #ACTION {Ciudadan{o|a} de %*, %*} {
+        #VAR {rl_player[stats][citizenship]} {%%2};
+    };
+    #CLASS {SHEET_PARSER_IMPL} {close};
+};
+
+/**********************************************************************************************************************
+ * Actions                                                                                                            *
+ **********************************************************************************************************************/
+
+/*
+#ACTION {^Pvs: %1(%2)  Pe: %3(%4)  Po: %5  Xp: %6  Psoc: %7$} {
+    #VAR {rl_player[stats][health]} {%1};
+    #VAR {rl_player[stats][health_max]} {%2};
+    #VAR {rl_player[stats][energy]} {%3};
+    #VAR {rl_player[stats][energy_max]} {%4};
+    #VAR {rl_player[stats][profession_points]} {%5};
+    #VAR {rl_player[stats][experience]} {%6};
+    #VAR {rl_player[stats][social_points]} {%7};
+};
+
+#ACTION {^Pvs: %1(%2)  Pe: %3(%4)  Fe: %5(%6)  Po: %7  Xp: %8  Psoc: %9$} {
+    #VAR {rl_player[stats][health]} {%1};
+    #VAR {rl_player[stats][health_max]} {%2};
+    #VAR {rl_player[stats][energy]} {%3};
+    #VAR {rl_player[stats][energy_max]} {%4};
+    #VAR {rl_player[stats][faith]} {%5};
+    #VAR {rl_player[stats][faith_max]} {%6};
+    #VAR {rl_player[stats][profession_points]} {%7};
+    #VAR {rl_player[stats][experience]} {%8};
+    #VAR {rl_player[stats][social_points]} {%9};
+};
+
+#ACTION {^Pvs: %1\\%2 Pe: %3\\%4$} {
+    #VAR {rl_player[stats][health]} {%1};
+    #VAR {rl_player[stats][health_max]} {%2};
+    #VAR {rl_player[stats][energy]} {%3};
+    #VAR {rl_player[stats][energy_max]} {%4};
+};
+*/
+
+/**********************************************************************************************************************
+ * Testing                                                                                                            *
+ **********************************************************************************************************************/
+
+#IF {$_development == 1} {
+    #ALIAS {/test_RL_PLAYER} {
+        #SHOWME {No tests implemented.};
+    };
+};
+
+#CLASS {RL_PLAYER} {close};
