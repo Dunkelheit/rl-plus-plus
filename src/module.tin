@@ -25,6 +25,7 @@
  *   rl_modules[<module_name>][settings][<setting_name>][description]
  *   rl_modules[<module_name>][settings][<setting_name>][default]
  *   rl_modules[<module_name>][settings][<setting_name>][value]
+ *   rl_modules[<module_name>][listeners][<listener_name>]
  */
 #VAR {rl_modules} {};
 
@@ -174,6 +175,55 @@
         #VAR {rl_modules[%1][settings][%2][enum]} {%4};
     };
 }
+
+/*
+ * Alias /add_module_event_listener {identifier} {event}
+ *
+ * Makes the module listen to the given event. When the event is triggered, the local
+ * function /event_<module_name>_<event_name> will be called. For example, if the module
+ * RL_POWERLINE is listening to the event mirror_images_hit, the local function 
+ * with name event_RL_POWERLINE_mirror_images_hit will be called.
+ *
+ * Arguments:
+ *   %1 (any) module identifier
+ *   %1 (any) event name
+ *
+ * Example:
+ *   /add_module_event_listener {RL_POWERLINE} {mirror_images_hit};
+ */
+#ALIAS {/add_module_event_listener} {
+    #IF {"%1" == ""} {
+        /message {Sintáxis:\n  <178>/add_module_event_listener {event}};
+        #RETURN;
+    }
+    #IF {"$rl_modules[%1]" == ""} {
+        /message {El módulo %1 no existe.};
+        #RETURN;
+    };
+    #IF {"$rl_modules[%1][listeners]" == ""} {
+        #LIST {$rl_modules[%1][listeners]} {create} {%2};
+    };
+    #ELSE {
+        #LIST {$rl_modules[%1][listeners]} {add} {%2};
+    };
+};
+
+#ALIAS {/trigger_event} {
+    #IF {"%1" == ""} {
+        /message {Sintáxis:\n  <178>/trigger_event {event}};
+        #RETURN;
+    }
+    #FOREACH {$rl_modules[]} {module} {
+        #IF {"$rl_modules[$module][listeners]" == ""} {
+            #RETURN;
+        };
+        #LIST {$rl_modules[%1][listeners]} {find} {%1} {event_index};
+        #IF {"$event_index" != "0"} {
+            /event_$module_%1;
+        }
+        #UNVAR {event_index};
+    };
+};
 
 #ALIAS {/configure} {
     #IF {"%1" == ""} {
