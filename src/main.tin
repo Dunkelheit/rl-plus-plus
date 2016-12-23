@@ -7,10 +7,10 @@
 #READ {src/system/event.tin};
 #READ {src/system/pathdir.tin};
 #READ {src/common/lang.tin};
+#READ {src/common/format.tin};
 
 #READ {src/alias.tin};
 #READ {src/function.tin};
-#READ {src/format.tin};
 #READ {src/highlight.tin};
 #READ {src/substitute.tin};
 

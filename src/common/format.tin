@@ -8,7 +8,7 @@
     #FORMAT {result} {%+${paddingLength}s%s%+${paddingLength}s} {} {%1} {};
 };
 
-#FUNCTION {pullRight} {
+#FUNCTION {pull_right} {
     #FORMAT {screenWidth} {%C};
     #FORMAT {sentenceLength} {%L} {%1};
     #MATH {paddingLength} {$screenWidth - $sentenceLength};
