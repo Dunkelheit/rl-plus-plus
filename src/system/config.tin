@@ -1,5 +1,5 @@
-#CLASS {RL_CONFIG} {kill};
-#CLASS {RL_CONFIG} {open};
+#CLASS {RL_SYSTEM_CONFIG} {kill};
+#CLASS {RL_SYSTEM_CONFIG} {open};
 
 /**********************************************************************************************************************
  * System configuration                                                                                               *
@@ -32,4 +32,4 @@
 #VAR {rl_config[message_prefix]} {<139>☥<099>};
 #VAR {rl_config[message_color]} {<fca>};
 
-#CLASS {RL_CONFIG} {close};
+#CLASS {RL_SYSTEM_CONFIG} {close};

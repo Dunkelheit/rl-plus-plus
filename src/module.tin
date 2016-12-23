@@ -11,6 +11,21 @@
  * Variables                                                                                                          *
  **********************************************************************************************************************/
 
+/*
+ * Variable $rl_modules (table)
+ *
+ * Structure
+ *   rl_modules[<module_name>]
+ *   rl_modules[<module_name>][name]
+ *   rl_modules[<module_name>][description]
+ *   rl_modules[<module_name>][enabled]
+ *   rl_modules[<module_name>][settings]
+ *   rl_modules[<module_name>][settings][<setting_name>]
+ *   rl_modules[<module_name>][settings][<setting_name>][type]
+ *   rl_modules[<module_name>][settings][<setting_name>][description]
+ *   rl_modules[<module_name>][settings][<setting_name>][default]
+ *   rl_modules[<module_name>][settings][<setting_name>][value]
+ */
 #VAR {rl_modules} {};
 
 /**********************************************************************************************************************

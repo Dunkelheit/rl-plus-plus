@@ -1,5 +1,5 @@
-#CLASS {RL_PATHDIR} {kill};
-#CLASS {RL_PATHDIR} {open};
+#CLASS {RL_SYSTEM_PATHDIR} {kill};
+#CLASS {RL_SYSTEM_PATHDIR} {open};
 
 /**********************************************************************************************************************
  * System path directions                                                                                             *
@@ -16,4 +16,4 @@
 #PATHDIR {ar} {ab} {16};
 #PATHDIR {o} {e} {8};
 
-#CLASS {RL_PATHDIR} {close};
+#CLASS {RL_SYSTEM_PATHDIR} {close};
