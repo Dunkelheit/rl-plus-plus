@@ -8,41 +8,66 @@
  **********************************************************************************************************************/
 
 /register_module {RL_TARGET} {Enemigos} {Destaca los nombres de tus enemigos.};
+/add_module_setting {RL_TARGET} {command_set_target} {any} {} {tar} {El alias de MUD que uses para nickear a mano (usando "nick x").};
+/add_module_setting {RL_TARGET} {command_autotarget} {any} {} {tarear} {El alias de MUD que uses para nickear automáticamente (usando "nickear").};
+
+/**********************************************************************************************************************
+ * Variables                                                                                                          *
+ **********************************************************************************************************************/
+
+#VAR {rl_targets} {};
 
 /**********************************************************************************************************************
  * Aliases                                                                                                            *
  **********************************************************************************************************************/
 
 /*
- * Alias /tars
+ * Alias /x {comma separated list of targets}
  *
- * Grabs all your enemies.
- *
+ * Sets your enemies. If there is no argument, targets will be set automatically
+ * 
  * Example:
- *   /tars
+ *   /x
+ *   /x lloth,balor
  */
-#ALIAS {/tars} {
+#ALIAS {/x} {
     #CLASS {RL_TARGET_IMPL} {open};
     #ACTION {^Nombre corto %%1 cambiado de %%2 a %%3.$} {
         #CLASS {RL_TARGET_IMPL} {kill};
+        /unhilight_targets;
         #VARIABLE {targets} {%%3};
         #REPLACE {targets} {,} {;};
-        #LIST {targets} {create} {$targets};
-        #CLASS {target} {kill};
-        #FOREACH {$targets[%*]} {name} {
-            #FORMAT {name} {%n} {$name};
-            #HIGHLIGHT {$name} {red bold} {10};
-        };
+        #LIST {rl_targets} {create} {$targets};
+        /highlight_targets;
     }; 
-    tarear;
+    #IF {"%1" != ""} {
+        @get_module_setting_value{RL_TARGET;command_set_target} %1;
+    };
+    #ELSE {
+        @get_module_setting_value{RL_TARGET;command_autotarget};
+    };
     #CLASS {RL_TARGET_IMPL} {close};
+};
+
+#ALIAS {/unhilight_targets} {
+    #FOREACH {$rl_targets[%*]} {name} {
+        #FORMAT {name} {%n} {$name};
+        #UNHIGHLIGHT {$name};
+    };
+};
+
+#ALIAS {/highlight_targets} {
+    #FOREACH {$rl_targets[%*]} {name} {
+        #FORMAT {name} {%n} {$name};
+        #HIGHLIGHT {$name} {red bold} {10};
+    };
 };
 
 /**********************************************************************************************************************
  * Autocompletion                                                                                                     *
  **********************************************************************************************************************/
 
-#TAB {/tars};
+#TAB {/x};
 
 /**********************************************************************************************************************
  * Testing                                                                                                            *

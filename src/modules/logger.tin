@@ -1,13 +1,13 @@
-#CLASS {RL_LOGGING} {kill};
-#CLASS {RL_LOGGING} {open};
+#CLASS {RL_LOGGER} {kill};
+#CLASS {RL_LOGGER} {open};
 
 /**********************************************************************************************************************
- * Module RL_LOGGING                                                                                                  *
+ * Module RL_LOGGER                                                                                                   *
  *                                                                                                                    *
  * A simple logging module.                                                                                           *
  **********************************************************************************************************************/
 
-/register_module {RL_LOGGING} {Logeador} {Utilidades para logear.};
+/register_module {RL_LOGGER} {Logeador} {Utilidades para logear.};
 
 /**********************************************************************************************************************
  * Aliases                                                                                                            *
@@ -63,9 +63,9 @@
  **********************************************************************************************************************/
 
 #IF {$_development == 1} {
-    #ALIAS {/test_RL_LOGGING} {
+    #ALIAS {/test_RL_LOGGER} {
         #SHOWME {No tests implemented.};
     };
 };
 
-#CLASS {RL_LOGGING} {close};
+#CLASS {RL_LOGGER} {close};

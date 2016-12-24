@@ -25,7 +25,7 @@
     #SHOWME {<fac>/log <on|off> <acd>Activa o desactiva el logeado. Los logs se guardan en el directorio /logs.<099>};
     #SHOWME {<fac>/reload <acd>Recarga el script. Sólo funciona en modo desarrollo.<099>};
     #SHOWME {<fac>/rumbo <dirección> <acd>Camina automáticamente en una dirección, de forma similar al comando "galopar".<099>};
-    #SHOWME {<fac>/tars <acd>Computa una lista de enemigos. Has de tener el alias "tarear" establecido con tu "nickear" personal.<099>};
+    #SHOWME {<fac>/x <acd>Computa una lista de enemigos.<099>};
     #SHOWME {};
 };
 
@@ -103,6 +103,10 @@
 
 #ALIAS {/message} {
     #SHOWME {$rl_config[message_prefix]$rl_config[message_color] %1<099>};
+};
+
+#ALIAS {/message_cooldown} {
+    #SHOWME {<139>☀<099>  <cfa>Habilidad disponible: <178>%1<099>};
 };
 
 #IF {$_development == 1} {

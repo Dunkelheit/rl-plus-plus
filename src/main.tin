@@ -16,7 +16,7 @@
 
 #READ {src/module.tin};
 #READ {src/modules/chants.tin};
-#READ {src/modules/logging.tin};
+#READ {src/modules/logger.tin};
 #READ {src/modules/pathwalker.tin};
 #READ {src/modules/player.tin};
 #READ {src/modules/powerline.tin};
@@ -24,5 +24,7 @@
 #READ {src/modules/shape.tin};
 #READ {src/modules/target.tin};
 #READ {src/modules/weapon_message.tin};
+
+#READ {src/classes/marksman.tin};
 
 #CLASS {RL_MAIN} {close};

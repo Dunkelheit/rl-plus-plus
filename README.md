@@ -28,8 +28,8 @@ Situate en la carpeta de Instalación y ejecuta el siguiente comando:
 
 ## Funciones
 
-* Sistema de módulos
-* Sustitución con colores y destacado de multitud de eventos
+* Sistema de módulos y eventos 
+* Sustitución con colores y destacado de multitud de situaciones:
     * Daños armados
     * Salud y estado
     * Habilidades y hechizos
@@ -42,6 +42,8 @@ Situate en la carpeta de Instalación y ejecuta el siguiente comando:
 * Delta de puntos de vida
 * Extensión de cánticos con el nombre del hechizo
 * Recorrido automático de caminos (como el comando galopar)
+* Diversas funcionalidades para las siguientes clases:
+    * Tirador
 
 ## Comandos
 
