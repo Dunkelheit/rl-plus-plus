@@ -73,6 +73,10 @@
  * Actions                                                                                                            *
  **********************************************************************************************************************/
 
+#ACTION {Te faltan %* {P|p}untos de experiencia para subir de nivel.} {
+    #VAR {rl_player[stats][xp_left]} {%1};
+};
+
 /*
 #ACTION {^Pvs: %1(%2)  Pe: %3(%4)  Po: %5  Xp: %6  Psoc: %7$} {
     #VAR {rl_player[stats][health]} {%1};
