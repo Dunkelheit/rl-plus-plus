@@ -49,6 +49,14 @@
     #CLASS {RL_TARGET_IMPL} {close};
 };
 
+/*
+ * Alias /unhilight_targets {comma separated list of targets}
+ *
+ * Removes enemy highlighting.
+ * 
+ * Example:
+ *   /unhilight_targets lloth,balor
+ */
 #ALIAS {/unhilight_targets} {
     #FOREACH {$rl_targets[%*]} {name} {
         #FORMAT {name} {%n} {$name};
@@ -56,6 +64,14 @@
     };
 };
 
+/*
+ * Alias /hilight_targets {comma separated list of targets}
+ *
+ * Sets enemy highlighting.
+ * 
+ * Example:
+ *   /hilight_targets lloth,balor
+ */
 #ALIAS {/highlight_targets} {
     #FOREACH {$rl_targets[%*]} {name} {
         #FORMAT {name} {%n} {$name};

@@ -13,6 +13,7 @@
  * Variables                                                                                                          *
  **********************************************************************************************************************/
 
+#NOP TODO: Move to / use the ones from RL_PLAYER
 #VAR {stats[health]} {0};
 #VAR {stats[maxHealth]} {0};
 #VAR {stats[energy]} {0};
