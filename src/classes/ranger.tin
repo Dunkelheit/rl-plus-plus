@@ -8,15 +8,13 @@
  **********************************************************************************************************************/
 
 /register_module {RL_RANGER} {Guardabosques} {Just to show how it is done.};
-/add_module_setting {RL_RANGER} {foo} {enum} {lorem;ipsum} {lorem} {Just an enumeration setting};
-/add_module_setting {RL_RANGER} {bar} {number} {} {50} {Just a number setting};
 
 /**********************************************************************************************************************
  * Actions                                                                                                            *
  **********************************************************************************************************************/
 
 #NOP cazr y ataquedoble 9s
-#ACTION {^Observas {desde tu escondite| } los movimientos %*$} {
+#ACTION {^Observas {desde tu escondite |}los movimientos %*$} {
     #DELAY {9} {
         /message_cooldown {Cazar};
     };
