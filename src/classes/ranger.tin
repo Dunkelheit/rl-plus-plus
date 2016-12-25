@@ -1,0 +1,74 @@
+#CLASS {RL_RANGER} {kill};
+#CLASS {RL_RANGER} {open};
+
+/**********************************************************************************************************************
+ * Module RL_RANGER
+ *                                                                                                                    *
+ * Functionalities for the ranger class.                                                                            *
+ **********************************************************************************************************************/
+
+/register_module {RL_RANGER} {Guardabosques} {Just to show how it is done.};
+/add_module_setting {RL_RANGER} {foo} {enum} {lorem;ipsum} {lorem} {Just an enumeration setting};
+/add_module_setting {RL_RANGER} {bar} {number} {} {50} {Just a number setting};
+
+/**********************************************************************************************************************
+ * Actions                                                                                                            *
+ **********************************************************************************************************************/
+
+#NOP cazr y ataquedoble 9s
+#ACTION {^Observas {desde tu escondite| } los movimientos %*$} {
+    #DELAY {9} {
+        /message_cooldown {Cazar};
+    };
+};
+
+#ACTION {^Tensas tus m{ú|u}sculos preparando un nuevo ataque.$} {
+    #DELAY {9} {
+        /message_cooldown {Ataquedoble};
+    };
+};
+
+#NOP Estos timers necesitan revision --Shaktty
+#ACTION {^%1 parece encogerse, mientras retrae su cuerpo hacia atrás, como si fuera a lanzarse sobre alguien$} {
+    #DELAY {18} {
+        /message_cooldown {Dentellada};
+    };
+};
+
+#ACTION {^Ordenas a %* habilidad acosar sobre %2}
+    #DELAY {18} {
+        /message_cooldown {Acosar};
+    };
+};
+
+#ACTION {^Ordenas a %* habilidad picado sobre %2}
+    #DELAY {18} {
+        /message_cooldown {Picado};
+    };
+};
+
+/**********************************************************************************************************************
+ * Highlights                                                                                                         *
+ **********************************************************************************************************************/
+
+#HIGHLIGHT {^Observas {desde tu escondite| } los movimientos %*} {bold green};
+#HIGHLIGHT {^%1 parece encogerse, mientras retrae su cuerpo hacia atrás, como si fuera a lanzarse sobre alguien$} {green bold};
+#HIGHLIGHT {^%1 intenta morder con sus formidables colmillos a %1 en %2, pero es esquivado$} {bold red};
+#HIGHLIGHT {^%1, el Gran Lobo Ancestral abre sus fauces para dejar caer el cuerpo inerte de su víctima$} {cyan bold};
+#HIGHLIGHT {^Cazas salv{a|á}jemente %*$} {cyan bold};
+#HIGHLIGHT {^Cazas cr{i|í}ticamente %*$} {cyan red};
+#HIGHLIGHT {^Tensas tus m{ú|u}sculos preparando un nuevo ataque.$} {bold green};
+#HIGHLIGHT {^El lobo se desvanece en su entorno$} {bold cyan}; 
+#NOP # Abandonas tu estado de concentración bañada en un sudor frío, descubriendo heridas de las que no te habías percatado.;
+
+/**********************************************************************************************************************
+ * Testing                                                                                                            *
+ **********************************************************************************************************************/
+
+#IF {$_development == 1} {
+    #ALIAS {/test_RL_RANGER} {
+        #SHOWME {No tests implemented.};
+    };
+};
+
+#CLASS {RL_RANGER} {close};
