@@ -7,7 +7,7 @@
  * Functionalities for the ranger class.                                                                            *
  **********************************************************************************************************************/
 
-/register_module {RL_RANGER} {Guardabosques} {Just to show how it is done.};
+/register_module {RL_RANGER} {Clases: guardabosques} {Utilidades para la clase guardabosques.};
 
 /**********************************************************************************************************************
  * Actions                                                                                                            *

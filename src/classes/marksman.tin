@@ -7,9 +7,7 @@
  * Functionalities for the marksman class.                                                                            *
  **********************************************************************************************************************/
 
-/register_module {RL_MARKSMAN} {Test module} {Just to show how it is done.};
-/add_module_setting {RL_MARKSMAN} {foo} {enum} {lorem;ipsum} {lorem} {Just an enumeration setting};
-/add_module_setting {RL_MARKSMAN} {bar} {number} {} {50} {Just a number setting};
+/register_module {RL_MARKSMAN} {Clases: Tirador} {Utilidades para la clase tirador.};
 
 /**********************************************************************************************************************
  * Actions                                                                                                            *
@@ -19,19 +17,25 @@
     
 };
 
-#ACTION {^¡Lanzas un disparocertero contra %*!} {
+#ACTION {^¡Lanzas un disparocertero contra %*!$} {
     #DELAY {11} {
-        /message_cooldown {Disparo certero};
+        /message_cooldown {Disparo certero (NPCs)};
     };
-};
-
-#ACTION {^¡Descargas una salva de %*} {
-    #DELAY {20} {
-        /message_cooldown {Salva};
+    #DELAY {10} {
+        /message_cooldown {Disparo certero (PJs)};
     };    
 };
 
-#ACTION {^# ¡Impactas a %* con un fugaz disparo incapacitador que le atraviesa %*!$} {
+#ACTION {¡Descargas una salva de %*} {
+    #DELAY {20} {
+        /message_cooldown {Salva (NPCs)};
+    };    
+    #DELAY {10} {
+        /message_cooldown {Salva (PJs)};
+    };    
+};
+
+#ACTION {¡Impactas a %* con un fugaz disparo incapacitador que le atraviesa %*!$} {
     #DELAY {60} {
         /message_cooldown {Disparo incapacitador};
     };    
