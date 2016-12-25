@@ -106,7 +106,7 @@
 };
 
 #ALIAS {/message_cooldown} {
-    #SHOWME {<139>☀<099>  <cfa>Habilidad disponible: <178>%1<099>};
+    #SHOWME {<169>☀<099>  <139>Habilidad disponible: <178>%1<099>};
 };
 
 #IF {$_development == 1} {
