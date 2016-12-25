@@ -52,9 +52,9 @@
  **********************************************************************************************************************/
 
 #HIGHLIGHT {^Observas {desde tu escondite| } los movimientos %*} {bold green};
-#HIGHLIGHT {^%1 parece encogerse, mientras retrae su cuerpo hacia atrás, como si fuera a lanzarse sobre alguien$} {green bold};
+#HIGHLIGHT {^%1 parece encogerse, mientras retrae su cuerpo hacia atr{á|a}s, como si fuera a lanzarse sobre alguien$} {green bold};
 #HIGHLIGHT {^%1 intenta morder con sus formidables colmillos a %1 en %2, pero es esquivado$} {bold red};
-#HIGHLIGHT {^%1, el Gran Lobo Ancestral abre sus fauces para dejar caer el cuerpo inerte de su víctima$} {cyan bold};
+#HIGHLIGHT {^%1{, el Gran Lobo Ancestral| } abre sus fauces para dejar caer el cuerpo inerte de su v{í|i}ctima$} {cyan bold};
 #HIGHLIGHT {^Cazas salv{a|á}jemente %*$} {cyan bold};
 #HIGHLIGHT {^Cazas cr{i|í}ticamente %*$} {cyan red};
 #HIGHLIGHT {^Tensas tus m{ú|u}sculos preparando un nuevo ataque.$} {bold green};
