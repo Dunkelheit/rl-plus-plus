@@ -43,6 +43,7 @@ Situate en la carpeta de Instalación y ejecuta el siguiente comando:
 * Extensión de cánticos con el nombre del hechizo
 * Recorrido automático de caminos (como el comando galopar)
 * Diversas funcionalidades para las siguientes clases:
+    * Cazador
     * Tirador
 
 ## Comandos
