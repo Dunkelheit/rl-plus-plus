@@ -19,6 +19,7 @@
 #VAR {rl_player[stats][energy_max]} {0};
 
 #VAR {rl_player[heartbeat]} {0};
+#VAR {rl_player[heartbeat_lock]} {0};
 
 #VAR {rl_player[buffers][images]} {0};
 #VAR {rl_player[buffers][stone_layers]} {0};

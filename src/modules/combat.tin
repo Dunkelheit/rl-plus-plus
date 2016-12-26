@@ -1,13 +1,14 @@
-#CLASS {RL_WEAPON_MESSAGE} {kill};
-#CLASS {RL_WEAPON_MESSAGE} {open};
+#CLASS {RL_COMBAT} {kill};
+#CLASS {RL_COMBAT} {open};
 
 /**********************************************************************************************************************
- * Module RL_WEAPON_MESSAGE                                                                                           *
+ * Module RL_COMBAT                                                                                                   *
  *                                                                                                                    *
- * Extends weapon messages with damage and location multipliers.                                                      *
+ * Combat routines:                                                                                                   *
+ * - Extends weapon messages with damage and location multipliers.                                                    *
  **********************************************************************************************************************/
 
-/register_module {RL_WEAPON_MESSAGE} {Mensajes de daño} {Añade daños y multiplicador por localización a los mensajes de combate.};
+/register_module {RL_COMBAT} {Mensajes de daño} {Añade daños y multiplicador por localización a los mensajes de combate.};
 
 /**********************************************************************************************************************
  * Variables                                                                                                          *
@@ -34,6 +35,15 @@
  *   @parse_wepon_message{%1;%3;%4;%5}}
  */
 #FUNCTION {parse_wepon_message} {
+    #NOP Make sure we don't flood the heartbeat event, since players can hit multiple times per turn;
+    #IF {$rl_player[heartbeat_lock] == 0} {
+        /trigger_event {heartbeat};
+        #VAR {rl_player[heartbeat_lock]} {1};
+        #DELAY {reset_heartbeat_lock} {
+            #VAR {rl_player[heartbeat_lock]} {0};
+        } {3};
+    };
+    
     #SWITCH {"%2"} {
         #CASE {"débilmente"} {#VAR {damage} {<aaa>1-40}};
         #CASE {"con poca fuerza"} {#VAR {damage} {<aba>41-80}};
@@ -66,16 +76,16 @@
 
 #SUBSTITUTE {^# $attack_type%* en %* a %*.$} {@parse_wepon_message{%1;%3;%4;%5}};
 
-#NOP TODO: Critical hits
+#NOP TODO: Critical hits;
 
 /**********************************************************************************************************************
  * Testing                                                                                                            *
  **********************************************************************************************************************/
 
 #IF {$_development == 1} {
-    #ALIAS {/test_RL_WEAPON_MESSAGE} {
+    #ALIAS {/test_RL_COMBAT} {
         #SHOWME {No tests implemented.};
     };
 };
 
-#CLASS {RL_WEAPON_MESSAGE} {close};
+#CLASS {RL_COMBAT} {close};

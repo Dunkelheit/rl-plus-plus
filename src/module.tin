@@ -201,10 +201,10 @@
         #RETURN;
     };
     #IF {"$rl_modules[%1][listeners]" == ""} {
-        #LIST {$rl_modules[%1][listeners]} {create} {%2};
+        #LIST {rl_modules[%1][listeners]} {create} {%2};
     };
     #ELSE {
-        #LIST {$rl_modules[%1][listeners]} {add} {%2};
+        #LIST {rl_modules[%1][listeners]} {add} {%2};
     };
 };
 
@@ -215,11 +215,11 @@
     }
     #FOREACH {$rl_modules[]} {module} {
         #IF {"$rl_modules[$module][listeners]" == ""} {
-            #RETURN;
+            #CONTINUE;
         };
-        #LIST {$rl_modules[%1][listeners]} {find} {%1} {event_index};
+        #LIST {rl_modules[$module][listeners]} {find} {%1} {event_index};
         #IF {"$event_index" != "0"} {
-            /event_$module_%1;
+            /event_${module}_%1;
         }
         #UNVAR {event_index};
     };

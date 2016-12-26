@@ -2,18 +2,18 @@
 #CLASS {RL_RANGER} {open};
 
 /**********************************************************************************************************************
- * Module RL_RANGER
+ * Module RL_RANGER                                                                                                   *
  *                                                                                                                    *
- * Functionalities for the ranger class.                                                                            *
+ * Functionalities for the ranger class.                                                                              *
  **********************************************************************************************************************/
 
-/register_module {RL_RANGER} {Clases: guardabosques} {Utilidades para la clase guardabosques.};
+/register_module {RL_RANGER} {Clases: Guardabosques} {Utilidades para la clase guardabosques.};
 
 /**********************************************************************************************************************
  * Actions                                                                                                            *
  **********************************************************************************************************************/
 
-#NOP cazr y ataquedoble 9s
+#NOP cazr y ataquedoble 9s;
 #ACTION {^Observas {desde tu escondite |}los movimientos %*$} {
     #DELAY {9} {
         /message_cooldown {Cazar};
@@ -26,20 +26,20 @@
     };
 };
 
-#NOP Estos timers necesitan revision --Shaktty
+#NOP Estos timers necesitan revision --Shaktty;
 #ACTION {^%1 parece encogerse, mientras retrae su cuerpo hacia atrás, como si fuera a lanzarse sobre alguien$} {
     #DELAY {18} {
         /message_cooldown {Dentellada};
     };
 };
 
-#ACTION {^Ordenas a %* habilidad acosar sobre %2}
+#ACTION {^Ordenas a %* habilidad acosar sobre %2} {
     #DELAY {18} {
         /message_cooldown {Acosar};
     };
 };
 
-#ACTION {^Ordenas a %* habilidad picado sobre %2}
+#ACTION {^Ordenas a %* habilidad picado sobre %2} {
     #DELAY {18} {
         /message_cooldown {Picado};
     };

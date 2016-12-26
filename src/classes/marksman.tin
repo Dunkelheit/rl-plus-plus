@@ -18,10 +18,11 @@
 };
 
 #ACTION {^¡Lanzas un disparocertero contra %*!$} {
-    #DELAY {11} {
+    #NOP Pongo un segundo mas porque el cooldown original a veces no es fiable al 100%;
+    #DELAY {12} {
         /message_cooldown {Disparo certero (NPCs)};
     };
-    #DELAY {10} {
+    #DELAY {5} {
         /message_cooldown {Disparo certero (PJs)};
     };    
 };
@@ -42,7 +43,6 @@
 };
 
 #ACTION {T{ú|u} y tu %* os fund{í|i}s en uno %*} {
-    #SHOWME {Ok};
     #CLASS {RL_MARKSMAN_PERFECT_IMPL} {open};
     #VAR {perfect_shot_countdown} {10};
     #ACTION {^Contin{ú|u}as preparando tu disparo perfecto contra %*.$} {

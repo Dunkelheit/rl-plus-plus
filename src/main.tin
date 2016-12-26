@@ -23,8 +23,9 @@
 #READ {src/modules/saving_throw.tin};
 #READ {src/modules/shape.tin};
 #READ {src/modules/target.tin};
-#READ {src/modules/weapon_message.tin};
+#READ {src/modules/combat.tin};
 
 #READ {src/classes/marksman.tin};
+#READ {src/classes/ranger.tin};
 
 #CLASS {RL_MAIN} {close};
