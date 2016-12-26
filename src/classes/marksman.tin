@@ -13,51 +13,72 @@
  * Actions                                                                                                            *
  **********************************************************************************************************************/
 
-#ACTION {^Preparas tu %* y te dispones a disparar contra %*.$} {
-    
-};
-
 #ACTION {^¡Lanzas un disparocertero contra %*!$} {
+    #UNDELAY {cooldown_disparocertero_npcs};
+    #UNDELAY {cooldown_disparocertero_pjs};
     #NOP Pongo un segundo mas porque el cooldown original a veces no es fiable al 100%;
-    #DELAY {12} {
+    #DELAY {cooldown_disparocertero_npcs} {
         /message_cooldown {Disparo certero (NPCs)};
-    };
-    #DELAY {5} {
+    } {12};
+    #DELAY {cooldown_disparocertero_pjs} {
         /message_cooldown {Disparo certero (PJs)};
-    };    
+    } {5};
 };
 
-#ACTION {¡Descargas una salva de %*} {
-    #DELAY {20} {
+#ACTION {# ¡Descargas una salva de %*} {
+    #UNDELAY {cooldown_salva_npcs};
+    #UNDELAY {cooldown_salva_pjs};
+    #NOP Pongo un segundo mas porque el cooldown original a veces no es fiable al 100%;
+    #DELAY {cooldown_salva_npcs} {
         /message_cooldown {Salva (NPCs)};
-    };    
-    #DELAY {10} {
+    } {21};
+    #DELAY {cooldown_disparocertero_pjs} {
         /message_cooldown {Salva (PJs)};
-    };    
+    } {11};
 };
 
-#ACTION {¡Impactas a %* con un fugaz disparo incapacitador que le atraviesa %*!$} {
-    #DELAY {60} {
-        /message_cooldown {Disparo incapacitador};
-    };    
+#ACTION {# ¡Impactas a %* con un fugaz disparo incapacitador que le atraviesa %*!$} {
+    #UNDELAY {cooldown_disparoincapacitador_npcs};
+    #UNDELAY {cooldown_disparoincapacitador_pjs};
+    #NOP Pongo un segundo mas porque el cooldown original a veces no es fiable al 100%;
+    #DELAY {cooldown_disparoincapacitador_npcs} {
+        /message_cooldown {Disparo incapacitador (NPCs)};
+    } {61};
+    #DELAY {cooldown_disparoincapacitador_pjs} {
+        /message_cooldown {Disparo incapacitador (PJs)};
+    } {31};
 };
 
 #ACTION {T{ú|u} y tu %* os fund{í|i}s en uno %*} {
-    #CLASS {RL_MARKSMAN_PERFECT_IMPL} {open};
-    #VAR {perfect_shot_countdown} {10};
+    #CLASS {RL_MARKSMAN_DA_IMPL} {open};
+    #VAR {countdown_disparoapuntado} {10};
     #ACTION {^Contin{ú|u}as preparando tu disparo perfecto contra %*.$} {
-        #MATH {perfect_shot_countdown} {$perfect_shot_countdown - 1};
-        #SHOWME {Turno: $perfect_shot_countdown};
+        #MATH {countdown_disparoapuntado} {$countdown_disparoapuntado - 1};
+        #IF {$countdown_disparoapuntado > 1} {
+            #DELAY {0} {#SHOWME {<068>Turno: <138>$countdown_disparoapuntado<099>}};
+        };
+        #ELSE {
+            #DELAY {0} {#SHOWME {<138>¡Último turno! ¡dispara ya!<099>}};
+        };
     };
     #ACTION {^¡Finalmente, liberas contra %* el disparo apuntado que tanto hab{í|i}as preparado!$} {
-        #UNVAR {perfect_shot_countdown};
-        #CLASS {RL_MARKSMAN_PERFECT_IMPL} {kill};
+        #UNVAR {countdown_disparoapuntado};        
+        #CLASS {RL_MARKSMAN_DA_IMPL} {kill};
+        #UNDELAY {cooldown_disparoapuntado_npcs};
+        #UNDELAY {cooldown_disparoapuntado_pjs};
+        #NOP Pongo un segundo mas porque el cooldown original a veces no es fiable al 100%;
+        #DELAY {cooldown_disparoapuntado_npcs} {
+            /message_cooldown {Disparo apuntado (NPCs)};
+        } {21};
+        #DELAY {cooldown_disparoapuntado_pjs} {
+            /message_cooldown {Disparo apuntado (PJs)};
+        } {11};
     };
     #ACTION {^Tus ojos te duelen de no parpadear y no eres capaz de aguantar m{á|a}s la respiración...} {
-        #UNVAR {perfect_shot_countdown};
-        #CLASS {RL_MARKSMAN_PERFECT_IMPL} {kill};
+        #UNVAR {countdown_disparoapuntado};
+        #CLASS {RL_MARKSMAN_DA_IMPL} {kill};
     };
-    #CLASS {RL_MARKSMAN_PERFECT_IMPL} {close};
+    #CLASS {RL_MARKSMAN_DA_IMPL} {close};
 };
 
 /**********************************************************************************************************************
@@ -72,7 +93,10 @@
 
 #HIGHLIGHT {^# ¡Impactas a %* con un fugaz disparo incapacitador que le atraviesa %*!$} {green bold};
 
-#HIGHLIGHT {^# T{ú|u} y tu %* os fund{í|i}s en uno %*} {cyan bold};
+#HIGHLIGHT {^T{ú|u} y tu %* os fund{í|i}s en uno %*} {cyan bold};
+#HIGHLIGHT {^Continúas preparando tu disparo perfecto contra %*.$} {cyan bold};
+
+#HIGHLIGHT {^¡Finalmente, liberas contra %* el disparo apuntado que tanto hab{í|i}as preparado!$} {green bold};
 
 #NOP # Arremetes contra Lobo asestándole un temible golpe crítico en el hocico.;
 #NOP ¡Tu ataque clava un proyectil en el hocico de Lobo, causándole una profunda herida!;
