@@ -70,13 +70,17 @@
     };
 };
 
+#ACTION {}
+
 /**********************************************************************************************************************
  * Substitutions                                                                                                      *
  **********************************************************************************************************************/
 
 #SUBSTITUTE {^# $attack_type%* en %* a %*.$} {@parse_wepon_message{%1;%3;%4;%5}};
-
-#NOP TODO: Critical hits;
+#SUBSTITUTE {~^%*#%* Realizas un salto hacia %* descargando un tremendo corte cr{í|i}tico con brutalidad en %*.} {%0 <128>★ CRIT ★<099>};
+#SUBSTITUTE {~^%*#%* Te lanzas sobre %* clav{á|a}ndole tu %* en %* cr{í|i}ticamente.} {%0 <128>★ CRIT ★<099>};
+#SUBSTITUTE {~^%*#%* Arremetes contra %* asest{á|a}ndole un temible golpe crítico en %*.} {%0 <128>★ CRIT ★<099>};
+#NOP ¡Tu ataque clava un proyectil en el pecho de Sven, causandole una profunda herida!;
 
 /**********************************************************************************************************************
  * Testing                                                                                                            *
@@ -84,7 +88,19 @@
 
 #IF {$_development == 1} {
     #ALIAS {/test_RL_COMBAT} {
-        #SHOWME {No tests implemented.};
+        #SHOWME {\e[32m#\e[0m Cortas débilmente en una pata a Shane enorme con una flecha certera.\e[0m};
+        #SHOWME {\e[32m#\e[0m Sesgas con poca fuerza en el pecho a Shane.\e[0m};
+        #SHOWME {\e[32m#\e[0m Rajas en un pie a Shane.\e[0m};
+        #SHOWME {\e[32m#\e[0m Pinchas con fuerza en un brazo a Shane.\e[0m};
+        #SHOWME {\e[32m#\e[0m Perforas con mucha fuerza en la cabeza a Shane.\e[0m};
+        #SHOWME {\e[32m#\e[0m Atraviesas violentamente en el pecho a Shane.\e[0m};
+        #SHOWME {\e[32m#\e[0m Aplastas con increíble potencia en una pierna a Shane.\e[0m};
+        #SHOWME {\e[32m#\e[0m Golpeas con fuerza sobrehumana en un pie a Shane.\e[0m};
+        #SHOWME {\e[32m#\e[0m Desgarras con fuerza divina en la cabeza a Shane.\e[0m};
+        #SHOWME {\e[32m#\e[0m Laceras con cólera titánica en el prostomio a Shane.\e[0m};
+        #SHOWME {\e[32m#\e[0m Realizas un salto hacia Shane descargando un tremendo corte crítico con brutalidad en el pecho.\e[0m};
+        #SHOWME {\e[32m#\e[0m Te lanzas sobre Shane clavándole tu Daga en la cabeza críticamente.\e[0m};
+        #SHOWME {\e[32m#\e[0m Arremetes contra Shane asestándole un temible golpe crítico en una pierna.\e[0m};
     };
 };
 

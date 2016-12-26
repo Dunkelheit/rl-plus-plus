@@ -27,6 +27,7 @@
 #HIGHLIGHT {^Te haces consciente de la presencia de %*.$} {bold magenta} {5};
 #HIGHLIGHT {^El hechizo de 'retener' que afectaba a %* se desmorona cuando este recibe mucho da{ñ|ny}o.$}  {bold magenta} {5};
 #HIGHLIGHT {^%* queda liberado de la fuerza que le reten{í|i}a..$}  {bold magenta} {5};
+#HIGHLIGHT {^¡Plop! ¡%* aparece repentinamente ante tus ojos!$} {bold magenta} {5};
 
 /*
  * Dangers
