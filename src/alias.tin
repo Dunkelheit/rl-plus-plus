@@ -21,6 +21,7 @@
     #SHOWME {<fac>/cargarAliasesBasicos <acd>Establece aliases básicos en una nueva ficha.<099>};
     #SHOWME {<fac>/cargarAliasesBribon <acd>Establece aliases para sigilar y esconderse en una nueva ficha.<099>};
     #SHOWME {<fac>/conectar <acd>Conecta a Reinos de Leyenda MUD.<099>};
+    #SHOWME {<fac>/ficha <acd>Lee los datos de tu ficha. Necesario en el futuro para computar ciertas cosas.<099>};
     #SHOWME {<fac>/limpiar <acd>Borra el contenido de la pantalla.<099>};
     #SHOWME {<fac>/log <on|off> <acd>Activa o desactiva el logeado. Los logs se guardan en el directorio /logs.<099>};
     #SHOWME {<fac>/reload <acd>Recarga el script. Sólo funciona en modo desarrollo.<099>};
