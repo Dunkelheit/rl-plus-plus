@@ -8,6 +8,7 @@
 #SUBSTITUTE {^Tu globo de invulnerabilidad empieza a parpadear hasta que desaparece.$} {<CAA><178>@center{%0}<099>};
 
 #SUBSTITUTE {se va {hacia el|hacia|en dirección} %w} {se va %1 <BCA><178> @exit_short_name{%2} <099>};
+#SUBSTITUTE {%1 {llega|aparece} {desde el|desde|saltando desde el|de la direcci{ó|o}n} %w} {%1 %2 %3 <BCA><178> @exit_short_name{%4} <099>};
 
 #SUBSTITUTE {^[%* orbita a Eirea]$} {[%1 <bee>entra<099> a Eirea]};
 #SUBSTITUTE {^[%* orbita al Limbo]$} {[%1 <g10>sale<099> de Eirea]};
