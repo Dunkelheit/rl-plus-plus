@@ -7,7 +7,6 @@
 
 #HIGHLIGHT {^Comienzas a formular el hechizo '%*'.$}    {bold cyan} {5};
 #HIGHLIGHT {^Pronuncias el cántico: '%*'$}              {bold cyan} {5};
-
 #HIGHLIGHT {^Propinas el golpe mortal a %*.$}   {green} {5};
 #HIGHLIGHT {^%* cae al suelo sin vida.$}        {black bold} {5};
 
@@ -32,12 +31,12 @@
  * Dangers
  */
 
+#HIGHLIGHT {^Tus otras acciones te mantienen demasiado ocupado y pierdes la concentraci{ó|o}n arruinando tu hechizo$} {b magenta}  {5};
 #HIGHLIGHT {^¡Has quedado al descubierto!$}             {bold red} {5};
 #HIGHLIGHT {^¡Tus imágenes se desvanecen!$}             {bold red} {5};
 #HIGHLIGHT {^Tu piel vuelve a su estado normal.$}       {bold red} {5};
 #HIGHLIGHT {^Sientes como una fuerza divina te rodea,%*}    {bold red} {5};
 #HIGHLIGHT {^{¡|}Te estremeces y pierdes la concentraci{ó|o}n!$}   {bold red} {5};
-
 #HIGHLIGHT {^Ves como %* se aleja de ti mientras te mira con el rostro enfurecido.$} {bold red} {5};
 #HIGHLIGHT {^%* te mira mientras comprime toda su musculatura.$} {bold red} {5};
 #HIGHLIGHT {^¡Eres agarrad{o|a} brutalmente por %* y no puedes moverte!} {bold red} {5};
