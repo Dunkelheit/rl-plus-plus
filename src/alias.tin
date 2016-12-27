@@ -39,67 +39,11 @@
 };
 
 #ALIAS {/cargarAliasesBasicos} {
-    charset UTF-8;
-    inform todo on;
-    consentir tiradas on;
-    consentir detallado off;
-    consentir menus off;
-    alias save salvar;
-    alias g ojear $*$;
-    alias l mirar $*$;
-    alias quit salir;
-    alias scc sc -v;
-    alias sca sc -a;
-    alias tar nick tar $*$;
-    alias k matar $arg:tar$;
-    alias atar anick tar $*$;
-    alias mtar mnick tar $*$;
-    alias qtar qnick tar $*$;
-    alias fi finger $arg:me$;
-    alias q estado $arg:tar$;
-    alias qq estado todo;
-    alias en enterrar $*$;
-    alias b buscar $*$;
-    alias p perder $arg:todo$;
-    alias pp peleas parar;
-    alias est estatus $*$;
-    alias dip diplomacia $*$;
-    alias hab habilidades $*$;
-    alias ma maestria $*$;
-    alias mp maestria arma;
-    alias env envainar $arg:arma$;
-    alias emp empuñar $arg:arma$;
-    alias arma nick arma $*$\;alias mp maestria $*$;
-    alias ap abrir $*$;
-    alias cp cerrar $*$;
-    alias mm mirarme;
-    alias cv conversar $*$;
-    alias cm coger monedas de cuerpos;
-    alias x noticias $*$;
-    alias fc ficha cuenta $*$;
-    alias lev levantarse;
-    alias aga agacharse;
-    alias xp experiencia $*$;
-    alias obj nick obj $*$;
-    alias bp mirar obj;
-    alias gt coger $*$ de obj;
-    alias pt poner $*$ en obj;
+    #READIN {data/aliases_basicos.txt} {1};
 };
 
 #ALIAS {/cargarAliasesBribon} {
-    alias h esconderse $*$;
-    alias E sigilar este;
-    alias NE sigilar noreste;
-    alias N sigilar norte;
-    alias NO sigilar noroeste;
-    alias O sigilar oeste;
-    alias SO sigilar sudoeste;
-    alias S sigilar sur;
-    alias SE sigilar sudeste;
-    alias AR sigilar arriba;
-    alias AB sigilar abajo;
-    alias DE sigilar dentro;
-    alias FU sigilar fuera;  
+    #READIN {data/aliases_bribon.txt} {1};
 };
 
 #ALIAS {/message} {
