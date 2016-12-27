@@ -4,10 +4,10 @@
 /**********************************************************************************************************************
  * Module RL_ROGUE                                                                                                    *
  *                                                                                                                    *
- * Common functionalities for all rogue class.                                                                        *
+ * Common functionalities for all rogue classes.                                                                      *
  **********************************************************************************************************************/
 
-/register_module {RL_ROGUE} {Clases: Sigilador} {Utilidades para clases sigiladoras.};
+/register_module {RL_ROGUE} {Clases: Sigilador} {Utilidades comunes para clases sigiladoras.};
 
 /**********************************************************************************************************************
  * Substitutions                                                                                                      *

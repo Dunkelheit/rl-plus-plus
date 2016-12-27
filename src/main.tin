@@ -25,6 +25,7 @@
 #READ {src/modules/target.tin};
 #READ {src/modules/combat.tin};
 
+#READ {src/classes/caster.tin};
 #READ {src/classes/rogue.tin};
 #READ {src/classes/marksman.tin};
 #READ {src/classes/ranger.tin};
