@@ -6,7 +6,6 @@
 #SUBSTITUTE {se va {hacia el|hacia|en dirección} %w} {se va %1 <BCA><178> @exit_short_name{%2} <099>};
 #SUBSTITUTE {^[%* orbita a Eirea]$} {[%1 <bee>entra<099> a Eirea]};
 #SUBSTITUTE {^[%* orbita al Limbo]$} {[%1 <g10>sale<099> de Eirea]};
-#SUBSTITUTE {^%* ha muerto.$} {<G02><118>@center{☠  %1 ☠}<099>};
 
 #IF {$_development == 1} {
     #ALIAS {/testSubstitute} {
