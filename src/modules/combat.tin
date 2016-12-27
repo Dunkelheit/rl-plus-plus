@@ -80,7 +80,14 @@
 #SUBSTITUTE {~^%*#%* Realizas un salto hacia %* descargando un tremendo corte cr{í|i}tico con brutalidad en %*.} {%0 <128>★ CRIT ★<099>};
 #SUBSTITUTE {~^%*#%* Te lanzas sobre %* clav{á|a}ndole tu %* en %* cr{í|i}ticamente.} {%0 <128>★ CRIT ★<099>};
 #SUBSTITUTE {~^%*#%* Arremetes contra %* asest{á|a}ndole un temible golpe crítico en %*.} {%0 <128>★ CRIT ★<099>};
-#NOP ¡Tu ataque clava un proyectil en el pecho de Sven, causandole una profunda herida!;
+#SUBSTITUTE {~^%*#%* Un disparo crítico de tu %* atraviesa brutalmente en %* a %*.} {%0 <128>★ CRIT ★<099>};
+#SUBSTITUTE {~^%*#%* Sometes a %* a una poderosa ráfaga mágica crítica.} {%0 <128>★ CRIT ★<099>};
+
+/**********************************************************************************************************************
+ * Highlights                                                                                                         *
+ **********************************************************************************************************************/
+
+#HIGHLIGHT {^¡Tu ataque clava un proyectil en %* de %*, causandole una profunda herida!$} {<caf>};
 
 /**********************************************************************************************************************
  * Testing                                                                                                            *
@@ -101,6 +108,9 @@
         #SHOWME {\e[32m#\e[0m Realizas un salto hacia Shane descargando un tremendo corte crítico con brutalidad en el pecho.\e[0m};
         #SHOWME {\e[32m#\e[0m Te lanzas sobre Shane clavándole tu Daga en la cabeza críticamente.\e[0m};
         #SHOWME {\e[32m#\e[0m Arremetes contra Shane asestándole un temible golpe crítico en una pierna.\e[0m};
+        #SHOWME {\e[32m#\e[0m Un disparo crítico de tu Ballesta atraviesa brutalmente en una pierna a Shane.\e[0m};
+        #SHOWME {\e[32m#\e[0m Sometes a Shane a una poderosa ráfaga mágica crítica.\e[0m};
+        #SHOWME {¡Tu ataque clava un proyectil en la pierna de Shane, causandole una profunda herida!};
     };
 };
 
