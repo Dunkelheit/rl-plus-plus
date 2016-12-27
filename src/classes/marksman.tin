@@ -88,7 +88,7 @@
 #HIGHLIGHT {^Preparas tu %* y te dispones a disparar contra %*.$} {cyan bold};
 #HIGHLIGHT {^¡Lanzas un disparocertero contra %*!} {green bold};
 
-#HIGHLIGHT {^Colocas un mont{ó|o}n de flechas en el suelo delante de ti %*} {cyan bold};
+#HIGHLIGHT {^Colocas un mont{ó|o}n de %* en el suelo delante de ti %*} {cyan bold};
 #HIGHLIGHT {^# ¡Descargas una salva de %*} {green bold}; 
 
 #HIGHLIGHT {^# ¡Impactas a %* con un fugaz disparo incapacitador que le atraviesa %*!$} {green bold};
