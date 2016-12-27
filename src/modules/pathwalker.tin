@@ -69,7 +69,7 @@
         /limpiar_rumbo {Deteniendo el rumbo, pues algo raro ha sucedido.};
     };
     /message {Caminando rumbo %1...};
-    %1;
+    #SEND {%1};
     #CLASS {RL_PATHWALKER_IMPL} {close};
 }
 
