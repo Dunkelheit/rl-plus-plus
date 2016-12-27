@@ -5,8 +5,6 @@
  * Warnings
   */
 
-#HIGHLIGHT {^¡Descubres a %* intentando moverse en silencio!$}  {bold magenta} {5};
-#HIGHLIGHT {^¡%* descubre a %* intentando moverse en silencio!$}    {bold magenta} {5};
 #HIGHLIGHT {^¡%* realiza un amplio ataque barriendo de un golpe a todos sus oponentes!} {bold magenta} {5};
 #HIGHLIGHT {^¡%* se dispone a golpear a un enemigo!$}   {bold magenta} {5};
 #HIGHLIGHT {^Notas como el poder de la runa %* te abandona poco a poco.$} {bold magenta} {5};
