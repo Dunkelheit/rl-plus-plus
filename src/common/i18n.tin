@@ -1,0 +1,138 @@
+#class {RL_I18N} {kill};
+#class {RL_I18N} {open};
+
+/**********************************************************************************************************************
+ * Common language and i18n tools                                                                                     *
+ **********************************************************************************************************************/
+
+/**********************************************************************************************************************
+ * System path directions                                                                                             *
+ **********************************************************************************************************************/
+
+#PATHDIR {ab} {ar} {32};
+#PATHDIR {e} {o} {2};
+#PATHDIR {n} {s} {1};
+#PATHDIR {ne} {so} {3};
+#PATHDIR {no} {se} {9};
+#PATHDIR {s} {n} {4};
+#PATHDIR {se} {no} {6};
+#PATHDIR {so} {ne} {12};
+#PATHDIR {ar} {ab} {16};
+#PATHDIR {o} {e} {8};
+
+/**********************************************************************************************************************
+ * Functions                                                                                                          *
+ **********************************************************************************************************************/
+
+/*
+ * Function @parse_number{string}
+ *
+ * Parses a Spanish number string into a number.
+ *
+ * Arguments:
+ *   %1 (any) number in Spanish
+ *
+ * Example:
+ *   @parse_number{ocho}
+ */
+#FUNCTION {parse_number} {
+    #FORMAT {number_lower_case} {%l} {%1};
+    #SWITCH {"$number_lower_case"} {
+        #CASE {"un"} {#RETURN 1};
+        #CASE {"una"} {#RETURN 1};
+        #CASE {"dos"} {#RETURN 2};
+        #CASE {"tres"} {#RETURN 3};
+        #CASE {"cuatro"} {#RETURN 4};
+        #CASE {"cinco"} {#RETURN 5};
+        #CASE {"seis"} {#RETURN 6};
+        #CASE {"siete"} {#RETURN 7};
+        #CASE {"ocho"} {#RETURN 8};
+        #CASE {"nueve"} {#RETURN 9};
+        #CASE {"diez"} {#RETURN 10};
+        #CASE {"once"} {#RETURN 11};
+        #CASE {"doce"} {#RETURN 12};
+        #CASE {"trece"} {#RETURN 13};
+        #CASE {"catorce"} {#RETURN 14};
+        #CASE {"quince"} {#RETURN 15};
+        #DEFAULT {#RETURN 0};
+    };
+};
+
+/*
+ * Function @exit_short_name{string}
+ *
+ * Returns the short name of an exit.
+ *
+ * Arguments:
+ *   %1 (any) exit long name
+ *
+ * Example:
+ *   @exit_short_name{noreste}
+ */
+#FUNCTION {exit_short_name} {
+    #SWITCH {"%1"} {
+        #CASE {"este"} {#RETURN E};
+        #CASE {"el este"} {#RETURN E};
+        #CASE {"noreste"} {#RETURN NE};
+        #CASE {"el noreste"} {#RETURN NE};
+        #CASE {"norte"} {#RETURN N};
+        #CASE {"el norte"} {#RETURN N};
+        #CASE {"noroeste"} {#RETURN NO};
+        #CASE {"el noroeste"} {#RETURN NO};
+        #CASE {"oeste"} {#RETURN O};
+        #CASE {"el oeste"} {#RETURN O};
+        #CASE {"sudoeste"} {#RETURN SO};
+        #CASE {"el sudoeste"} {#RETURN SO};
+        #CASE {"sur"} {#RETURN S};
+        #CASE {"el sur"} {#RETURN S};
+        #CASE {"sudeste"} {#RETURN SE};
+        #CASE {"el sudeste"} {#RETURN SE};
+        #CASE {"dentro"} {#RETURN DE};
+        #CASE {"fuera"} {#RETURN FU};
+        #CASE {"arriba"} {#RETURN AR};
+        #CASE {"abajo"} {#RETURN AB};
+        #DEFAULT {#RETURN %1};
+    };
+};
+
+/*
+ * Function @opposite_direction{string}
+ *
+ * Returns the opposite of any direction.
+ *
+ * Arguments:
+ *   %1 (any) exit short name
+ *
+ * Example:
+ *   @opposite_direction{e}
+ */
+#FUNCTION {opposite_direction} {
+    #SWITCH {"%1"} {
+        #CASE {"e"} {#RETURN o};
+        #CASE {"ne"} {#RETURN so};
+        #CASE {"n"} {#RETURN s};
+        #CASE {"no"} {#RETURN se};
+        #CASE {"o"} {#RETURN e};
+        #CASE {"so"} {#RETURN ne};
+        #CASE {"s"} {#RETURN n};
+        #CASE {"se"} {#RETURN no};
+        #CASE {"ar"} {#RETURN ab};
+        #CASE {"ab"} {#RETURN ar};
+        #CASE {"de"} {#RETURN fu};
+        #CASE {"fu"} {#RETURN de};
+        #DEFAULT {#RETURN %1};
+    }
+};
+
+#NOP TODO: Documentation;
+#FUNCTION {parse_gender_name} {
+    #NOP TODO: Make it case-insensitive;
+    #SWITCH {"%1"} {
+        #CASE {"Varón"} {#RETURN 1};
+        #CASE {"Varon"} {#RETURN 1};
+        #CASE {"Mujer"} {#RETURN 2};
+        #DEFAULT {#RETURN 1};
+    };
+};
+
+#class {RL_I18N} {close};
