@@ -27,5 +27,6 @@
 
 #READ {src/classes/marksman.tin};
 #READ {src/classes/ranger.tin};
+#READ {src/classes/wizard.tin};
 
 #CLASS {RL_MAIN} {close};

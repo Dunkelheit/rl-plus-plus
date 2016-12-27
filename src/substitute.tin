@@ -2,16 +2,10 @@
 #CLASS {RL_SUBSTITUTE} {open};
 
 #SUBSTITUTE {^[Obtienes %* puntos de experiencia]$} {<fac>@pull_right{+%1 xp}<099>} {5};
-
-#SUBSTITUTE {^¡Tus im{á|a}genes se desvanecen!$} {<CAA><178>@center{%0}<099>};
-#SUBSTITUTE {^Tu piel vuelve a su estado normal.$} {<CAA><178>@center{%0}<099>};
-#SUBSTITUTE {^Tu globo de invulnerabilidad empieza a parpadear hasta que desaparece.$} {<CAA><178>@center{%0}<099>};
-
+#NOP TODO: Move to RL_ENVIRONMENT?;
 #SUBSTITUTE {se va {hacia el|hacia|en dirección} %w} {se va %1 <BCA><178> @exit_short_name{%2} <099>};
-
 #SUBSTITUTE {^[%* orbita a Eirea]$} {[%1 <bee>entra<099> a Eirea]};
 #SUBSTITUTE {^[%* orbita al Limbo]$} {[%1 <g10>sale<099> de Eirea]};
-
 #SUBSTITUTE {^%* ha muerto.$} {<G02><118>@center{☠  %1 ☠}<099>};
 
 #IF {$_development == 1} {
