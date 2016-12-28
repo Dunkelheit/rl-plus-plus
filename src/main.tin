@@ -3,32 +3,6 @@
 
 #VAR {_development} {1};
 
-#READ {src/system/config.tin};
-#READ {src/system/event.tin};
-
-#READ {src/common/lang.tin};
-#READ {src/common/format.tin};
-#READ {src/common/i18n.tin};
-
-#READ {src/alias.tin};
-#READ {src/highlight.tin};
-#READ {src/substitute.tin};
-
-#READ {src/module.tin};
-#READ {src/modules/chants.tin};
-#READ {src/modules/logger.tin};
-#READ {src/modules/pathwalker.tin};
-#READ {src/modules/player.tin};
-#READ {src/modules/powerline.tin};
-#READ {src/modules/saving_throw.tin};
-#READ {src/modules/shape.tin};
-#READ {src/modules/target.tin};
-#READ {src/modules/combat.tin};
-
-#READ {src/classes/caster.tin};
-#READ {src/classes/rogue.tin};
-#READ {src/classes/marksman.tin};
-#READ {src/classes/ranger.tin};
-#READ {src/classes/wizard.tin};
+#READ {src/bootloader.tin};
 
 #CLASS {RL_MAIN} {close};
