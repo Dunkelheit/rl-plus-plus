@@ -9,15 +9,11 @@
 #HIGHLIGHT {^¡%* se dispone a golpear a un enemigo!$}   {bold magenta} {5};
 #HIGHLIGHT {^Notas como el poder de la runa %* te abandona poco a poco.$} {bold magenta} {5};
 #HIGHLIGHT {^Dejas de preever los próximos ataques de tus enemigos} {bold magenta} {5};
-#HIGHLIGHT {^%* te sigue.$} {bold magenta} {5};
-#HIGHLIGHT {^El hechizo de 'retener' que afectaba a %* se desmorona cuando este recibe mucho da{ñ|ny}o.$}  {bold magenta} {5};
-#HIGHLIGHT {^%* queda liberado de la fuerza que le reten{í|i}a..$}  {bold magenta} {5};
 
 /*
  * Dangers
  */
 
-#HIGHLIGHT {^Sientes como una fuerza divina te rodea,%*}    {bold red} {5};
 #HIGHLIGHT {^Ves como %* se aleja de ti mientras te mira con el rostro enfurecido.$} {bold red} {5};
 #HIGHLIGHT {^%* te mira mientras comprime toda su musculatura.$} {bold red} {5};
 #HIGHLIGHT {^¡Eres agarrad{o|a} brutalmente por %* y no puedes moverte!} {bold red} {5};
@@ -26,6 +22,5 @@
  * Good things
  */
 
-#HIGHLIGHT {^Puedes moverte libremente de nuevo.$}      {bold green} {5};
 
 #class {RL_FUNCTION} {close};

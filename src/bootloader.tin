@@ -10,10 +10,10 @@
 
 #READ {src/alias.tin};
 #READ {src/highlight.tin};
-#READ {src/substitute.tin};
 
 #READ {src/module.tin};
 #READ {src/modules/chants.tin};
+#READ {src/modules/environment.tin};
 #READ {src/modules/logger.tin};
 #READ {src/modules/pathwalker.tin};
 #READ {src/modules/player.tin};
@@ -24,9 +24,11 @@
 #READ {src/modules/combat.tin};
 
 #READ {src/classes/caster.tin};
+#READ {src/classes/priest.tin};
 #READ {src/classes/rogue.tin};
+#READ {src/classes/wizard.tin};
+
 #READ {src/classes/marksman.tin};
 #READ {src/classes/ranger.tin};
-#READ {src/classes/wizard.tin};
 
 #CLASS {RL_BOOTLOADER} {close};
