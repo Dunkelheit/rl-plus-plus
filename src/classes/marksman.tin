@@ -70,9 +70,9 @@
     };    
     #ACTION {^Contin{ú|u}as preparando tu disparo perfecto contra %*.$} {
         #MATH {counter_disparoapuntado} {$counter_disparoapuntado + 1};
+        #MATH {damage_bonus} {$counter_disparoapuntado * 14 * $rl_player[stats][weighted_level]};
+        #MATH {offensive_bonus} {$counter_disparoapuntado * 10};
         #IF {$counter_disparoapuntado < 9} {
-            #MATH {damage_bonus} {$counter_disparoapuntado * 14 * $rl_player[stats][weighted_level]};
-            #MATH {offensive_bonus} {$counter_disparoapuntado * 10};
             #DELAY {0} {#SHOWME {<068>Turno: <138>$counter_disparoapuntado<068>, bonificaciones: daño <138>+$damage_bonus<068>, BO <138>+$offensive_bonus<099>}};
         };
         #ELSE {
