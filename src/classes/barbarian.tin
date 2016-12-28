@@ -1,0 +1,33 @@
+#CLASS {RL_BARBARIAN} {kill};
+#CLASS {RL_BARBARIAN} {open};
+
+/**********************************************************************************************************************
+ * Module RL_BARBARIAN                                                                                                *
+ *                                                                                                                    *
+ * Functionalities for the barbarian class.                                                                           *
+ **********************************************************************************************************************/
+
+/register_module {RL_BARBARIAN} {Clases: Bárbaro} {Utilidades para bárbaros.};
+
+/**********************************************************************************************************************
+ * Highlights                                                                                                         *
+ **********************************************************************************************************************/
+
+/*
+ * Dangers
+ */
+#HIGHLIGHT {^Ves como %* se aleja de ti mientras te mira con el rostro enfurecido.$} {bold red} {5};
+#HIGHLIGHT {^%* te mira mientras comprime toda su musculatura.$} {bold red} {5};
+#HIGHLIGHT {^¡Eres agarrad{o|a} brutalmente por %* y no puedes moverte!} {bold red} {5};
+
+/**********************************************************************************************************************
+ * Testing                                                                                                            *
+ **********************************************************************************************************************/
+
+#IF {$_development == 1} {
+    #ALIAS {/test_RL_BARBARIAN} {
+        #SHOWME {No tests implemented.};
+    };
+};
+
+#CLASS {RL_BARBARIAN} {close};

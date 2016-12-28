@@ -26,6 +26,8 @@
  */
 #HIGHLIGHT {^Te vuelves a sentir pesad{a|o}.$} {bold magenta} {5};
 #HIGHLIGHT {^¡Plop! ¡%* aparece repentinamente ante tus ojos!$} {bold magenta} {5};
+#NOP TODO: Which class does the following message belong to?;
+#HIGHLIGHT {^Dejas de preever los próximos ataques de tus enemigos} {bold magenta} {5};
 
 /*
  * Danger

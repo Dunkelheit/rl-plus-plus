@@ -28,7 +28,11 @@
 #READ {src/classes/rogue.tin};
 #READ {src/classes/wizard.tin};
 
+#READ {src/classes/barbarian.tin};
+#READ {src/classes/fighter.tin};
+#READ {src/classes/gragbadur.tin};
 #READ {src/classes/marksman.tin};
 #READ {src/classes/ranger.tin};
+#READ {src/classes/wizwar.tin};
 
 #CLASS {RL_BOOTLOADER} {close};
