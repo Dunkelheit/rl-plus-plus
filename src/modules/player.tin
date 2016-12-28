@@ -25,6 +25,58 @@
 #VAR {rl_player[buffers][stone_layers]} {0};
 
 /**********************************************************************************************************************
+ * Functions                                                                                                          *
+ **********************************************************************************************************************/
+
+/*
+ * Function @weighted_level{class_level}
+ *
+ * Returns the weighted level.
+ *
+ * Arguments:
+ *   %1 (number) the class level
+ *
+ * Example:
+ *   @weighted_level{32}
+ */
+#FUNCTION {weighted_level}
+{
+    #IF {%1 <= 6} { #RETURN {5} };
+    #ELSEIF {%1 == 7} { #RETURN {6} };
+    #ELSEIF {%1 == 8} { #RETURN {7} };
+    #ELSEIF {%1 == 9} { #RETURN {9} };
+    #ELSEIF {%1 == 10} { #RETURN {10} };
+    #ELSEIF {%1 == 11} { #RETURN {12} };
+    #ELSEIF {%1 == 12} { #RETURN {11} };
+    #ELSEIF {%1 == 13} { #RETURN {13} };
+    #ELSEIF {%1 == 14} { #RETURN {14} };
+    #ELSEIF {%1 == 15} { #RETURN {15} };
+    #ELSEIF {%1 <= 17} { #RETURN {16} };
+    #ELSEIF {%1 == 18} { #RETURN {17} };
+    #ELSEIF {%1 <= 20} { #RETURN {18} };
+    #ELSEIF {%1 == 21} { #RETURN {19} };
+    #ELSEIF {%1 <= 23} { #RETURN {20} };
+    #ELSEIF {%1 <= 25} { #RETURN {21} };
+    #ELSEIF {%1 <= 28} { #RETURN {22} };
+    #ELSEIF {%1 <= 30} { #RETURN {23} };
+    #ELSEIF {%1 <= 33} { #RETURN {24} };
+    #ELSEIF {%1 <= 35} { #RETURN {25} };
+    #ELSEIF {%1 <= 39} { #RETURN {26} };
+    #ELSEIF {%1 <= 42} { #RETURN {27} };
+    #ELSEIF {%1 <= 46} { #RETURN {28} };
+    #ELSEIF {%1 <= 50} { #RETURN {29} };
+    #ELSEIF {%1 <= 54} { #RETURN {30} };
+    #ELSEIF {%1 <= 59} { #RETURN {31} };
+    #ELSEIF {%1 <= 64} { #RETURN {32} };
+    #ELSEIF {%1 <= 70} { #RETURN {33} };
+    #ELSEIF {%1 <= 76} { #RETURN {34} };
+    #ELSEIF {%1 <= 82} { #RETURN {35} };
+    #ELSEIF {%1 <= 90} { #RETURN {36} };
+    #ELSEIF {%1 <= 97} { #RETURN {37} };
+    #ELSE { #RETURN {38} };
+};
+
+/**********************************************************************************************************************
  * Aliases                                                                                                            *
  **********************************************************************************************************************/
 
@@ -42,12 +94,14 @@
     #ACTION {%* de nivel %d y %* de nivel %d} {
         #FORMAT {rl_player[stats][class]} {%p} {%%1};
         #VAR {rl_player[stats][level]} {%%2};
+        #VAR {rl_player[stats][weighted_level]} {@weighted_level{%%2}};
         #VAR {rl_player[stats][profession]} {%%3};
         #VAR {rl_player[stats][profession_level]} {%%4};
     };
     #ACTION {%* de nivel %d, actualmente desempleado} {
         #FORMAT {rl_player[stats][class]} {%p} {%%1};
         #VAR {rl_player[stats][level]} {%%2};
+        #VAR {rl_player[stats][weighted_level]} {@weighted_level{%%2}};
     };
     #ACTION {Miembro del bando %w y adorad{or|ora} de %*} {
         #VAR {rl_player[stats][faction]} {%%1};

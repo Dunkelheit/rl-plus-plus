@@ -80,6 +80,7 @@
 #SUBSTITUTE {~^%*#%* Realizas un salto hacia %* descargando un tremendo corte cr{í|i}tico con brutalidad en %*.} {%0 <128>★ CRIT ★<099>};
 #SUBSTITUTE {~^%*#%* Te lanzas sobre %* clav{á|a}ndole tu %* en %* cr{í|i}ticamente.} {%0 <128>★ CRIT ★<099>};
 #SUBSTITUTE {~^%*#%* Arremetes contra %* asest{á|a}ndole un temible golpe crítico en %*.} {%0 <128>★ CRIT ★<099>};
+#NOP TODO: it this marksman only?;
 #SUBSTITUTE {~^%*#%* Un disparo crítico de tu %* atraviesa brutalmente en %* a %*.} {%0 <128>★ CRIT ★<099>};
 #SUBSTITUTE {~^%*#%* Sometes a %* a una poderosa ráfaga mágica crítica.} {%0 <128>★ CRIT ★<099>};
 
@@ -89,7 +90,8 @@
  * Highlights                                                                                                         *
  **********************************************************************************************************************/
 
-#HIGHLIGHT {^¡Tu ataque clava un proyectil en %* de %*, causandole una profunda herida!$} {<caf>};
+#HIGHLIGHT {^¡Tu ataque clava un proyectil en %* de %*, caus{á|a}ndole una profunda herida!$} {<caf>};
+
 #HIGHLIGHT {^Propinas el golpe mortal a %*.$} {green} {5};
 #HIGHLIGHT {^%* cae al suelo sin vida.$} {black bold} {5};
 
