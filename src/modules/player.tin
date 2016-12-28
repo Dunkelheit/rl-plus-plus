@@ -62,7 +62,7 @@
     };
     #ACTION {^{=+}$} {
         #DELAY {0} {
-            /message {¡RL++ te da la bienvenida, Rascabuches!};
+            /message {¡RL++ te da la bienvenida, $rl_player[stats][name]!};
         };
         #CLASS {SHEET_PARSER_IMPL} {kill};
     };
