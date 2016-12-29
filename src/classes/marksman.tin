@@ -51,18 +51,11 @@
 
 #ACTION {T{ú|u} y tu %* os fund{í|i}s en uno %*} {
     #CLASS {RL_MARKSMAN_DA_IMPL} {open};
-    #VAR {countdown_disparoapuntado} {10};
-    #ACTION {^Contin{ú|u}as preparando tu disparo perfecto contra %*.$} {
-        #MATH {countdown_disparoapuntado} {$countdown_disparoapuntado - 1};
-        #IF {$countdown_disparoapuntado > 1} {
-            #DELAY {0} {#SHOWME {<068>Turno: <138>$countdown_disparoapuntado<099>}};
-        };
-        #ELSE {
-            #DELAY {0} {#SHOWME {<138>¡Último turno! ¡dispara ya!<099>}};
-        };
-    };
-    #ACTION {^¡Finalmente, liberas contra %* el disparo apuntado que tanto hab{í|i}as preparado!$} {
-        #UNVAR {countdown_disparoapuntado};        
+    #VAR {counter_disparoapuntado} {0};
+    #ALIAS {/clear_marksman_da_impl} {
+        #UNVAR {counter_disparoapuntado};        
+        #UNVAR {damage_bonus};
+        #UNVAR {offensive_bonus};
         #CLASS {RL_MARKSMAN_DA_IMPL} {kill};
         #UNDELAY {cooldown_disparoapuntado_npcs};
         #UNDELAY {cooldown_disparoapuntado_pjs};
@@ -73,10 +66,24 @@
         #DELAY {cooldown_disparoapuntado_pjs} {
             /message_cooldown {Disparo apuntado (PJs)};
         } {11};
+        #UNALIAS {/clear_marksman_da_impl};
+    };    
+    #ACTION {^Contin{ú|u}as preparando tu disparo perfecto contra %*.$} {
+        #MATH {counter_disparoapuntado} {$counter_disparoapuntado + 1};
+        #MATH {damage_bonus} {$counter_disparoapuntado * 14 * $rl_player[stats][weighted_level]};
+        #MATH {offensive_bonus} {$counter_disparoapuntado * 10};
+        #IF {$counter_disparoapuntado < 9} {
+            #DELAY {0} {#SHOWME {<068>Turno: <138>$counter_disparoapuntado<068>, bonificaciones: daño <138>+$damage_bonus<068>, BO <138>+$offensive_bonus<099>}};
+        };
+        #ELSE {
+            #DELAY {0} {#SHOWME {<138>¡Último turno! ¡dispara ya!<068> Bonificaciones: daño <138>+$damage_bonus<068>, BO <138>+$offensive_bonus<099>}};
+        };
+    };
+    #ACTION {^¡Finalmente, liberas contra %* el disparo apuntado que tanto hab{í|i}as preparado!$} {
+        /clear_marksman_da_impl;
     };
     #ACTION {^Tus ojos te duelen de no parpadear y no eres capaz de aguantar m{á|a}s la respiración...} {
-        #UNVAR {countdown_disparoapuntado};
-        #CLASS {RL_MARKSMAN_DA_IMPL} {kill};
+        /clear_marksman_da_impl;
     };
     #CLASS {RL_MARKSMAN_DA_IMPL} {close};
 };

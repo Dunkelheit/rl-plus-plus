@@ -28,6 +28,7 @@
  * Goodies
  */
 #HIGHLIGHT {^Puedes moverte libremente de nuevo.$} {bold green} {5};
+#HIGHLIGHT {^Paralizas a %* mediante una fuerza divina que le rodea.$} {5};
 
 
 /**********************************************************************************************************************

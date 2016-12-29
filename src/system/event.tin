@@ -23,6 +23,7 @@
             #SHOWME {<G03><138>@center{Conectado a Reinos de Leyenda MUD}<099>} {1};
             #ACTION {Los Dioses te dan la bienvenida a sus Reinos de Leyenda} {
                 #SHOWME {<G03><138>@center{Usa el comando "puntos" para incializar la barra de estado}<099>} {1};
+                /ficha;
                 #CLASS {RL_CONNECTION_IMPL} {kill};
             };
             #CLASS {RL_CONNECTION_IMPL} {close};
