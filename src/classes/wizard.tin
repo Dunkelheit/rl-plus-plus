@@ -1,0 +1,59 @@
+#CLASS {RL_WIZARD} {kill};
+#CLASS {RL_WIZARD} {open};
+
+/**********************************************************************************************************************
+ * Module RL_WIZARD                                                                                                   *
+ *                                                                                                                    *
+ * Functionalities for the marksman class.                                                                            *
+ **********************************************************************************************************************/
+
+/register_module {RL_WIZARD} {Clases: Hechicero} {Utilidades para la clase hechicero.};
+
+/**********************************************************************************************************************
+ * Substitutions                                                                                                      *
+ **********************************************************************************************************************/
+
+#SUBSTITUTE {^¡Tus im{á|a}genes se desvanecen!$} {<CAA><178>@center{%0}<099>};
+#SUBSTITUTE {^Tu piel vuelve a su estado normal.$} {<CAA><178>@center{%0}<099>};
+#SUBSTITUTE {^Tu globo de invulnerabilidad empieza a parpadear hasta que desaparece.$} {<CAA><178>@center{%0}<099>};
+
+/**********************************************************************************************************************
+ * Highlights                                                                                                         *
+ **********************************************************************************************************************/
+
+/*
+ * Warning
+ */
+#HIGHLIGHT {^Te vuelves a sentir pesad{a|o}.$} {bold magenta} {5};
+#HIGHLIGHT {^¡Plop! ¡%* aparece repentinamente ante tus ojos!$} {bold magenta} {5};
+#NOP TODO: Which class does the following message belong to?;
+#HIGHLIGHT {^Dejas de preever los próximos ataques de tus enemigos} {bold magenta} {5};
+
+/*
+ * Danger
+ */
+#HIGHLIGHT {^¡Tus imágenes se desvanecen!$} {bold red} {5};
+#HIGHLIGHT {^Tu piel vuelve a su estado normal.$} {bold red} {5};
+#HIGHLIGHT {^¡%* se resiste a tu hechizo de dominación!$} {bold red} {5};
+
+/*
+ * Goodies
+ */
+#HIGHLIGHT {^La piel de %* vuelve a su estado normal.$} {bold green} {5};
+#HIGHLIGHT {^Consigues adueñarte de la voluntad de %*.$} {bold green} {5};
+#HIGHLIGHT {^%* quedan rígidos como un poste.$} {bold green} {5};
+
+
+/**********************************************************************************************************************
+ * Testing                                                                                                            *
+ **********************************************************************************************************************/
+
+#IF {$_development == 1} {
+    #ALIAS {/test_RL_WIZARD} {
+        #SHOWME {¡Tus imágenes se desvanecen!};
+        #SHOWME {¡Tus imagenes se desvanecen!};
+        #SHOWME {Tu piel vuelve a su estado normal.};
+    };
+};
+
+#CLASS {RL_WIZARD} {close};

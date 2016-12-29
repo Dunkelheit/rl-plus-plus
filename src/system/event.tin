@@ -43,6 +43,15 @@
             #SHOWME {<G03><138>@center{Conectando a Reinos de Leyenda MUD}<099>} {1};
         };
     };
-}
+};
+
+/*
+#EVENT {RECEIVED LINE} {
+    #IF {"%0" == "\e[0m"} {
+        #LINE {gag};
+        #VAR {gagger} {1};
+    };
+};
+*/
 
 #CLASS {RL_SYSTEM_EVENT} {close};

@@ -83,11 +83,15 @@
 #SUBSTITUTE {~^%*#%* Un disparo crítico de tu %* atraviesa brutalmente en %* a %*.} {%0 <128>★ CRIT ★<099>};
 #SUBSTITUTE {~^%*#%* Sometes a %* a una poderosa ráfaga mágica crítica.} {%0 <128>★ CRIT ★<099>};
 
+#SUBSTITUTE {^%* ha muerto.$} {<G02><118>@center{☠  %1 ☠}<099>};
+
 /**********************************************************************************************************************
  * Highlights                                                                                                         *
  **********************************************************************************************************************/
 
 #HIGHLIGHT {^¡Tu ataque clava un proyectil en %* de %*, causandole una profunda herida!$} {<caf>};
+#HIGHLIGHT {^Propinas el golpe mortal a %*.$} {green} {5};
+#HIGHLIGHT {^%* cae al suelo sin vida.$} {black bold} {5};
 
 /**********************************************************************************************************************
  * Testing                                                                                                            *

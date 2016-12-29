@@ -15,12 +15,12 @@
  **********************************************************************************************************************/
 
 /*
- * Alias /rumbo {direction}
+ * Alias /rumbo {direction|off}
  *
  * Walks a straight path towards the given direction.
  *
  * Arguments:
- *   %1 (any) direction
+ *   %1 (any) direction|off
  *
  * Example:
  *   /rumbo {e};
@@ -31,11 +31,16 @@
         /message {Sintáxis: /rumbo <dirección|off>};
         #RETURN;
     };
-    #IF {"%1" == "off"} {
+    #ALIAS {/limpiar_rumbo} {
         #CLASS {RL_PATHWALKER_IMPL} {kill};
-        /message {Rumbo detenido.};
+        /message {%%1};
         #UNVAR {lastVisitedExit};
         #UNVAR {exits};
+        #UNDELAY {pathwalker_movement};
+        #UNALIAS {/limpiar_rumbo};
+    };
+    #IF {"%1" == "off"} {
+        /limpiar_rumbo {Rumbo detenido.};
         #RETURN;
     };
     #VAR {lastVisitedExit} {@opposite_direction{%1}};
@@ -45,33 +50,26 @@
         #LIST {exits} {create} {$exits};
         #LIST {exits} {size} {exitsLength};
         #IF {$exitsLength > 2} {
-            /message {Has llegado a una bifurcación en el camino.};
-            #UNVAR {lastVisitedExit};
-            #UNVAR {exits};
-            #CLASS {RL_PATHWALKER_IMPL} {kill};
+            /limpiar_rumbo {Has llegado a una bifurcación en el camino.};
         };
         #ELSEIF {$exitsLength < 2} {
-            /message {Has llegado a un callejón sin salida.};
-            #UNVAR {lastVisitedExit};
-            #UNVAR {exits};
-            #CLASS {RL_PATHWALKER_IMPL} {kill};
+            /limpiar_rumbo {Has llegado a un callejón sin salida.};
         };
         #ELSE {
             #FOREACH {$exits[%%*]} {exit} {
                 #IF {"$exit" != "$lastVisitedExit"} {
                     #VAR {lastVisitedExit} {@opposite_direction{$exit}};
-                    #DELAY {@get_module_setting_value{RL_PATHWALKER;delay}} {$exit};
+                    #DELAY {pathwalker_movement} {$exit} {@get_module_setting_value{RL_PATHWALKER;delay}};
                     #BREAK;
                 };
             };
         };
     };
     #ACT {^Parece que %* no produjo efecto alguno.$} {
-        /message {Deteniendo el rumbo, pues algo raro ha sucedido.};
-        #CLASS {RL_PATHWALKER_IMPL} {kill};
+        /limpiar_rumbo {Deteniendo el rumbo, pues algo raro ha sucedido.};
     };
     /message {Caminando rumbo %1...};
-    %1;
+    #SEND {%1};
     #CLASS {RL_PATHWALKER_IMPL} {close};
 }
 

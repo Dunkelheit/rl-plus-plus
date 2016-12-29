@@ -1,0 +1,47 @@
+#CLASS {RL_ENVIRONMENT} {kill};
+#CLASS {RL_ENVIRONMENT} {open};
+
+/**********************************************************************************************************************
+ * Module RL_ENVIRONMENT                                                                                              *
+ *                                                                                                                    *
+ * Everything that happens around you.                                                                                *
+ **********************************************************************************************************************/
+
+/register_module {RL_ENVIRONMENT} {Entorno} {Todo lo que sucede a tu alrededor.};
+
+/**********************************************************************************************************************
+ * Substitutions                                                                                                      *
+ **********************************************************************************************************************/
+
+#SUBSTITUTE {se va {hacia el|hacia|en dirección} %w} {se va %1 <BCA><178> @exit_short_name{%2} <099>};
+#SUBSTITUTE {^[%* orbita a Eirea]$} {[%1 <bee>entra<099> a Eirea]};
+#SUBSTITUTE {^[%* orbita al Limbo]$} {[%1 <g10>sale<099> de Eirea]};
+
+/**********************************************************************************************************************
+ * Highlights                                                                                                         *
+ **********************************************************************************************************************/
+
+#HIGHLIGHT {^%* te sigue.$} {bold magenta} {5};
+
+/**********************************************************************************************************************
+ * Testing                                                                                                            *
+ **********************************************************************************************************************/
+
+#IF {$_development == 1} {
+    #ALIAS {/test_RL_ENVIRONMENT} {
+        #SHOWME {\e[33mPalomo\e[0m\e[0m se va hacia el noreste.\e[0m};
+        #SHOWME {\e[33mPalomo\e[0m\e[0m se va hacia arriba.\e[0m};
+        #SHOWME {nueve \e[33mPalomo\e[0m\e[0mes se va hacia el noreste.\e[0m};
+        #SHOWME {nueve \e[33mPalomo\e[0m\e[0mes se va hacia arriba.\e[0m};
+        #SHOWME {\e[33mPalomo\e[0m\e[0m se va en dirección noreste seguido de Gran Oso Borracho.\e[0m};
+        #SHOWME {\e[33mPalomo\e[0m\e[0m se va en dirección arriba seguido de Gran Oso Borracho.\e[0m};
+        #SHOWME {Palomo se va hacia el oeste.};
+        #SHOWME {Palomo se va hacia dentro.};
+        #SHOWME {Palomo se va hacia arriba.};
+        #SHOWME {[Palomo orbita a Eirea]};
+        #SHOWME {[Palomo orbita al Limbo]};
+        #SHOWME {Shane te sigue.};
+    };
+};
+
+#CLASS {RL_ENVIRONMENT} {close};
