@@ -24,6 +24,7 @@
 #HIGHLIGHT {^%* te sigue.$} {bold magenta} {5};
 
 #NOP TODO: autofollow of targets with F1 magic key;
+#NOP TODO: show exits in powerbar;
 
 /**********************************************************************************************************************
  * Testing                                                                                                            *

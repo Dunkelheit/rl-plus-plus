@@ -39,11 +39,11 @@
 };
 
 #ALIAS {/cargarAliasesBasicos} {
-    #READIN {data/aliases_basicos.txt} {1};
+    #TEXTIN {data/aliases_basicos.txt} {1};
 };
 
 #ALIAS {/cargarAliasesBribon} {
-    #READIN {data/aliases_bribon.txt} {1};
+    #TEXTIN {data/aliases_bribon.txt} {1};
 };
 
 #ALIAS {/message} {
