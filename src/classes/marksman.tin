@@ -69,6 +69,8 @@
         #UNALIAS {/clear_marksman_da_impl};
     };    
     #ACTION {^Contin{ú|u}as preparando tu disparo perfecto contra %*.$} {
+        #NOP El bono de mantenimiento solo se aplica a partir de los turnos de "Continuas...", confirmado;
+        #NOP por Satyr el 29/12/2016;
         #MATH {counter_disparoapuntado} {$counter_disparoapuntado + 1};
         #MATH {damage_bonus} {$counter_disparoapuntado * 14 * $rl_player[stats][weighted_level]};
         #MATH {offensive_bonus} {$counter_disparoapuntado * 10};
