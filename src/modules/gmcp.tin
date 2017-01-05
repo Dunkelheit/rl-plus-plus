@@ -31,24 +31,40 @@
 #EVENT {IAC WILL GMCP} {
     #SHOWME {=== GMCP EVENT START ===};
     #SEND {$IAC$DO$GMCP\};
-    #NOP #SEND {$IAC$SB$GMCP core.hello { "client": "RL++", "version": "0.2.0" } $IAC$SE\};
-    #NOP #SEND {$IAC$SB$GMCP core.supports.set [ "room 1", "room.info 1", "char 1", "char.status 1" ] $IAC$SE\};
+    #SEND {$IAC$SB$GMCP Core.Hello { "client": "Mudlet", "version": "3.0.0-iota" } $IAC$SE\};
+    #SEND {$IAC$SB$GMCP Core.Supports.Init [] $IAC$SE\};
+    #SEND {$IAC$SB$GMCP Core.Supports.Set [ "Char 1", "Char.Skills 1", "Char.Items 1", "Room 1", "IRE.Rift 1", "IRE.Composer 1", "Comm" 1 ] $IAC$SE\};
     #SHOWME {=== GMCP EVENT END ===};
 };
 
 #EVENT {IAC SB GMCP Client.GUI IAC SE} {
     #SHOWME {=== RECEIVED GMCP Client.GUI ===};
-    #SHOWME {[%0]};
+    #SHOWME {[%1]};
 };
 
 #EVENT {IAC SB GMCP Char.Ficha IAC SE} {
     #SHOWME {=== RECEIVED GMCP Char.Ficha ===};
-    #SHOWME {[%0]};
+    #SHOWME {[%1]};
+};
+
+#EVENT {IAC SB GMCP Core.Hello IAC SE} {
+    #SHOWME {=== RECEIVED GMCP Core.Hello ===};
+    #SHOWME {[%1]};
+};
+
+#EVENT {IAC SB GMCP Char.Status IAC SE} {
+    #SHOWME {=== RECEIVED GMCP Char.Status ===};
+    #SHOWME {[%1]};
 };
 
 #EVENT {IAC SB GMCP Comm.Canales IAC SE} {
     #SHOWME {=== RECEIVED GMCP Char.Canales ===};
-    #SHOWME {[%0]};
+    #SHOWME {[%1]};
+};
+
+#EVENT {IAC SB GMCP Mapa IAC SE} {
+    #SHOWME {=== RECEIVED GMCP Mapa ===};
+    #SHOWME {[%1]};
 };
 
 /**********************************************************************************************************************
