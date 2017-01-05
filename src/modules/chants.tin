@@ -29,7 +29,7 @@
     #VAR {spell_name} {};
     #SWITCH {"%2"}
     {
-        #NOP =============== Abjuracion ===============;
+        #NOP =============== Abjuracion ============OK===;
         #CASE {"mior armanis"}              {#VAR spell_name armadura};
         #CASE {"spiritis solis armanis"}    {#VAR spell_name armadura espiritual};
         #CASE {"fere hilis tzbem ocsa"}     {#VAR spell_name cuerpo de acero};
@@ -37,6 +37,7 @@
         #CASE {"mior voltius sorcere"}      {#VAR spell_name devolver conjuro menor};
         #CASE {"nullo magius"}              {#VAR spell_name disipar magia};
         #CASE {"mior escudis"}              {#VAR spell_name escudo};
+        #CASE {"nergix escudis"}            {#VAR spell_name escudo de energia};
         #CASE {"eirea colourus sphyre"}     {#VAR spell_name esfera prismática};
         #CASE {"maior secry sphyre"}        {#VAR spell_name globo mayor de invulnerabilidad};
         #CASE {"mior secry sphyre"}         {#VAR spell_name globo menor de invulnerabilidad};
@@ -59,22 +60,32 @@
         #CASE {"minor ventulae resit"}      {#VAR spell_name resistir aire};
         #CASE {"minor mentale resit"}       {#VAR spell_name resistir mental};
         #CASE {"minor posonae resit"}       {#VAR spell_name resistir veneno};
+        #CASE {"nullos magicka"}            {#VAR spell_name contrahechizo};
         
-        #NOP =============== Adivinacion ===============;
-        #CASE {"klairis lkrejum soniks"}    {#VAR spell_name clariaudiencia};
-        #CASE {"klairis bibencia"}          {#VAR spell_name clarividencia};
-        #CASE {"ethos deus beleah"}         {#VAR spell_name conocer alineamiento};
-        #CASE {"magius is iseio"}           {#VAR spell_name detectar magia};
-        #CASE {"magius xerox malauea"}      {#VAR spell_name detectar magias bloqueadas};
-        #CASE {"magius skara is iseo"}      {#VAR spell_name detectar observación mágica};
-        #CASE {"bellum kennis"}             {#VAR spell_name erudición en batallas};
+        #NOP =============== Adivinacion ============OK===;
+        #CASE {"klairis lkrejum soniks"}        {#VAR spell_name clariaudiencia};
+        #CASE {"temporis bibencia"}             {#VAR spell_name augurio de oen};
+        #CASE {"klairis bibencia"}              {#VAR spell_name clarividencia};
+        #CASE {"magnus revelat"}                {#VAR spell_name revelar secretos};
+        #CASE {"ethos deus beleah"}             {#VAR spell_name conocer alineamiento};
+        #CASE {"Usstan ssinssrin zhaun dosst"}  {#VAR spell_name conocer debilidades};
+        #CASE {"magius is iseio"}               {#VAR spell_name detectar magia};
+        #CASE {"Oculus glebae"}                 {#VAR spell_name huellas vitales};
+        #CASE {"magius xerox malauea"}          {#VAR spell_name detectar magias bloqueadas};
+        #CASE {"magius skara is iseo"}          {#VAR spell_name detectar observación mágica};
+        #CASE {"bellum kennis"}                 {#VAR spell_name erudición en batallas};
         #CASE {"magius podeiles aneum mane"}    {#VAR spell_name leer magia};
         #CASE {"creatir busque"}                {#VAR spell_name localizar criatura};
         #CASE {"ande statis"}                   {#VAR spell_name localizar objeto I};
+        #CASE {"andi statis nehetak tirok"}     {#VAR spell_name localizar objeto II};
         #CASE {"majio exodus oculus"}           {#VAR spell_name ojo mágico de Éxodus};
-        #CASE {"mer conoectrik"}            {#VAR spell_name precognición};
+        #CASE {"mer conoectrik"}                {#VAR spell_name precognición};
         #CASE {"je vei comoun deux mes yeux sont libreus"}  {#VAR spell_name ver realmente};
-        #CASE {"ein aluin ulu zuel dos"}    {#VAR spell_name localizar?};
+        #CASE {"capatis mea longa visit est"}   {#VAR spell_name busqueda espontanea};
+        #CASE {"Malaekorum korum rum"}          {#VAR spell_name busqueda instantanea};
+        #CASE {"majio exodus oculus"}           {#VAR spell_name ojo magico de exodus};
+        #CASE {"Oculis rabidus"}                {#VAR spell_name ojo vago de Khadaon};
+        #CASE {"ein aluin ulu zuel dos"}        {#VAR spell_name localizar?};
         
         #NOP =============== Alteracion ===============;
         #CASE {"groez us marj"}             {#VAR spell_name agrandar};
