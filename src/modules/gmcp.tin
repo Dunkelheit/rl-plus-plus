@@ -1,0 +1,64 @@
+#CLASS {RL_GMCP} {kill};
+#CLASS {RL_GMCP} {open};
+
+/**********************************************************************************************************************
+ * Module RL_GMCP                                                                                                     *
+ *                                                                                                                    *
+ * GMCP support module.                                                                                               *
+ **********************************************************************************************************************/
+
+/register_module {RL_GMCP} {GMCP} {Soport para GMCP.};
+
+#CONFIG {DEBUG TELNET} {ON};
+
+/**********************************************************************************************************************
+ * Variables                                                                                                          *
+ **********************************************************************************************************************/
+
+#FORMAT {IAC} {%a} {255};
+#FORMAT {DONT} {%a} {254};
+#FORMAT {DO} {%a} {253};
+#FORMAT {WONT} {%a} {252};
+#FORMAT {WILL} {%a} {251};
+#FORMAT {SB} {%a} {250};
+#FORMAT {SE} {%a} {240};
+#FORMAT {GMCP} {%a} {201};
+
+/**********************************************************************************************************************
+ * Events                                                                                                             *
+ **********************************************************************************************************************/
+
+#EVENT {IAC WILL GMCP} {
+    #SHOWME {=== GMCP EVENT START ===};
+    #SEND {$IAC$DO$GMCP\};
+    #NOP #SEND {$IAC$SB$GMCP core.hello { "client": "RL++", "version": "0.2.0" } $IAC$SE\};
+    #NOP #SEND {$IAC$SB$GMCP core.supports.set [ "room 1", "room.info 1", "char 1", "char.status 1" ] $IAC$SE\};
+    #SHOWME {=== GMCP EVENT END ===};
+};
+
+#EVENT {IAC SB GMCP Client.GUI IAC SE} {
+    #SHOWME {=== RECEIVED GMCP Client.GUI ===};
+    #SHOWME {[%0]};
+};
+
+#EVENT {IAC SB GMCP Char.Ficha IAC SE} {
+    #SHOWME {=== RECEIVED GMCP Char.Ficha ===};
+    #SHOWME {[%0]};
+};
+
+#EVENT {IAC SB GMCP Comm.Canales IAC SE} {
+    #SHOWME {=== RECEIVED GMCP Char.Canales ===};
+    #SHOWME {[%0]};
+};
+
+/**********************************************************************************************************************
+ * Testing                                                                                                            *
+ **********************************************************************************************************************/
+
+#IF {$_development == 1} {
+    #ALIAS {/test_RL_GMCP} {
+        #SHOWME {No tests implemented.};
+    };
+};
+
+#CLASS {RL_GMCP} {close};
