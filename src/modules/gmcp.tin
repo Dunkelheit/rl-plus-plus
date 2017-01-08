@@ -74,19 +74,15 @@
     };
     #VAR {gmcp_data_char_status} {%0};
     #IF {"$gmcp_data_char_status[pe][min]" != ""} {
-        /message {Updating player_gp: $gmcp_data_char_status[pe][min]};
         /trigger_event player_gp $gmcp_data_char_status[pe][min];
     };
     #IF {"$gmcp_data_char_status[pe][max]" != ""} {
-        /message {Updating player_gp_max: $gmcp_data_char_status[pe][max]};
         /trigger_event player_gp_max $gmcp_data_char_status[pe][max];
     };
     #IF {"$gmcp_data_char_status[pvs][min]" != ""} {
-        /message {Updating player_hp: $gmcp_data_char_status[pvs][min]};
         /trigger_event player_hp $gmcp_data_char_status[pvs][min];
     };
     #IF {"$gmcp_data_char_status[pvs][max]" != ""} {
-        /message {Updating player_hp_max: $gmcp_data_char_status[pvs][max]};
         /trigger_event player_hp_max $gmcp_data_char_status[pvs][max];
     };
     #UNVAR {gmcp_data_char_status};
