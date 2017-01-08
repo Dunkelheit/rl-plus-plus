@@ -57,6 +57,8 @@
 #HIGHLIGHT {^Cazas cr{i|í}ticamente %*$} {cyan red};
 #HIGHLIGHT {^Tensas tus m{ú|u}sculos preparando un nuevo ataque.$} {bold green};
 #HIGHLIGHT {^El lobo se desvanece en su entorno$} {bold cyan}; 
+#HIGHLIGHT {^%1 se desploma a causa de la p{é|e}rdida de sangre} {bold red};
+
 #NOP # Abandonas tu estado de concentración bañada en un sudor frío, descubriendo heridas de las que no te habías percatado.;
 
 /**********************************************************************************************************************
