@@ -9,35 +9,39 @@
 
 /register_module {RL_GMCP} {GMCP} {Soport para GMCP.};
 
-#CONFIG {DEBUG TELNET} {ON};
-
 /**********************************************************************************************************************
  * Variables                                                                                                          *
  **********************************************************************************************************************/
 
-#FORMAT {IAC} {%a} {255};
-#FORMAT {DONT} {%a} {254};
-#FORMAT {DO} {%a} {253};
-#FORMAT {WONT} {%a} {252};
-#FORMAT {WILL} {%a} {251};
-#FORMAT {SB} {%a} {250};
-#FORMAT {SE} {%a} {240};
-#FORMAT {GMCP} {%a} {201};
+#VAR {rl_gmcp} {};
+#VAR {rl_gmcp.debug} {1};
+
+#FORMAT {rl_gmcp.IAC} {%a} {255};
+#FORMAT {rl_gmcp.DONT} {%a} {254};
+#FORMAT {rl_gmcp.DO} {%a} {253};
+#FORMAT {rl_gmcp.WONT} {%a} {252};
+#FORMAT {rl_gmcp.WILL} {%a} {251};
+#FORMAT {rl_gmcp.SB} {%a} {250};
+#FORMAT {rl_gmcp.SE} {%a} {240};
+#FORMAT {rl_gmcp.GMCP} {%a} {201};
 
 /**********************************************************************************************************************
  * Events                                                                                                             *
  **********************************************************************************************************************/
 
 #EVENT {IAC WILL GMCP} {
-    #SHOWME {=== SENDING GMCP SHIZZLE ===};
-    #SEND {$IAC$DO$GMCP\};
-    #SEND {$IAC$SB$GMCP Core.Hello { "client": "Mudlet", "version": "3.0.0-iota" }$IAC$SE\};
-    #SEND {$IAC$SB$GMCP Core.Supports.Set [ "Char 1", "Char.Skills 1", "Char.Items 1", "Room 1", "IRE.Rift 1", "Ire.Composer 1"]$IAC$SE\};
+    #IF {$rl_gmcp.debug == 1} {
+        /message {Subscribing to GMCP modules};
+    };
+    #SEND {$rl_gmcp[IAC]$rl_gmcp[DO]$rl_gmcp[GMCP]\};
+    #SEND {$rl_gmcp[IAC]$rl_gmcp[SB]${rl_gmcp[GMCP]}Core.Hello { "client": "RL++", "version": "0.2.0" }$rl_gmcp[IAC]$rl_gmcp[SE]\};
+    #SEND {$rl_gmcp[IAC]$rl_gmcp[SB]${rl_gmcp[GMCP]}Core.Supports.Add ["Char 1", "Char.Skills 1", "Char.Items 1", "Room 1", "IRE.Rift 1", "Ire.Composer 1", "Comm 1"]$rl_gmcp[IAC]$rl_gmcp[SE]\};
 };
 
 #EVENT {IAC SB GMCP Client.GUI IAC SE} {
-    #SHOWME {=== RECEIVED GMCP Client.GUI ===};
-    #SHOWME {[%1]};
+    #IF {rl_gmcp.debug == 1} {
+        /message {Received GMCP Client.GUI event};
+    };
 };
 
 #EVENT {IAC SB GMCP Char.Ficha IAC SE} {
@@ -45,16 +49,9 @@
     #SHOWME {[%1]};
 };
 
-#EVENT {IAC SB GMCP Core.Hello IAC SE} {
-    #SHOWME {=== RECEIVED GMCP Core.Hello ===};
-    #SHOWME {[%1]};
-    #SHOWME {=== SENDING INIT AND ADD ===};
-    #SEND {$IAC$SB$GMCP core.supports.init []$IAC$SE\};
-    #SEND {$IAC$SB$GMCP Core.Supports.Add ["Comm 1"]$IAC$SE\};
-};
-
 #EVENT {IAC SB GMCP Char.Status IAC SE} {
     #SHOWME {=== RECEIVED GMCP Char.Status ===};
+    #VAR {rl_gmcp.char.status} {%0};
     #SHOWME {[%1]};
 };
 
