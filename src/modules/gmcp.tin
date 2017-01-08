@@ -14,7 +14,7 @@
  **********************************************************************************************************************/
 
 #VAR {rl_gmcp} {};
-#VAR {rl_gmcp.debug} {1};
+#VAR {rl_gmcp[debug]} {0};
 
 #FORMAT {rl_gmcp.IAC} {%a} {255};
 #FORMAT {rl_gmcp.DONT} {%a} {254};
@@ -30,7 +30,7 @@
  **********************************************************************************************************************/
 
 #EVENT {IAC WILL GMCP} {
-    #IF {$rl_gmcp.debug == 1} {
+    #IF {$rl_gmcp[debug] == 1} {
         /message {Subscribing to GMCP modules};
     };
     #SEND {$rl_gmcp[IAC]$rl_gmcp[DO]$rl_gmcp[GMCP]\};
@@ -39,30 +39,71 @@
 };
 
 #EVENT {IAC SB GMCP Client.GUI IAC SE} {
-    #IF {rl_gmcp.debug == 1} {
+    #IF {$rl_gmcp[debug] == 1} {
         /message {Received GMCP Client.GUI event};
     };
 };
 
 #EVENT {IAC SB GMCP Char.Ficha IAC SE} {
-    #SHOWME {=== RECEIVED GMCP Char.Ficha ===};
-    #SHOWME {[%1]};
+
+    #NOP TODO: Make events here;
+
+    #IF {$rl_gmcp[debug] == 1} {
+        /message {Received GMCP Char.Ficha event};
+    };
+    #VAR {gmcp_data_char_ficha} {%0};
+    #IF {"$gmcp_data_char_ficha[nombre]" != ""} {
+        #VAR {rl_player[stats][name]} {$gmcp_data_char_ficha[nombre]};
+        #DELAY {2} {
+            /message {¡RL++ te da la bienvenida, $rl_player[stats][name]!};
+        };
+    };
+    #IF {"$gmcp_data_char_ficha[nivel]" != ""} {
+        #VAR {rl_player[stats][level]} {$gmcp_data_char_ficha[nivel]};
+        #VAR {rl_player[stats][weighted_level]} {@weighted_level{$gmcp_data_char_ficha[nivel]}};
+    };
+    #IF {"$gmcp_data_char_ficha[clase]" != ""} {
+        #VAR {rl_player[stats][class]} {$gmcp_data_char_ficha[clase]};
+    };
+    #UNVAR {gmcp_data_char_ficha};
 };
 
 #EVENT {IAC SB GMCP Char.Status IAC SE} {
-    #SHOWME {=== RECEIVED GMCP Char.Status ===};
-    #VAR {rl_gmcp.char.status} {%0};
-    #SHOWME {[%1]};
+    #IF {$rl_gmcp[debug] == 1} {
+        /message {Received GMCP Char.Status event};
+    };
+    #VAR {gmcp_data_char_status} {%0};
+    #IF {"$gmcp_data_char_status[pe][min]" != ""} {
+        /message {Updating player_gp: $gmcp_data_char_status[pe][min]};
+        /trigger_event player_gp $gmcp_data_char_status[pe][min];
+    };
+    #IF {"$gmcp_data_char_status[pe][max]" != ""} {
+        /message {Updating player_gp_max: $gmcp_data_char_status[pe][max]};
+        /trigger_event player_gp_max $gmcp_data_char_status[pe][max];
+    };
+    #IF {"$gmcp_data_char_status[pvs][min]" != ""} {
+        /message {Updating player_hp: $gmcp_data_char_status[pvs][min]};
+        /trigger_event player_hp $gmcp_data_char_status[pvs][min];
+    };
+    #IF {"$gmcp_data_char_status[pvs][max]" != ""} {
+        /message {Updating player_hp_max: $gmcp_data_char_status[pvs][max]};
+        /trigger_event player_hp_max $gmcp_data_char_status[pvs][max];
+    };
+    #UNVAR {gmcp_data_char_status};
 };
 
 #EVENT {IAC SB GMCP Comm.Canales IAC SE} {
-    #SHOWME {=== RECEIVED GMCP Char.Canales ===};
-    #SHOWME {[%1]};
+    #IF {$rl_gmcp[debug] == 1} {
+        /message {Received GMCP Comm.Canales event};
+        #SHOWME {[%1]};
+    };
 };
 
 #EVENT {IAC SB GMCP Mapa IAC SE} {
-    #SHOWME {=== RECEIVED GMCP Mapa ===};
-    #SHOWME {[%1]};
+    #IF {$rl_gmcp[debug] == 1} {
+        /message {Received GMCP Mapa event};
+        #SHOWME {[%1]};
+    };
 };
 
 /**********************************************************************************************************************

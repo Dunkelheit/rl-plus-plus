@@ -9,6 +9,10 @@
 
 /register_module {RL_POWERLINE} {Powerline} {Una barra de estado que te cagas.};
 /add_module_event_listener {RL_POWERLINE} {heartbeat};
+/add_module_event_listener {RL_POWERLINE} {player_gp};
+/add_module_event_listener {RL_POWERLINE} {player_gp_max};
+/add_module_event_listener {RL_POWERLINE} {player_hp};
+/add_module_event_listener {RL_POWERLINE} {player_hp_max};
 
 /**********************************************************************************************************************
  * Variables                                                                                                          *
@@ -184,6 +188,28 @@
         };
         #SHOWME {@powerline{}} {1};
     } {1};
+};
+
+#ALIAS {/event_RL_POWERLINE_player_gp} {
+    #VAR {stats[energy]} {%1};
+    #SHOWME {@powerline{}} {1};
+};
+
+#ALIAS {/event_RL_POWERLINE_player_gp_max} {
+    #VAR {stats[maxEnergy]} {%1};
+    #SHOWME {@powerline{}} {1};
+};
+
+#ALIAS {/event_RL_POWERLINE_player_hp} {
+    #MATH {healthDelta} {%1 - $stats[health]};
+    #VAR {stats[health]} {%1};
+    #SHOWME {Δ @delta_color{$healthDelta}$healthDelta<099>};
+    #SHOWME {@powerline{}} {1};
+};
+
+#ALIAS {/event_RL_POWERLINE_player_hp_max} {
+    #VAR {stats[maxHealth]} {%1};
+    #SHOWME {@powerline{}} {1};
 };
 
 /**********************************************************************************************************************
