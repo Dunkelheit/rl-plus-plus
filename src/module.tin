@@ -219,7 +219,7 @@
         };
         #LIST {rl_modules[$module][listeners]} {find} {%1} {event_index};
         #IF {"$event_index" != "0"} {
-            /event_${module}_%1;
+            /event_${module}_%1 %2 %3 %4 %5 %6 %7 %8 %9 %10;
         }
         #UNVAR {event_index};
     };

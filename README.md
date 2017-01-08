@@ -28,6 +28,7 @@ Situate en la carpeta de Instalación y ejecuta el siguiente comando:
 
 ## Funciones
 
+* Soporte para GMCP 
 * Sistema de módulos y eventos 
 * Sustitución con colores y destacado de multitud de situaciones:
     * Daños armados
