@@ -110,7 +110,9 @@
     #VAR {stats[maxHealth]} {%2};
     #VAR {stats[energy]} {%3};
     #VAR {stats[maxEnergy]} {%4};
-    #SHOWME {Δ @delta_color{$healthDelta}$healthDelta<099>};
+    #IF {$healthDelta != 0} {
+        #SHOWME {Δ @delta_color{$healthDelta}$healthDelta<099>};
+    }
     #SHOWME {@powerline{}} {1};
 };
 
@@ -203,7 +205,9 @@
 #ALIAS {/event_RL_POWERLINE_player_hp} {
     #MATH {healthDelta} {%1 - $stats[health]};
     #VAR {stats[health]} {%1};
-    #SHOWME {Δ @delta_color{$healthDelta}$healthDelta<099>};
+    #IF {$healthDelta != 0} {
+        #SHOWME {Δ @delta_color{$healthDelta}$healthDelta<099>};
+    }
     #SHOWME {@powerline{}} {1};
 };
 
