@@ -15,6 +15,7 @@
 
 #VAR {rl_gmcp} {};
 #VAR {rl_gmcp[debug]} {0};
+#VAR {rl_gmcp[channels]} {};
 
 #FORMAT {rl_gmcp.IAC} {%a} {255};
 #FORMAT {rl_gmcp.DONT} {%a} {254};
@@ -91,8 +92,38 @@
 #EVENT {IAC SB GMCP Comm.Canales IAC SE} {
     #IF {$rl_gmcp[debug] == 1} {
         /message {Received GMCP Comm.Canales event};
+        #VAR {rl_gmcp[channels]} {%0};
         #SHOWME {[%1]};
     };
+};
+
+#EVENT {IAC SB GMCP Comm.EnciendeCanal IAC SE} {
+    #IF {$rl_gmcp[debug] == 1} {
+        /message {Received GMCP Comm.EnciendeCanal event};
+        #SHOWME {[%1]};
+    };
+};
+
+#EVENT {IAC SB GMCP Comm.ApagaCanal IAC SE} {
+    #IF {$rl_gmcp[debug] == 1} {
+        /message {Received GMCP Comm.ApagaCanal event};
+        #SHOWME {[%1]};
+    };
+};
+
+#EVENT {IAC SB GMCP Comm.MensajeCanal IAC SE} {
+    #IF {$rl_gmcp[debug] == 1} {
+        /message {Received GMCP Comm.MensajeCanal event};        
+    };
+    #VAR {gmcp_data_channel_data} {%0};
+    #VAR {gmcp_data_channel_name} {$gmcp_data_channel_data[canal]};
+    #VAR {gmcp_data_channel_message} {$gmcp_data_channel_data[mensaje]};
+    #REPLACE {gmcp_data_channel_message} {u001B} {e};
+    #NOP #SHOWME {$gmcp_data_channel_name};
+    #SHOWME {$gmcp_data_channel_message};
+    #UNVAR {gmcp_data_channel_data};
+    #UNVAR {gmcp_data_channel_name};
+    #UNVAR {gmcp_data_channel_message};
 };
 
 #EVENT {IAC SB GMCP Mapa IAC SE} {

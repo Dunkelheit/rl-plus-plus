@@ -12,6 +12,37 @@
 /add_module_setting {RL_SHAPE} {length} {number} {} {50} {Longitud de las barras de estado};
 
 /**********************************************************************************************************************
+ * Variables                                                                                                          *
+ **********************************************************************************************************************/
+
+#VAR {rl_shape_max_hps} {
+    {Alchanar, el Robador de Almas} {30000}
+    {Amanda Amalathea} {12000}
+    {El Balrog} {165000}
+    {Esqueleto de Glom} {10000}
+    {Exodus} {60000}
+    {Éxodus} {60000}
+    {General Ssratz} {11500}
+    {Glorbaugh, Comandante del Ejercito de Golthur} {35000}
+    {Glorbaugh, Comandante del Ejército de Golthur} {35000}
+    {Gwalchavad, Cetro de Eralie} {10500}
+    {Llhioker el Pestilente} {15250}
+    {Loredor el Anciano Ent} {20000}
+    {Lord Graimer} {30000}
+    {Lord Nardiel} {25000}
+    {Sheeta la Banshee} {50000}
+    {Soujorn el Exiliado} {65000}
+    {Troll} {10000}
+    {Zombie de Tarhilon} {19500}
+    {Damil} {3500}
+    {Razshark} {4481}
+    {Shyakh} {3791}
+    {Sphynx} {4241}
+    {Tahurtz} {5591}
+    {Tritux} {4241}
+};
+
+/**********************************************************************************************************************
  * Functions                                                                                                          *
  **********************************************************************************************************************/
 
@@ -52,7 +83,7 @@
  */
 #FUNCTION {shape_bar} {
     #VAR {health_bar_length} {@get_module_setting_value{RL_SHAPE;length}};
-    #MATH {current_health} {%1 * $health_bar_length / 100};
+    #MATH {current_health} {%2 * $health_bar_length / 100};
     #MATH {missing_health} {$health_bar_length - $current_health};
     #SWITCH {"@get_module_setting_value{RL_SHAPE;fill}"} {
         #CASE {"solid"} {
@@ -67,6 +98,11 @@
         }
     };
     #VAR {result} {$current_health$missing_health};
+    #IF {"$rl_shape_max_hps[%1]" != ""} {
+        #MATH {current_hps} {%2 * $rl_shape_max_hps[%1] / 100};
+        #VAR {result} {<acf>~$current_hps<099> $result};
+        #UNVAR {current_hps};
+    };
     #UNVAR {health_bar_length};
     #UNVAR {current_health};
     #UNVAR {missing_health};
@@ -76,16 +112,16 @@
  * Substitutions                                                                                                      *
  **********************************************************************************************************************/
 
-#SUBSTITUTE {^%* est{á|a} revigorizad{o|a}.$} {%1 @shape_bar{100} @shape_color{100}100%+<099>};
-#SUBSTITUTE {^%* est{á|a} en perfecto estado.$} {%1 @shape_bar{100} @shape_color{100}100%<099>};
-#SUBSTITUTE {^%* est{á|a} en buen estado.$} {%1 @shape_bar{89} @shape_color{85}80-99%<099>};
-#SUBSTITUTE {^%* est{á|a} ligeramente herid{o|a}.$} {%1 @shape_bar{72} @shape_color{72}65-79%<099>};
-#SUBSTITUTE {^%* est{á|a} considerablemente herid{o|a}.$} {%1 @shape_bar{57} @shape_color{57}50-64%<099>};
-#SUBSTITUTE {^%* est{á|a} llen{o|a} de heridas.$} {%1 @shape_bar{42} @shape_color{42}35-49%<099>};
-#SUBSTITUTE {^%* est{á|a} herid{o|a} de gravedad.$} {%1 @shape_bar{27} @shape_color{27}20-34%<099>};
-#SUBSTITUTE {^%* est{á|a} herid{o|a} cr{í|i}ticamente.$} {%1 @shape_bar{13} @shape_color{13}8-19%<099>};
-#SUBSTITUTE {^%* est{á|a} mortalmente herid{o|a}.$} {%1 @shape_bar{4} @shape_color{4}1-7%<099>};
-#SUBSTITUTE {^%* est{á|a} moribund{o|a}.$} {%1 @shape_bar{0} @shape_color{0}0%<099>};
+#SUBSTITUTE {^%* est{á|a} revigorizad{o|a}.$} {%1 @shape_bar{%1;100} @shape_color{100}100%+<099>};
+#SUBSTITUTE {^%* est{á|a} en perfecto estado.$} {%1 @shape_bar{%1;100} @shape_color{100}100%<099>};
+#SUBSTITUTE {^%* est{á|a} en buen estado.$} {%1 @shape_bar{%1;89} @shape_color{85}80-99%<099>};
+#SUBSTITUTE {^%* est{á|a} ligeramente herid{o|a}.$} {%1 @shape_bar{%1;72} @shape_color{72}65-79%<099>};
+#SUBSTITUTE {^%* est{á|a} considerablemente herid{o|a}.$} {%1 @shape_bar{%1;57} @shape_color{57}50-64%<099>};
+#SUBSTITUTE {^%* est{á|a} llen{o|a} de heridas.$} {%1 @shape_bar{%1;42} @shape_color{42}35-49%<099>};
+#SUBSTITUTE {^%* est{á|a} herid{o|a} de gravedad.$} {%1 @shape_bar{%1;27} @shape_color{27}20-34%<099>};
+#SUBSTITUTE {^%* est{á|a} herid{o|a} cr{í|i}ticamente.$} {%1 @shape_bar{%1;13} @shape_color{13}8-19%<099>};
+#SUBSTITUTE {^%* est{á|a} mortalmente herid{o|a}.$} {%1 @shape_bar{%1;4} @shape_color{4}1-7%<099>};
+#SUBSTITUTE {^%* est{á|a} moribund{o|a}.$} {%1 @shape_bar{%1;0} @shape_color{0}0%<099>};
 
 /**********************************************************************************************************************
  * Testing                                                                                                            *
