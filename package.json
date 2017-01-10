@@ -11,5 +11,10 @@
   "bugs": {
     "url": "https://github.com/Dunkelheit/rlmud-tintin/issues"
   },
-  "homepage": "https://github.com/Dunkelheit/rlmud-tintin#readme"
+  "homepage": "https://github.com/Dunkelheit/rlmud-tintin#readme",
+  "dependencies": {
+    "async": "^2.1.4",
+    "lodash": "^4.17.4",
+    "request": "^2.79.0"
+  }
 }

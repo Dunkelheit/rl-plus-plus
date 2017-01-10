@@ -44,3 +44,6 @@ jspm_packages
 
 # Log files
 log/*.log
+
+# Armory
+data/armory.tt
