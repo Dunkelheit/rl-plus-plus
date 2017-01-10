@@ -6,6 +6,9 @@
     "type": "git",
     "url": "git+https://github.com/Dunkelheit/rlmud-tintin.git"
   },
+  "scripts": {
+    "build": "node build/armory.js"
+  },
   "author": "Arturo Martinez <dunkelheit@gmail.com>",
   "license": "MIT",
   "bugs": {

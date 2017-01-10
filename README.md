@@ -18,6 +18,13 @@ o mediante npm, con el siguiente comando:
 > npm install rl-plus-plus
 ```
 
+Para preparar es necesario hacer un "build" del mismo. Entre otras cosas, esto cargará de forma
+dinámica los datos de la armería.
+
+```
+> npm run build
+```
+
 ## Ejecución
 
 Situate en la carpeta de Instalación y ejecuta el siguiente comando:
