@@ -15,6 +15,7 @@
 #READ {src/modules/chants.tin};
 #READ {src/modules/environment.tin};
 #READ {src/modules/gmcp.tin};
+#READ {src/modules/inventory.tin};
 #READ {src/modules/logger.tin};
 #READ {src/modules/pathwalker.tin};
 #READ {src/modules/player.tin};
