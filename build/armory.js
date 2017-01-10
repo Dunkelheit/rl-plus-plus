@@ -58,7 +58,7 @@ async.waterfall([
         });
         result += '}';
 
-        const file = path.join(__dirname, '..', 'data', 'armory.tt');
+        const file = path.join(__dirname, '..', 'data', 'armory.tin');
         fs.writeFile(file, result, function (err) {
             if (err) {
                 return next(err);

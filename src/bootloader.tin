@@ -36,4 +36,6 @@
 #READ {src/classes/ranger.tin};
 #READ {src/classes/wizwar.tin};
 
+#READ {data/armory.tin};
+
 #CLASS {RL_BOOTLOADER} {close};
