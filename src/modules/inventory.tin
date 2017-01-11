@@ -52,8 +52,13 @@
         #IF {("$location" == "Mano derecha" || "$location" == "Mano izquierda") && $rl_armory[$item][daño_minimo] && $rl_armory[$item][daño_media] && $rl_armory[$item][daño_maximo]} {
             #VAR {line} {$line <fac>$rl_armory[$item][daño_minimo]/$rl_armory[$item][daño_media]/$rl_armory[$item][daño_maximo]<099>};
         };
-        #ELSEIF {"$location" == "Empuñando" && $rl_armory[$item][minimo_2manos] && $rl_armory[$item][media_2manos] && $rl_armory[$item][maximo_2manos]} {
-            #VAR {line} {$line <fac>$rl_armory[$item][minimo_2manos]/$rl_armory[$item][media_2manos]/$rl_armory[$item][maximo_2manos]<099>};
+        #ELSEIF {"$location" == "Empuñando"} {
+            #IF {$rl_armory[$item][daño_minimo] && $rl_armory[$item][daño_media] && $rl_armory[$item][daño_maximo]} {
+                #VAR {line} {$line <fac>$rl_armory[$item][daño_minimo]/$rl_armory[$item][daño_media]/$rl_armory[$item][daño_maximo]<099>};
+            };
+            #ELSEIF {$rl_armory[$item][minimo_2manos] && $rl_armory[$item][media_2manos] && $rl_armory[$item][maximo_2manos]} {
+                #VAR {line} {$line <fac>$rl_armory[$item][minimo_2manos]/$rl_armory[$item][media_2manos]/$rl_armory[$item][maximo_2manos]<099>};
+            };
         };
         #IF {"$rl_armory[$item][efectos]" != ""} {
             #FOREACH {$rl_armory[$item][efectos][]} {effect} {
