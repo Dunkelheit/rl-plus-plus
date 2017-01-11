@@ -10,7 +10,7 @@ const armoryDataRegEx = /var datos\s*=\s*\{"objetos":\s*([\s\S.]*?)\}\;/m;
 const colorCodes = /\%\^([A-Z]{2,}|\%\^)+\%\^/g;
 const forbiddenStats = ['valor', 'peso', 'restricciones', 'localizacion', 'vida', 'id', 'descripcion_juzgar', 
     'nombre', 'material', 'alias', 'procedencia', 'tipo', 'objeto_base', 'bono_destreza', 'estorbo',
-    'info_ataques', 'asta', 'manos'];
+    'info_ataques', 'asta', 'manos', 'imperdible'];
 const invalidTrailingCommaRegEx = /,\s*(\]|\})/g;
 const newLineAndTabRegEx = /\r?\n|\r|\t/g;
 
