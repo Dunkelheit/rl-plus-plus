@@ -84,7 +84,7 @@
                             {@color_value{$rl_armory[$item][bo]}} {@color_value{$rl_armory[$item][be]}} 
                             {@color_value{$rl_armory[$item][bp]}} {@color_value{$rl_armory[$item][encantamiento]}}
                             {@color_value{$rl_armory[$item][proteccion]}};
-                        #FOREACH {fuerza;destreza;constitucion;inteligencia;sabiduria;carisma} {characteristic} {
+                        #FOREACH {fue;des;con;int;sab;car} {characteristic} {
                             #IF {$rl_armory[$item][$characteristic]} {
                                 #FORMAT {line} {%s %.3s %s} {$line} {$characteristic} 
                                     {@color_value{$rl_armory[$item][$characteristic]}};
