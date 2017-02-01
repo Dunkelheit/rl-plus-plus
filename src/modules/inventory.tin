@@ -33,6 +33,17 @@
     }
 };
 
+/*
+ * Function @color_value{number}
+ *
+ * Returns green if >0, red otherwise.
+ *
+ * Arguments:
+ *   %1 (number) any number
+ *
+ * Example:
+ *   @color_value{10};
+ */
 #FUNCTION {color_value} {
     #IF {%1 > 0} {
         #VAR {result} {<bfb>%1<099>};
@@ -43,6 +54,37 @@
     #ELSE {
         #VAR {result} {%1};
     }
+};
+
+/*
+ * Function @res_to_emoji{resistance}
+ *
+ * Returns the emoji associated to a certain magical resistance.
+ *
+ * Arguments:
+ *   %1 (number) any resistance
+ *
+ * Example:
+ *   @res_to_emoji{mental};
+ */
+#FUNCTION {res_to_emoji} {
+    #SWITCH {"%1"} {
+        #CASE {"acido"} {#RETURN {🛢}};
+        #CASE {"divino"} {#RETURN {👼}};
+        #CASE {"enfermedad"} {#RETURN {😷}};
+        #CASE {"magico"} {#RETURN {🎩}};
+        #CASE {"veneno"} {#RETURN {🐍}};
+        #CASE {"bien"} {#RETURN {😇}};
+        #CASE {"mal"} {#RETURN {😈}};
+        #CASE {"aire"} {#RETURN {💨}};
+        #CASE {"electrico"} {#RETURN {⚡️}};
+        #CASE {"frio"} {#RETURN {❄️}};
+        #CASE {"mental"} {#RETURN {👳}};
+        #CASE {"agua"} {#RETURN {💧}};
+        #CASE {"fuego"} {#RETURN {🔥}};
+        #CASE {"tierra"} {#RETURN {⛰}};
+        #DEFAULT {#RETURN {%1}};
+    };
 };
 
 #FUNCTION {get_item_details} {
@@ -84,7 +126,7 @@
         };
         #FOREACH {acido;divino;enfermedad;magico;veneno;bien;mal;aire;electrico;frio;mental;agua;fuego;tierra} {resistence} {
             #IF {$rl_armory[$item][$resistence]} {
-                #FORMAT {line} {%s %.3s %s} {$line} {$resistence} 
+                #FORMAT {line} {%s %.3s %s} {$line} {@res_to_emoji{$resistence}} 
                     {@color_value{$rl_armory[$item][$resistence]}};
             };
         };
