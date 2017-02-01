@@ -25,10 +25,9 @@ alias est estatus $*$
 alias dip diplomacia $*$
 alias hab habilidades $*$
 alias ma maestria $*$
-alias mp maestria arma
 alias env envainar $arg:arma$
 alias emp empuñar $arg:arma$
-alias arma nick arma $*$;alias mp maestria $*$
+\alias arma nick arma $*$;alias mp maestria $*$
 alias ap abrir $*$
 alias cp cerrar $*$
 alias mm mirarme

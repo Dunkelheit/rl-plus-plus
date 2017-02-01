@@ -14,7 +14,7 @@
  **********************************************************************************************************************/
 
 /*
- * Function @split_inventory_line{arg}
+ * Function @split_inventory_line{arg, ignore_commas}
  *
  * Splits the text in an inventory line.
  *
@@ -28,7 +28,9 @@
 {
     #VAR {result} {%1};
     #REPLACE {result} { y } {;};
-    #REPLACE {result} {, } {;};
+    #IF {"%2" != "1"} {
+        #REPLACE {result} {, } {;};
+    }
 };
 
 #FUNCTION {color_value} {
@@ -132,21 +134,21 @@
     #VAR {all_the_inventory} {};
     #EVENT {RECEIVED LINE} {
         #IF {"%%1" == "> "} {
-            #REGEXP {$all_the_inventory} {* Cabeza:  %*.} {#VAR {rl_equipment[Cabeza]} {@split_inventory_line{&1}}};
-            #REGEXP {$all_the_inventory} {* Orejas:  %*.} {#VAR {rl_equipment[Orejas]} {@split_inventory_line{&1}}};
-            #REGEXP {$all_the_inventory} {* Cuello:  %*.} {#VAR {rl_equipment[Cuello]} {@split_inventory_line{&1}}};
-            #REGEXP {$all_the_inventory} {* Hombros: %*.} {#VAR {rl_equipment[Hombros]} {@split_inventory_line{&1}}};
-            #REGEXP {$all_the_inventory} {* Pecho:   %*.} {#VAR {rl_equipment[Pecho]} {@split_inventory_line{&1}}};
-            #REGEXP {$all_the_inventory} {* Espalda: %*.} {#VAR {rl_equipment[Espalda]} {@split_inventory_line{&1}}};
-            #REGEXP {$all_the_inventory} {* Brazos:  %*.} {#VAR {rl_equipment[Brazos]} {@split_inventory_line{&1}}};
-            #REGEXP {$all_the_inventory} {* Manos:   %*.} {#VAR {rl_equipment[Manos]} {@split_inventory_line{&1}}};
-            #REGEXP {$all_the_inventory} {* Dedos:   %*.} {#VAR {rl_equipment[Dedos]} {@split_inventory_line{&1}}};
-            #REGEXP {$all_the_inventory} {* Cintura: %*.} {#VAR {rl_equipment[Cintura]} {@split_inventory_line{&1}}};
-            #REGEXP {$all_the_inventory} {* Piernas: %*.} {#VAR {rl_equipment[Piernas]} {@split_inventory_line{&1}}};
-            #REGEXP {$all_the_inventory} {* Pies:    %*.} {#VAR {rl_equipment[Pies]} {@split_inventory_line{&1}}};
-            #REGEXP {$all_the_inventory} {Empu{ñ|ny}ando: %*.} {#VAR {rl_equipment[Empuñando]} {@split_inventory_line{&2}}};
-            #REGEXP {$all_the_inventory} {Mano derecha:   %*.} {#VAR {rl_equipment[Mano derecha]} {@split_inventory_line{&1}}};
-            #REGEXP {$all_the_inventory} {Mano izquierda: %*.} {#VAR {rl_equipment[Mano izquierda]} {@split_inventory_line{&1}}};
+            #REGEXP {$all_the_inventory} {* Cabeza:  %*.} {#VAR {rl_equipment[Cabeza]} {@split_inventory_line{&1;1}}};
+            #REGEXP {$all_the_inventory} {* Orejas:  %*.} {#VAR {rl_equipment[Orejas]} {@split_inventory_line{&1;1}}};
+            #REGEXP {$all_the_inventory} {* Cuello:  %*.} {#VAR {rl_equipment[Cuello]} {@split_inventory_line{&1;0}}};
+            #REGEXP {$all_the_inventory} {* Hombros: %*.} {#VAR {rl_equipment[Hombros]} {@split_inventory_line{&1;1}}};
+            #REGEXP {$all_the_inventory} {* Pecho:   %*.} {#VAR {rl_equipment[Pecho]} {@split_inventory_line{&1;1}}};
+            #REGEXP {$all_the_inventory} {* Espalda: %*.} {#VAR {rl_equipment[Espalda]} {@split_inventory_line{&1;1}}};
+            #REGEXP {$all_the_inventory} {* Brazos:  %*.} {#VAR {rl_equipment[Brazos]} {@split_inventory_line{&1;1}}};
+            #REGEXP {$all_the_inventory} {* Manos:   %*.} {#VAR {rl_equipment[Manos]} {@split_inventory_line{&1;1}}};
+            #REGEXP {$all_the_inventory} {* Dedos:   %*.} {#VAR {rl_equipment[Dedos]} {@split_inventory_line{&1;1}}};
+            #REGEXP {$all_the_inventory} {* Cintura: %*.} {#VAR {rl_equipment[Cintura]} {@split_inventory_line{&1;1}}};
+            #REGEXP {$all_the_inventory} {* Piernas: %*.} {#VAR {rl_equipment[Piernas]} {@split_inventory_line{&1;1}}};
+            #REGEXP {$all_the_inventory} {* Pies:    %*.} {#VAR {rl_equipment[Pies]} {@split_inventory_line{&1;1}}};
+            #REGEXP {$all_the_inventory} {Empu{ñ|ny}ando: %*.} {#VAR {rl_equipment[Empuñando]} {@split_inventory_line{&2;1}}};
+            #REGEXP {$all_the_inventory} {Mano derecha:   %*.} {#VAR {rl_equipment[Mano derecha]} {@split_inventory_line{&1;1}}};
+            #REGEXP {$all_the_inventory} {Mano izquierda: %*.} {#VAR {rl_equipment[Mano izquierda]} {@split_inventory_line{&1;1}}};
             
             #SHOWME {<AAB><138>@center{Superinventario}<099>\n};
             #FORMAT {line} {<acf>  %-25.25s %+3s %+3s %+3s %+3s %+3s  %s<099>} {} {BO} {BE} {BP} {Enc} {Pro} {Otras propiedades};
