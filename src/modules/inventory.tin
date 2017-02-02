@@ -72,7 +72,7 @@
         #CASE {"acido"} {#RETURN {🛢}};
         #CASE {"divino"} {#RETURN {👼}};
         #CASE {"enfermedad"} {#RETURN {😷}};
-        #CASE {"magico"} {#RETURN {🎩}};
+        #CASE {"magico"} {#RETURN {✨}};
         #CASE {"veneno"} {#RETURN {🐍}};
         #CASE {"bien"} {#RETURN {😇}};
         #CASE {"mal"} {#RETURN {😈}};

@@ -28,6 +28,7 @@
 #HIGHLIGHT {^¡%* descubre a %* intentando moverse en silencio!$} {bold magenta} {5};
 #HIGHLIGHT {^Te haces consciente de la presencia de %*.$} {bold magenta} {5};
 #HIGHLIGHT {^Después de un rato intentándolo ves tan difícil esconderte aquí que decides buscar otro sitio.$} {bold magenta} {5};
+#HIGHLIGHT {^Finalmente logras colocarte y te escondes perfectamente.} {bold green} {5};
 
 /*
  * Danger

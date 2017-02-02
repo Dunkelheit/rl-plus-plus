@@ -126,7 +126,7 @@
  * Substitutions                                                                                                      *
  **********************************************************************************************************************/
 
-#SUBSTITUTE {^Divisas a %* {acercándose|acercandose|alejándose|alejandose} {hacia|por} el %*, cerca de %*.$} {@translate_scan{%1;%2;%4;%5}};
+#SUBSTITUTE {^Divisas a %* {acercándose|acercandose|alejándose|alejandose|moviéndose|moviendose} {hacia|por} el %*, cerca de %*.$} {@translate_scan{%1;%2;%4;%5}};
 
 /**********************************************************************************************************************
  * Highlights                                                                                                         *
