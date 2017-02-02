@@ -1,47 +1,33 @@
-#CLASS {RL_ROGUE} {kill};
-#CLASS {RL_ROGUE} {open};
+#CLASS {RL_HUNTER} {kill};
+#CLASS {RL_HUNTER} {open};
 
 /**********************************************************************************************************************
- * Module RL_ROGUE                                                                                                    *
+ * Module RL_HUNTER                                                                                                   *
  *                                                                                                                    *
- * Common functionalities for all rogue classes.                                                                      *
+ * Functionalities for the hunter class group.                                                                        *
  **********************************************************************************************************************/
 
-/register_module {RL_ROGUE} {Clases: Sigilador} {Utilidades comunes para clases sigiladoras.};
+/register_module {RL_HUNTER} {Clases: Cazadores} {Utilidades para cazadores.};
 
 /**********************************************************************************************************************
- * Substitutions                                                                                                      *
+ * Actions                                                                                                            *
  **********************************************************************************************************************/
 
 /**********************************************************************************************************************
  * Highlights                                                                                                         *
  **********************************************************************************************************************/
 
-/*
- * Information
- */
-
-/*
- * Warning
- */
-#HIGHLIGHT {^¡Descubres a %* intentando moverse en silencio!$}  {bold magenta} {5};
-#HIGHLIGHT {^¡%* descubre a %* intentando moverse en silencio!$} {bold magenta} {5};
-#HIGHLIGHT {^Te haces consciente de la presencia de %*.$} {bold magenta} {5};
-#HIGHLIGHT {^Después de un rato intentándolo ves tan difícil esconderte aquí que decides buscar otro sitio.$} {bold magenta} {5};
-
-/*
- * Danger
- */
-#HIGHLIGHT {^¡Has quedado al descubierto!$} {bold red} {5};
+#HIGHLIGHT {^Dejas de divisar el horizonte.$} {magenta bold};
+#HIGHLIGHT {^Abandonas tu estado de concentraci{ó|o}n ba{ñ|ny}ad{a|o} en un sudor fr{í|i}o, descubriendo heridas de las que no te hab{í|i}as percatado.$} {magenta bold};
 
 /**********************************************************************************************************************
  * Testing                                                                                                            *
  **********************************************************************************************************************/
 
 #IF {$_development == 1} {
-    #ALIAS {/test_RL_ROGUE} {
+    #ALIAS {/test_RL_HUNTER} {
         #SHOWME {No tests implemented.};
     };
 };
 
-#CLASS {RL_ROGUE} {close};
+#CLASS {RL_HUNTER} {close};

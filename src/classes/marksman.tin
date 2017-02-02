@@ -10,6 +10,38 @@
 /register_module {RL_MARKSMAN} {Clases: Tirador} {Utilidades para la clase tirador.};
 
 /**********************************************************************************************************************
+ * Functions                                                                                                          *
+ **********************************************************************************************************************/
+
+/*
+ * Function @translate_scan{who;what;direction;room}
+ *
+ * Returns nothing useful.
+ *
+ * Arguments:
+ *   %1 (string) who
+ *   %1 (string) what (leaves or arrives)
+ *   %1 (string) direction
+ *   %1 (string) destination room
+ *
+ * Example:
+ *   @translate_scan{2}
+ */
+#FUNCTION {translate_scan}
+{
+    #VAR {result} {👁  %1};
+    #SWITCH {"%2"} {
+        #CASE {"acerc{á|a}ndose"} {
+            #FORMAT {result} {%s %s} {$result} {<158>VIENE<099> desde};
+        };
+        #CASE {"alej{á|a}ndose"} {
+            #FORMAT {result} {%s %s} {$result} {<168>SE VA<099> al};
+        };
+    };
+    #FORMAT {result} {%s %s [%s]} {$result} {<BCA><178> @exit_short_name{%3} <099>} {%4};
+};
+
+/**********************************************************************************************************************
  * Actions                                                                                                            *
  **********************************************************************************************************************/
 
@@ -91,6 +123,12 @@
 };
 
 /**********************************************************************************************************************
+ * Substitutions                                                                                                      *
+ **********************************************************************************************************************/
+
+#SUBSTITUTE {^Divisas a %* {acercándose|acercandose|alejándose|alejandose} {hacia|por} el %*, cerca de %*.$} {@translate_scan{%1;%2;%4;%5}};
+
+/**********************************************************************************************************************
  * Highlights                                                                                                         *
  **********************************************************************************************************************/
 
@@ -107,19 +145,16 @@
 
 #HIGHLIGHT {^¡Finalmente, liberas contra %* el disparo apuntado que tanto hab{í|i}as preparado!$} {green bold};
 
-#NOP # Arremetes contra Lobo asestándole un temible golpe crítico en el hocico.;
-#NOP ¡Tu ataque clava un proyectil en el hocico de Lobo, causándole una profunda herida!;
-#NOP # Sometes a Liebre a una poderosa ráfaga mágica crítica.;
-
-#NOP # Abandonas tu estado de concentración bañada en un sudor frío, descubriendo heridas de las que no te habías percatado.;
-
 /**********************************************************************************************************************
  * Testing                                                                                                            *
  **********************************************************************************************************************/
 
 #IF {$_development == 1} {
     #ALIAS {/test_RL_MARKSMAN} {
-        #SHOWME {No tests implemented.};
+        #SHOWME {Divisas a Szhyrsion alejándose hacia el sur, cerca de Puerta Sur de Takome.};
+        #SHOWME {Divisas a siete Dalasares alejándose hacia el sur, cerca de Puerta Sur de Takome.};
+        #SHOWME {Divisas a Szhyrsion acercándose por el sur, cerca de Puerta Sur de Takome.};
+        #SHOWME {Divisas a siete Dalasares acercándose por el sur, cerca de Puerta Sur de Takome.};
     };
 };
 

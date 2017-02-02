@@ -26,6 +26,7 @@
 #READ {src/modules/combat.tin};
 
 #READ {src/classes/caster.tin};
+#READ {src/classes/hunter.tin};
 #READ {src/classes/priest.tin};
 #READ {src/classes/rogue.tin};
 #READ {src/classes/wizard.tin};
