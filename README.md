@@ -63,6 +63,7 @@ Situate en la carpeta de Instalación y ejecuta el siguiente comando:
 * `/log <on|off>` - Activa o desactiva el logeado. Los logs se guardan en el directorio /logs.
 * `/reload` - Recarga el script. Sólo funciona en modo desarrollo.
 * `/rumbo <dirección|off>` - Camina automáticamente en una dirección, de forma similar al comando _galopar_.
+* `/si` - Superinventario: enriquece tu inventario con datos de la WEB de la armeria.
 * `/x` - Computa una lista de enemigos. Has de tener el alias "tarear" establecido con tu "nickear" personal.
 * `/x fulano,mengano` - Establece una lista de enemigos. Has de tener el alias "tarear" establecido con tu "nickear" personal.
 
