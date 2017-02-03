@@ -32,10 +32,13 @@
     #VAR {result} {👁  %1};
     #SWITCH {"%2"} {
         #CASE {"acerc{á|a}ndose"} {
-            #FORMAT {result} {%s %s} {$result} {<158>VIENE<099> desde};
+            #FORMAT {result} {%s %s} {$result} {<158>VIENE<099> desde el};
         };
         #CASE {"alej{á|a}ndose"} {
             #FORMAT {result} {%s %s} {$result} {<168>SE VA<099> al};
+        };
+        #CASE {"movi{é|e}ndose"} {
+            #FORMAT {result} {%s %s} {$result} {<158>SE MUEVE<099> por el};
         };
     };
     #FORMAT {result} {%s %s [%s]} {$result} {<BCA><178> @exit_short_name{%3} <099>} {%4};
@@ -155,6 +158,8 @@
         #SHOWME {Divisas a siete Dalasares alejándose hacia el sur, cerca de Puerta Sur de Takome.};
         #SHOWME {Divisas a Szhyrsion acercándose por el sur, cerca de Puerta Sur de Takome.};
         #SHOWME {Divisas a siete Dalasares acercándose por el sur, cerca de Puerta Sur de Takome.};
+        #SHOWME {Divisas a Humano moviéndose por el sur, cerca de Camino Empedrado de Takome.};
+        #SHOWME {Divisas a Mamífero (Dominado) moviéndose por el sur, cerca de Camino Empedrado de Takome.};
     };
 };
 
