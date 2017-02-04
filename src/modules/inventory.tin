@@ -130,7 +130,7 @@
                     {@color_value{$rl_armory[$item][$resistence]}};
             };
         };
-        #FOREACH {critico;evasion;sigilar;esconderse} {combat_stat} {
+        #FOREACH {critico;evasion;sigilar;esconderse;} {combat_stat} {
             #IF {$rl_armory[$item][$combat_stat]} {
                 #FORMAT {line} {%s %.3s %s} {$line} {$combat_stat} 
                     {@color_value{$rl_armory[$item][$combat_stat]}};
@@ -151,6 +151,10 @@
         #IF {$rl_armory[$item][poder_curacion]} {
             #FORMAT {line} {%s %.3s %s} {$line} {pcuracion} 
                 {@color_value{$rl_armory[$item][poder_curacion]}};
+        };
+        #IF {$rl_armory[$item][armadura-magica]} {
+            #FORMAT {line} {%s %.3s %s} {$line} {armadura-magica} 
+                {@color_value{$rl_armory[$item][armadura-magica]}};
         };
         #VAR {result} {$line};
     };
