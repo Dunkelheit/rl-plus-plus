@@ -96,8 +96,7 @@
 #HIGHLIGHT {^%* cae al suelo sin vida.$} {black bold} {5};
 
 #HIGHLIGHT {^Tus enemigos han escapado a tu alcance.$} {bold magenta} {5};
-#NOP Move somewhere else;
-#HIGHLIGHT {^No estás suficientemente calmada..$} {bold magenta} {5};
+#HIGHLIGHT {^No est{á|a}s suficientemente calmad{a|o}.$} {bold yellow} {5};
 
 /**********************************************************************************************************************
  * Testing                                                                                                            *
