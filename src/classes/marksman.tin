@@ -148,6 +148,8 @@
 
 #HIGHLIGHT {^¡Finalmente, liberas contra %* el disparo apuntado que tanto hab{í|i}as preparado!$} {green bold};
 
+#HIGHLIGHT {Has ejecutado un salva hace muy poco.$} {magenta bold};
+
 /**********************************************************************************************************************
  * Testing                                                                                                            *
  **********************************************************************************************************************/
