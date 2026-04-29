@@ -52,6 +52,7 @@
     #ALIAS {/test_RL_WIZARD} {
         #SHOWME {¡Tus imágenes se desvanecen!};
         #SHOWME {¡Tus imagenes se desvanecen!};
+        #SHOWME {Tu globo de invulnerabilidad empieza a parpadear hasta que desaparece.};
         #SHOWME {Tu piel vuelve a su estado normal.};
     };
 };

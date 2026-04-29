@@ -50,7 +50,7 @@
         /message {El módulo %1 no existe.};
         #RETURN;
     };
-    #IF {!@member_of{{$rl_modules[%1][settings][]};%2}} {
+    #IF {&rl_modules[%1][settings][%2] == 0} {
         /message {El módulo %1 no tiene nada configurable con el nombre %2.};
         #RETURN;
     };
@@ -81,7 +81,7 @@
     };
     #SWITCH {"$rl_modules[%1][settings][%2][type]"} {
         #CASE {"enum"} {
-            #IF {!@member_of{{$rl_modules[%1][settings][%2][enum]};%3}} {
+            #IF {!@member_of{{@rl_modules[%1][settings][%2][enum]};%3}} {
                 /message {La configuración de %2 no acepta el valor %3. Prueba con: $rl_modules[%1][settings][%2][enum]};
                 #RETURN;
             };
@@ -138,7 +138,7 @@
 #ALIAS {/list_modules} {
     /message {Módulos disponibles:};
     #FOREACH {$rl_modules[]} {module} {
-        #SHOWME {  <178>$module <099><fac>$rl_modules[$module][name] <g05>// $rl_modules[$module][description]<099>};
+        #SHOWME {  <178>$module[name] <099><fac>$module[name] <g05>// $module[description]<099>};
     };
 };
 
@@ -162,7 +162,7 @@
     #IF {"%1" == "" || "%2" == "" || "%3" == "" || "%5" == "" || "%6" == ""} {
         /message {Sintáxis:\n  <178>/add_module_setting {RL_SHAPE} {fill} {enum} {solid;star} {solid} {Fills shape bars with solid blocks or stars}};
         #RETURN;
-    }
+    };
     #IF {"$rl_modules[%1]" == ""} {
         /message {El módulo %1 no existe.};
         #RETURN;
@@ -195,7 +195,7 @@
     #IF {"%1" == ""} {
         /message {Sintáxis:\n  <178>/add_module_event_listener {event}};
         #RETURN;
-    }
+    };
     #IF {"$rl_modules[%1]" == ""} {
         /message {El módulo %1 no existe.};
         #RETURN;
@@ -212,7 +212,7 @@
     #IF {"%1" == ""} {
         /message {Sintáxis:\n  <178>/trigger_event {event}};
         #RETURN;
-    }
+    };
     #FOREACH {$rl_modules[]} {module} {
         #IF {"$rl_modules[$module][listeners]" == ""} {
             #CONTINUE;
@@ -220,7 +220,7 @@
         #LIST {rl_modules[$module][listeners]} {find} {%1} {event_index};
         #IF {"$event_index" != "0"} {
             /event_${module}_%1 %2 %3 %4 %5 %6 %7 %8 %9 %10;
-        }
+        };
         #UNVAR {event_index};
     };
 };

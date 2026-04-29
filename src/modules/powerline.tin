@@ -112,7 +112,7 @@
     #VAR {stats[maxEnergy]} {%4};
     #IF {$healthDelta != 0} {
         #SHOWME {Δ @delta_color{$healthDelta}$healthDelta<099>};
-    }
+    };
     #SHOWME {@powerline{}} {1};
 };
 
@@ -137,7 +137,7 @@
     #MATH {buffers[images]} {$buffers[images] - 1};
     #IF {$buffers[images] < 0} {
         #VAR {buffers[images]} 0;
-    }
+    };
     #SHOWME {@powerline{}} {1};
 };
 
@@ -155,7 +155,7 @@
     #MATH {buffers[stoneLayers]} {$buffers[stoneLayers] - 1};
     #IF {$buffers[stoneLayers] < 0} {
         #VAR {buffers[stoneLayers]} 0;
-    }
+    };
     #SHOWME {@powerline{}} {1};
 }
 
@@ -207,7 +207,7 @@
     #VAR {stats[health]} {%1};
     #IF {$healthDelta != 0} {
         #SHOWME {Δ @delta_color{$healthDelta}$healthDelta<099>};
-    }
+    };
     #SHOWME {@powerline{}} {1};
 };
 

@@ -97,15 +97,16 @@
             #REPLACE {missing_health} { } {*};
         }
     };
-    #VAR {result} {$current_health$missing_health};
+    #VAR {rl_shape_result} {$current_health$missing_health};
     #IF {"$rl_shape_max_hps[%1]" != ""} {
         #MATH {current_hps} {%2 * $rl_shape_max_hps[%1] / 100};
-        #VAR {result} {<acf>~$current_hps<099> $result};
+        #VAR {rl_shape_result} {<acf>~$current_hps<099> $rl_shape_result};
         #UNVAR {current_hps};
     };
     #UNVAR {health_bar_length};
     #UNVAR {current_health};
     #UNVAR {missing_health};
+    #RETURN {$rl_shape_result};
 };
 
 /**********************************************************************************************************************
