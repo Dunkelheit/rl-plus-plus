@@ -8,8 +8,8 @@
 #EVENT {PROGRAM START} {
     /limpiar;
     /motd;
-    #SPLIT;
-    #SHOWME {<G03><138>@center{Bienvenido a RL++ - Pulsa F1 para conectarte}<099>} {1};
+    #SPLIT {0};
+    #SHOWME {<G03><138>@center{Bienvenido a RL++ - Pulsa F1 para conectarte}<099>} {-2};
     #MACRO {\eOP} {
         #UNMACRO {\eOP};
         #SESSION rl rlmud.org 5001;
@@ -20,9 +20,9 @@
     #SWITCH {"%0"} {
         #CASE {"rl"} {
             #CLASS {RL_CONNECTION_IMPL} {open};
-            #SHOWME {<G03><138>@center{Conectado a Reinos de Leyenda MUD}<099>} {1};
+            #SHOWME {<G03><138>@center{Conectado a Reinos de Leyenda MUD}<099>} {-2};
             #ACTION {Los Dioses te dan la bienvenida a sus Reinos de Leyenda} {
-                #SHOWME {<G03><138>@center{Usa el comando "puntos" para incializar la barra de estado}<099>} {1};
+                #SHOWME {<G03><138>@center{Usa el comando "puntos" para incializar la barra de estado}<099>} {-2};
                 #NOP /ficha;
                 #CLASS {RL_CONNECTION_IMPL} {kill};
             };
@@ -34,14 +34,14 @@
 #EVENT {SESSION ACTIVATED} {
     #SWITCH {"%0"} {
         #CASE {"gts"} {
-            #SHOWME {<G03><138>@center{Pulsa F1 para conectarte de nuevo}<099>} {1};
+            #SHOWME {<G03><138>@center{Pulsa F1 para conectarte de nuevo}<099>} {-2};
             #MACRO {\eOP} {
                 #UNMACRO {\eOP};
                 #SESSION rl rlmud.org 5001;
             };
         };
         #CASE {"rl"} {
-            #SHOWME {<G03><138>@center{Conectando a Reinos de Leyenda MUD}<099>} {1};
+            #SHOWME {<G03><138>@center{Conectando a Reinos de Leyenda MUD}<099>} {-2};
         };
     };
 };
@@ -50,7 +50,7 @@
 #EVENT {RECEIVED LINE} {
     #IF {"%0" == "\e[0m"} {
         #LINE {gag};
-        #VAR {gagger} {1};
+        #VAR {gagger};
     };
 };
 */

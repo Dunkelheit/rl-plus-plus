@@ -56,44 +56,88 @@
 
 #FUNCTION {powerline}
 {
-    #FORMAT {health} {<ABA><138> PV <afc>%s/%s <099>} {$stats[health]} {$stats[maxHealth]};
-    #FORMAT {energy} {<ABE><138> PE <eef>%s/%s <099>} {$stats[energy]} {$stats[maxEnergy]};
-    #FORMAT {heartbeatString} {@heartbeat_string{}};
+    #NOP Build plain-text versions first so %L gives the correct visual width;
+    #FORMAT {healthPlain} { PV %s/%s } {$stats[health]} {$stats[maxHealth]};
+    #FORMAT {energyPlain} { PE %s/%s } {$stats[energy]} {$stats[maxEnergy]};
+    #VAR {heartbeatString} {@heartbeat_string{}};
     #IF {$buffers[images] > 0} {
-        #FORMAT {images} {<G04><ffa> %s imagenes <099>} {$buffers[images]};
+        #FORMAT {imagesPlain} { %s imagenes } {$buffers[images]};
     };
     #ELSE {
-        #FORMAT {images} {};
+        #VAR {imagesPlain} {};
     };
     #IF {$buffers[stoneLayers] > 0} {
-        #FORMAT {stoneLayers} {<G04><ffa> %s pieles <099>} {$buffers[stoneLayers]};
+        #FORMAT {stoneLayersPlain} { %s pieles } {$buffers[stoneLayers]};
     };
-    #ELSE { 
-        #FORMAT {stoneLayers} {};
+    #ELSE {
+        #VAR {stoneLayersPlain} {};
     };
 
-    #FORMAT {healthLength} {%L} {$health};
-    #FORMAT {energyLength} {%L} {$energy};
+    #FORMAT {healthLength} {%L} {$healthPlain};
+    #FORMAT {energyLength} {%L} {$energyPlain};
     #FORMAT {heartbeatStringLength} {%L} {$heartbeatString};
-    #FORMAT {imagesLength} {%L} {$images};
-    #FORMAT {stoneLayersLength} {%L} {$stoneLayers};
+    #FORMAT {imagesLength} {%L} {$imagesPlain};
+    #FORMAT {stoneLayersLength} {%L} {$stoneLayersPlain};
     #FORMAT {screenWidth} {%C};
+
+    #NOP Now build the colored versions for display;
+    #FORMAT {health} {<ABA><138>%s<099>} {$healthPlain};
+    #FORMAT {energy} {<ABE><138>%s<099>} {$energyPlain};
+    #IF {$buffers[images] > 0} {
+        #FORMAT {images} {<G04><ffa>%s<099>} {$imagesPlain};
+    };
+    #ELSE {
+        #VAR {images} {};
+    };
+    #IF {$buffers[stoneLayers] > 0} {
+        #FORMAT {stoneLayers} {<G04><ffa>%s<099>} {$stoneLayersPlain};
+    };
+    #ELSE {
+        #VAR {stoneLayers} {};
+    };
 
     #MATH {fillerLength} {$screenWidth - $healthLength - $energyLength - $heartbeatStringLength - $imagesLength - $stoneLayersLength};
     #FORMAT {filler} {<G03>%+${fillerLength}s<099>} {};
-    #FORMAT {result} {%s%s%s%s%s%s} {$health} {$energy} {$heartbeatString} {$filler} {$images} {$stoneLayers};
+    #FORMAT {powerline_result} {%s%s%s%s%s%s} {$health} {$energy} {$heartbeatString} {$filler} {$images} {$stoneLayers};
+    #UNVAR {health};
+    #UNVAR {energy};
+    #UNVAR {heartbeatString};
+    #UNVAR {images};
+    #UNVAR {stoneLayers};
+    #UNVAR {healthPlain};
+    #UNVAR {energyPlain};
+    #UNVAR {imagesPlain};
+    #UNVAR {stoneLayersPlain};
+    #UNVAR {healthLength};
+    #UNVAR {energyLength};
+    #UNVAR {heartbeatStringLength};
+    #UNVAR {imagesLength};
+    #UNVAR {stoneLayersLength};
+    #UNVAR {screenWidth};
+    #UNVAR {fillerLength};
+    #UNVAR {filler};
+    #RETURN {$powerline_result};
 };
 
 /**********************************************************************************************************************
  * Actions                                                                                                            *
  **********************************************************************************************************************/
 
+#ACTION {Pvs: %1(%2)  Pe: %3(%4)  Fe: %5(%6)  Po: %7  Pa: %8(%9)  Xp: %10  Psoc: %11} {
+    #VAR {stats[health]} {%1};
+    #VAR {stats[maxHealth]} {%2};
+    #VAR {stats[energy]} {%3};
+    #VAR {stats[maxEnergy]} {%4};
+    #SHOWME {@powerline{}} {-2};
+};
+
+
 #ACTION {^Pvs: %1(%2)  Pe: %3(%4)  Po: %5  Xp: %6  Psoc: %7$} {
     #VAR {stats[health]} {%1};
     #VAR {stats[maxHealth]} {%2};
     #VAR {stats[energy]} {%3};
     #VAR {stats[maxEnergy]} {%4};
-    #SHOWME {@powerline{}} {1};
+    #SHOWME {@powerline{}} {-2};
 };
 
 #ACTION {^Pvs: %1(%2)  Pe: %3(%4)  Fe: %5(%6)  Po: %7  Xp: %8  Psoc: %9$} {
@@ -101,7 +145,7 @@
     #VAR {stats[maxHealth]} {%2};
     #VAR {stats[energy]} {%3};
     #VAR {stats[maxEnergy]} {%4};
-    #SHOWME {@powerline{}} {1};
+    #SHOWME {@powerline{}} {-2};
 };
 
 #ACTION {^Pvs: %1\\%2 Pe: %3\\%4$} {
@@ -113,23 +157,23 @@
     #IF {$healthDelta != 0} {
         #SHOWME {Δ @delta_color{$healthDelta}$healthDelta<099>};
     };
-    #SHOWME {@powerline{}} {1};
+    #SHOWME {@powerline{}} {-2};
 };
 
 #ACTION {^%1 imagenes semejantes a ti aparecen a tu alrededor.$} {
     #VAR {buffers[images]} {@parse_number{%1}};
-    #SHOWME {@powerline{}} {1};
+    #SHOWME {@powerline{}} {-2};
 };
 
 #ACTION {^Estás rodead{o|a} por %1 im{a|á}genes id{é|e}nticas a ti.$} {
     #VAR {buffers[images]} {%1};
-    #SHOWME {@powerline{}} {1};
+    #SHOWME {@powerline{}} {-2};
 };
 
 #NOP TODO: Integrate with above via | -Shaktty
 #ACTION {^Estás rodeada por 1 im{á|a}gen id{é|e}ntica a ti.$} {
     #VAR {buffers[images]} {1};
-    #SHOWME {@powerline{}} {1};
+    #SHOWME {@powerline{}} {-2};
 };
 
 #NOP fixed by taking out the ^ and avoiding the # altogether -shaktty
@@ -138,17 +182,17 @@
     #IF {$buffers[images] < 0} {
         #VAR {buffers[images]} 0;
     };
-    #SHOWME {@powerline{}} {1};
+    #SHOWME {@powerline{}} {-2};
 };
 
 #ACTION {^¡Tus im{a|á}genes se desvanecen!$} {
     #VAR {buffers[images]} 0;
-    #SHOWME {@powerline{}} {1};
+    #SHOWME {@powerline{}} {-2};
 } {4};
 
 #ACTION {^Tu piel queda cubierta por %1 fin{i|í}simas, pero resistentes, capas de piedra.$} {
     #VAR {buffers[stoneLayers]} {%1};
-    #SHOWME {@powerline{}} {1};
+    #SHOWME {@powerline{}} {-2};
 };
 
 #ACTION {^* El ataque de %* rebota en tu piel de piedra.$} {
@@ -156,24 +200,24 @@
     #IF {$buffers[stoneLayers] < 0} {
         #VAR {buffers[stoneLayers]} 0;
     };
-    #SHOWME {@powerline{}} {1};
+    #SHOWME {@powerline{}} {-2};
 }
 
 #ACTION {^Tu piel vuelve a su estado normal.$} {
     #VAR {buffers[stoneLayers]} 0;
-    #SHOWME {@powerline{}} {1};
+    #SHOWME {@powerline{}} {-2};
 } {4};
 
 #NOP Added regeneration calculations -Shaktty
 #ACTION {^Tu piel de piedra se endurece y fortalece m{á|a}gicamente, haciendo que tu total de capas de piedra suba a %1.$} {
     #VAR {buffers[stoneLayers]} {%1};
-    #SHOWME {@powerline{}} {1};
+    #SHOWME {@powerline{}} {-2};
 };
 
 #NOP added images regeneration -Shaktty
 #ACTION {^Tus clones ilusorios se dividen y reorganizan, haciendo que tu total de im{a|á}genes suba a %1.$} {
    #VAR {buffers[images]} {%1};
-   #SHOWME {@powerline{}} {1};
+   #SHOWME {@powerline{}} {-2};
 };
  
 /**********************************************************************************************************************
@@ -182,24 +226,24 @@
 
 #ALIAS {/event_RL_POWERLINE_heartbeat} {
     #VAR {stats[heartbeat]} {4};
-    #SHOWME {@powerline{}} {1};
+    #SHOWME {@powerline{}} {-2};
     #TICK {hb} {
         #MATH {stats[heartbeat]} {$stats[heartbeat]+1};
         #IF {$stats[heartbeat] > 4} {
             #VAR {stats[heartbeat]} {1};
         };
-        #SHOWME {@powerline{}} {1};
+        #SHOWME {@powerline{}} {-2};
     } {1};
 };
 
 #ALIAS {/event_RL_POWERLINE_player_gp} {
     #VAR {stats[energy]} {%1};
-    #SHOWME {@powerline{}} {1};
+    #SHOWME {@powerline{}} {-2};
 };
 
 #ALIAS {/event_RL_POWERLINE_player_gp_max} {
     #VAR {stats[maxEnergy]} {%1};
-    #SHOWME {@powerline{}} {1};
+    #SHOWME {@powerline{}} {-2};
 };
 
 #ALIAS {/event_RL_POWERLINE_player_hp} {
@@ -208,12 +252,12 @@
     #IF {$healthDelta != 0} {
         #SHOWME {Δ @delta_color{$healthDelta}$healthDelta<099>};
     };
-    #SHOWME {@powerline{}} {1};
+    #SHOWME {@powerline{}} {-2};
 };
 
 #ALIAS {/event_RL_POWERLINE_player_hp_max} {
     #VAR {stats[maxHealth]} {%1};
-    #SHOWME {@powerline{}} {1};
+    #SHOWME {@powerline{}} {-2};
 };
 
 /**********************************************************************************************************************
