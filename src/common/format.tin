@@ -9,6 +9,7 @@
     #UNVAR {padding_length};
     #UNVAR {sentence_length};
     #UNVAR {screen_width};
+    #RETURN {$result};
 };
 
 #FUNCTION {pull_right} {
@@ -19,6 +20,7 @@
     #UNVAR {padding_length};
     #UNVAR {sentence_length};
     #UNVAR {screen_width};
+    #RETURN {$result};
 };
 
 #class {RL_FORMAT} {close};
